@@ -1,1 +1,5490 @@
-3
+<!doctype html>
+<html lang="es">
+
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+      <meta name="theme-color" content="#7f1d1d">
+      <title>Módulo 2 | Multimedia Marketing y Herramientas de IA</title>
+      <style>
+            :root {
+                  --wine: #7f1d1d;
+                  --wine-dark: #4c0d0d;
+                  --cream: #fffaf1;
+                  --paper: #fff;
+                  --ink: #241b1b;
+                  --muted: #695e5e;
+                  --gold: #f4b942;
+                  --line: #eadfd7;
+                  --green: #17663a;
+                  --shadow: 0 10px 30px rgba(55, 22, 22, .12);
+            }
+
+            * {
+                  box-sizing: border-box
+            }
+
+            html {
+                  scroll-behavior: smooth
+            }
+
+            body {
+                  margin: 0;
+                  background: var(--cream);
+                  color: var(--ink);
+                  font-family: Arial, Helvetica, sans-serif;
+                  font-size: 17px;
+                  line-height: 1.65;
+                  -webkit-user-select: none;
+                  user-select: none
+            }
+
+            button,
+            a {
+                  font: inherit
+            }
+
+            .topbar {
+                  position: fixed;
+                  top: 0;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 100%;
+                  z-index: 30;
+                  display: flex;
+                  align-items: center;
+                  gap: 12px;
+                  min-height: 64px;
+                  padding: 10px 14px;
+                  background: rgba(76, 13, 13, .97);
+                  color: #fff;
+                  box-shadow: 0 4px 18px rgba(0, 0, 0, .18)
+            }
+
+            .menu-btn {
+                  width: 44px;
+                  height: 44px;
+                  border: 1px solid rgba(255, 255, 255, .35);
+                  border-radius: 12px;
+                  background: #fff;
+                  color: var(--wine-dark);
+                  font-size: 25px;
+                  font-weight: 800;
+                  cursor: pointer
+            }
+
+            .top-title {
+                  font-size: 15px;
+                  line-height: 1.25;
+                  font-weight: 800
+            }
+
+            .top-title span {
+                  display: block;
+                  color: #ffe3a1;
+                  font-size: 12px;
+                  letter-spacing: .04em;
+                  text-transform: uppercase
+            }
+
+            .hero {
+                  min-height: calc(100svh - 64px);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 38px 22px;
+                  background: linear-gradient(150deg, #4c0d0d, #8f2020 68%, #b04a2b);
+                  color: #fff;
+                  text-align: center
+            }
+
+            .hero-inner {
+                  max-width: 620px
+            }
+
+            .eyebrow {
+                  margin: 0 0 12px;
+                  color: #ffe19a;
+                  font-weight: 800;
+                  letter-spacing: .1em;
+                  text-transform: uppercase;
+                  font-size: 14px
+            }
+
+            h1 {
+                  margin: 0;
+                  font-size: clamp(34px, 10vw, 58px);
+                  line-height: 1.04
+            }
+
+            .hero p {
+                  font-size: 19px;
+                  line-height: 1.55
+            }
+
+            .hero .objective {
+                  padding: 18px;
+                  background: rgba(255, 255, 255, .1);
+                  border-radius: 18px;
+                  text-align: left
+            }
+
+            main {
+                  width: min(100%, 760px);
+                  margin: auto;
+                  padding: 64px 16px 70px
+            }
+
+            .lesson {
+                  scroll-margin-top: 82px;
+                  padding: 52px 0 22px;
+                  border-bottom: 2px solid var(--line)
+            }
+
+            .lesson-head {
+                  margin-bottom: 32px;
+                  text-align: center
+            }
+
+            .lesson-no {
+                  display: inline-block;
+                  padding: 6px 13px;
+                  border-radius: 999px;
+                  background: var(--gold);
+                  color: #421313;
+                  font-weight: 900;
+                  font-size: 14px;
+                  text-transform: uppercase;
+                  letter-spacing: .06em
+            }
+
+            h2 {
+                  margin: 13px 0 5px;
+                  color: var(--wine-dark);
+                  font-size: 30px;
+                  line-height: 1.16
+            }
+
+            h3 {
+                  margin: 34px 0 12px;
+                  font-size: 23px;
+                  line-height: 1.25;
+                  color: var(--wine)
+            }
+
+            p {
+                  margin: 0 0 14px
+            }
+
+            ul,
+            ol {
+                  padding-left: 24px;
+                  margin: 8px 0 18px
+            }
+
+            li {
+                  margin: 7px 0
+            }
+
+            .answer {
+                  background: var(--paper);
+                  padding: 18px;
+                  border-radius: 16px;
+                  box-shadow: var(--shadow);
+                  margin-bottom: 18px
+            }
+
+            .prompt-box {
+                  margin: 18px 0 28px;
+                  border: 1px solid #dccfc5;
+                  border-radius: 18px;
+                  overflow: hidden;
+                  background: #fff;
+                  box-shadow: var(--shadow)
+            }
+
+            .prompt-label {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  gap: 10px;
+                  padding: 12px 14px;
+                  background: #f7eee7;
+                  color: var(--wine-dark);
+                  font-weight: 900
+            }
+
+            .copy-btn {
+                  border: 0;
+                  border-radius: 10px;
+                  background: var(--wine);
+                  color: #fff;
+                  padding: 9px 12px;
+                  font-weight: 800;
+                  cursor: pointer
+            }
+
+            .copy-btn.copied {
+                  background: var(--green)
+            }
+
+            .prompt {
+                  white-space: pre-wrap;
+                  margin: 0;
+                  padding: 18px;
+                  font-family: inherit;
+                  line-height: 1.55;
+                  background: #fff
+            }
+
+            .example {
+                  padding: 16px 18px;
+                  background: #fff9e9;
+                  border-top: 1px solid #eed99b
+            }
+
+            .example strong {
+                  display: block;
+                  margin-bottom: 7px;
+                  color: #684600
+            }
+
+            .activity {
+                  margin: 38px 0 8px;
+                  padding: 22px;
+                  border-radius: 20px;
+                  background: var(--wine-dark);
+                  color: #fff;
+                  box-shadow: var(--shadow)
+            }
+
+            .activity h3 {
+                  margin: 0 0 12px;
+                  color: #ffe29c
+            }
+
+            .activity ol {
+                  margin-bottom: 0
+            }
+
+            .note {
+                  padding: 15px 17px;
+                  border-radius: 14px;
+                  background: #fff1c9;
+                  color: #543e00;
+                  margin: 15px 0
+            }
+
+            .challenge {
+                  margin: 24px 0;
+                  padding: 18px;
+                  border-radius: 18px;
+                  background: #fffdf7;
+                  color: var(--ink);
+                  border: 2px dashed #c99038;
+                  box-shadow: var(--shadow)
+            }
+
+            .challenge strong {
+                  display: block;
+                  color: var(--wine);
+                  margin-bottom: 4px
+            }
+
+            .challenge small {
+                  display: block;
+                  color: var(--muted);
+                  font-weight: 700;
+                  margin-bottom: 5px
+            }
+
+            .pair-rule {
+                  margin: 24px auto 0;
+                  max-width: 620px;
+                  padding: 18px;
+                  border-radius: 18px;
+                  background: rgba(255, 255, 255, .13);
+                  text-align: left
+            }
+
+            .pair-steps {
+                  margin: 12px 0 0;
+                  padding: 14px 14px 14px 34px;
+                  border-radius: 13px;
+                  background: #fff6dd
+            }
+
+            .pair-steps li {
+                  margin: 6px 0
+            }
+
+            .exam {
+                  margin: 42px 0 10px;
+                  padding: 22px;
+                  border-radius: 20px;
+                  background: #eef4ff;
+                  border: 2px solid #91add8;
+                  box-shadow: var(--shadow)
+            }
+
+            .exam h3 {
+                  margin-top: 0;
+                  color: #193d72
+            }
+
+            .exam .exam-note {
+                  font-weight: 700;
+                  color: #334e75
+            }
+
+            .mcq {
+                  list-style: none;
+                  padding: 0;
+                  margin: 18px 0;
+                  counter-reset: question
+            }
+
+            .mcq>li {
+                  counter-increment: question;
+                  margin: 22px 0;
+                  padding: 16px;
+                  border-radius: 14px;
+                  background: #fff
+            }
+
+            .mcq>li::before {
+                  content: "Pregunta " counter(question);
+                  display: block;
+                  margin-bottom: 6px;
+                  color: #193d72;
+                  font-size: 14px;
+                  font-weight: 900;
+                  text-transform: uppercase;
+                  letter-spacing: .04em
+            }
+
+            .mcq .question {
+                  font-weight: 800;
+                  margin: 0 0 12px
+            }
+
+            .mcq label {
+                  position: relative;
+                  display: block;
+                  width: 100%;
+                  margin: 8px 0;
+                  padding: 12px;
+                  border-radius: 10px;
+                  background: #f4f7fc;
+                  cursor: pointer;
+                  line-height: 1.4
+            }
+
+            .mcq input {
+                  position: absolute;
+                  opacity: 0;
+                  pointer-events: none
+            }
+
+            .mcq label:has(input:checked) {
+                  background: #dce9ff;
+                  outline: 2px solid #315f9f;
+                  color: #123560;
+                  font-weight: 800
+            }
+
+            .mcq li.correct {
+                  outline: 3px solid #3c9b65
+            }
+
+            .mcq li.incorrect {
+                  outline: 3px solid #c75a5a
+            }
+
+            .check-exam {
+                  border: 0;
+                  border-radius: 12px;
+                  padding: 13px 17px;
+                  background: #193d72;
+                  color: #fff;
+                  font-weight: 900;
+                  cursor: pointer
+            }
+
+            .exam-score {
+                  margin-top: 14px;
+                  font-weight: 900;
+                  color: #193d72
+            }
+
+            .prompt-tip {
+                  margin: 18px 0;
+                  padding: 17px;
+                  border-radius: 16px;
+                  background: #eaf5ef;
+                  color: #163e28
+            }
+
+            .prompt-tip strong {
+                  display: block;
+                  margin-bottom: 6px;
+                  color: var(--green)
+            }
+
+            body.menu-open {
+                  overflow: hidden
+            }
+
+            .drawer {
+                  position: fixed;
+                  inset: 0 auto 0 0;
+                  z-index: 50;
+                  width: min(88vw, 340px);
+                  padding: 18px 14px;
+                  background: #fff;
+                  transform: translateX(-105%);
+                  transition: .24s ease;
+                  overflow: auto;
+                  box-shadow: 8px 0 30px rgba(0, 0, 0, .28)
+            }
+
+            .drawer.open {
+                  transform: none
+            }
+
+            .drawer-head {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  margin-bottom: 10px
+            }
+
+            .drawer-head strong {
+                  color: var(--wine-dark)
+            }
+
+            .close-btn {
+                  border: 0;
+                  background: #f1e7e2;
+                  border-radius: 10px;
+                  width: 42px;
+                  height: 42px;
+                  font-size: 25px
+            }
+
+            .drawer a {
+                  display: block;
+                  margin: 5px 0;
+                  padding: 12px 13px;
+                  border-radius: 11px;
+                  color: var(--ink);
+                  text-decoration: none;
+                  font-weight: 700
+            }
+
+            .drawer a:hover,
+            .drawer a:focus {
+                  background: #f7ece8;
+                  color: var(--wine)
+            }
+
+            .backdrop {
+                  position: fixed;
+                  inset: 0;
+                  z-index: 40;
+                  background: rgba(0, 0, 0, .48);
+                  opacity: 0;
+                  pointer-events: none;
+                  transition: .2s
+            }
+
+            .backdrop.show {
+                  opacity: 1;
+                  pointer-events: auto
+            }
+
+            .final-index {
+                  overflow-x: auto
+            }
+
+            .final-index table {
+                  width: 100%;
+                  border-collapse: collapse;
+                  background: #fff
+            }
+
+            .final-index th,
+            .final-index td {
+                  padding: 12px;
+                  border: 1px solid var(--line);
+                  text-align: left;
+                  vertical-align: top
+            }
+
+            .final-index th {
+                  background: #f3e8e2;
+                  color: var(--wine-dark)
+            }
+
+            .to-top {
+                  position: fixed;
+                  right: 15px;
+                  bottom: 16px;
+                  z-index: 20;
+                  width: 46px;
+                  height: 46px;
+                  border: 0;
+                  border-radius: 50%;
+                  background: var(--gold);
+                  color: #421313;
+                  font-weight: 900;
+                  box-shadow: var(--shadow);
+                  cursor: pointer
+            }
+
+            .portrait-lock {
+                  display: none
+            }
+
+            @media(max-width:390px) {
+                  body {
+                        font-size: 16px
+                  }
+
+                  .top-title {
+                        font-size: 14px
+                  }
+
+                  main {
+                        padding-left: 13px;
+                        padding-right: 13px
+                  }
+
+                  h2 {
+                        font-size: 27px
+                  }
+
+                  h3 {
+                        font-size: 21px
+                  }
+
+                  .answer,
+                  .prompt {
+                        padding: 15px
+                  }
+
+                  .activity {
+                        padding: 18px
+                  }
+
+                  .hero {
+                        padding-left: 17px;
+                        padding-right: 17px
+                  }
+            }
+
+            @media(orientation:landscape) {
+
+                  body>.topbar,
+                  body>.drawer,
+                  body>.backdrop,
+                  body>.hero,
+                  body>main,
+                  body>.to-top {
+                        display: none !important
+                  }
+
+                  .portrait-lock {
+                        position: fixed;
+                        inset: 0;
+                        z-index: 9999;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 28px;
+                        background: var(--wine-dark);
+                        color: #fff;
+                        text-align: center
+                  }
+
+                  .portrait-lock div {
+                        max-width: 420px
+                  }
+
+                  .portrait-lock .phone {
+                        display: block;
+                        margin-bottom: 18px;
+                        font-size: 58px
+                  }
+
+                  .portrait-lock strong {
+                        display: block;
+                        font-size: 25px;
+                        line-height: 1.2
+                  }
+
+                  .portrait-lock p {
+                        margin-top: 12px;
+                        color: #ffe3a1
+                  }
+            }
+
+            @media(prefers-reduced-motion:reduce) {
+                  html {
+                        scroll-behavior: auto
+                  }
+
+                  .drawer,
+                  .backdrop {
+                        transition: none
+                  }
+            }
+
+            .pasos {
+                  list-style: none;
+                  padding-left: 0;
+                  counter-reset: paso;
+            }
+
+            .pasos>li {
+                  counter-increment: paso;
+                  margin-bottom: 18px;
+            }
+
+            .pasos>li::before {
+                  content: "Paso " counter(paso);
+                  display: block;
+                  margin-bottom: 5px;
+                  color: #7f1d1d;
+                  font-weight: bold;
+            }
+
+            .prompt,
+            .example pre {
+                  white-space: pre-wrap;
+                  overflow-wrap: anywhere;
+                  word-break: normal;
+                  width: 100%;
+                  max-width: 100%;
+                  box-sizing: border-box;
+                  font-family: inherit;
+                  line-height: 1.5;
+            }
+
+            /* ==================================================
+   PÁGINA EXCLUSIVA PARA CELULAR VERTICAL
+   ================================================== */
+
+            .desktop-lock {
+                  display: none;
+            }
+
+            /* Impide que el contenido crezca como página de computadora */
+            html,
+            body {
+                  width: 100%;
+                  max-width: 100%;
+                  overflow-x: hidden;
+            }
+
+            /* En celular, el contenido nunca supera un ancho móvil */
+            body>main,
+            .hero,
+            .topbar {
+                  max-width: 480px;
+                  margin-left: auto;
+                  margin-right: auto;
+            }
+
+            /* BLOQUEO CUANDO EL CELULAR ESTÁ HORIZONTAL */
+            @media (orientation: landscape) and (pointer: coarse) {
+
+                  body>.topbar,
+                  body>.drawer,
+                  body>.backdrop,
+                  body>.hero,
+                  body>main,
+                  body>.to-top {
+                        display: none !important;
+                  }
+
+                  .portrait-lock {
+                        position: fixed;
+                        inset: 0;
+                        z-index: 99999;
+                        display: flex !important;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 28px;
+                        background: var(--wine-dark);
+                        color: white;
+                        text-align: center;
+                  }
+            }
+
+            /* BLOQUEO EN COMPUTADORAS */
+            @media (pointer: fine) and (min-width: 700px) {
+
+                  body>.topbar,
+                  body>.drawer,
+                  body>.backdrop,
+                  body>.hero,
+                  body>main,
+                  body>.to-top,
+                  body>.portrait-lock {
+                        display: none !important;
+                  }
+
+                  .desktop-lock {
+                        position: fixed;
+                        inset: 0;
+                        z-index: 99999;
+                        display: flex !important;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 30px;
+                        background: var(--wine-dark);
+                        color: white;
+                        text-align: center;
+                  }
+
+                  .desktop-lock>div {
+                        max-width: 400px;
+                  }
+
+                  .desktop-lock strong {
+                        display: block;
+                        font-size: 26px;
+                        margin-bottom: 12px;
+                  }
+            }
+
+            /* ==================================================
+               BLOQUEO DE "SITIO PARA ESCRITORIO" EN CELULARES
+               ================================================== */
+            .desktop-site-lock {
+                  display: none;
+            }
+
+            .desktop-site-lock.show {
+                  position: fixed;
+                  inset: 0;
+                  z-index: 1000000;
+                  display: flex !important;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 24px;
+                  background: var(--wine-dark);
+                  color: #fff;
+                  text-align: center;
+            }
+
+            .desktop-site-lock .lock-box {
+                  width: min(100%, 390px);
+                  padding: 25px 20px;
+                  border-radius: 22px;
+                  background: #651515;
+                  border: 1px solid rgba(255, 255, 255, .18);
+            }
+
+            .desktop-site-lock .lock-icon {
+                  display: block;
+                  margin-bottom: 14px;
+                  font-size: 52px;
+            }
+
+            .desktop-site-lock strong {
+                  display: block;
+                  margin-bottom: 10px;
+                  font-size: 25px;
+                  line-height: 1.2;
+            }
+
+            .desktop-site-lock p {
+                  margin: 0;
+                  color: #ffe3a1;
+                  line-height: 1.5;
+            }
+
+            .desktop-site-lock .small {
+                  display: block;
+                  margin-top: 14px;
+                  color: #fff;
+                  font-size: 14px;
+                  opacity: .9;
+            }
+
+
+            /* ==================================================
+               TUTORIALES PASO A PASO
+               ================================================== */
+            .tutorial-card {
+                  margin: 24px 0;
+                  border: 1px solid #e3d1c7;
+                  border-radius: 20px;
+                  overflow: hidden;
+                  background: #fff;
+                  box-shadow: var(--shadow);
+            }
+
+            .tutorial-title {
+                  display: flex;
+                  align-items: center;
+                  gap: 12px;
+                  margin: 0 !important;
+                  padding: 16px;
+                  background: linear-gradient(135deg, var(--wine-dark), var(--wine));
+                  color: #fff !important;
+                  font-size: 20px !important;
+                  line-height: 1.25;
+            }
+
+            .tutorial-badge {
+                  flex: 0 0 auto;
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  min-width: 42px;
+                  height: 42px;
+                  padding: 0 10px;
+                  border-radius: 12px;
+                  background: var(--gold);
+                  color: #421313;
+                  font-size: 15px;
+                  font-weight: 900;
+            }
+
+            .tutorial-name {
+                  display: block;
+                  font-weight: 900;
+            }
+
+            .tutorial-body {
+                  margin: 0 !important;
+                  padding: 18px !important;
+                  border-radius: 0 !important;
+                  box-shadow: none !important;
+                  background: #fff !important;
+            }
+
+            .tutorial-body .pasos {
+                  margin: 0;
+            }
+
+            .tutorial-body .pasos>li {
+                  margin: 0 0 18px;
+                  padding: 14px;
+                  border-radius: 14px;
+                  background: #fffaf1;
+                  border: 1px solid #eadfd7;
+            }
+
+            .tutorial-body .pasos>li:last-child {
+                  margin-bottom: 0;
+            }
+
+            .tutorial-body .pasos>li::before {
+                  display: inline-block;
+                  margin: 0 0 8px;
+                  padding: 4px 9px;
+                  border-radius: 999px;
+                  background: #f7e5c3;
+                  color: var(--wine-dark);
+                  font-size: 13px;
+                  font-weight: 900;
+            }
+
+            .tutorial-tip {
+                  margin: 14px 0 0;
+                  padding: 13px 14px;
+                  border-radius: 13px;
+                  background: #eaf5ef;
+                  color: #163e28;
+                  font-size: 15px;
+                  line-height: 1.5;
+            }
+
+            @media(max-width:390px) {
+                  .tutorial-title {
+                        font-size: 18px !important;
+                        padding: 14px;
+                  }
+
+                  .tutorial-badge {
+                        min-width: 38px;
+                        height: 38px;
+                        font-size: 14px;
+                  }
+
+                  .tutorial-body {
+                        padding: 14px !important;
+                  }
+
+                  .tutorial-body .pasos>li {
+                        padding: 12px;
+                  }
+            }
+      </style>
+</head>
+
+<body>
+
+      <div class="desktop-site-lock" id="desktopSiteLock" role="alert" aria-live="assertive" aria-hidden="true">
+            <div class="lock-box">
+                  <span class="lock-icon">📱</span>
+                  <strong>Vista para computadora no disponible</strong>
+                  <p>
+                        Este contenido está diseñado únicamente para celular en posición vertical.
+                        Desactiva <b>“Sitio para escritorio”</b> en el menú del navegador para continuar.
+                  </p>
+                  <span class="small">La página volverá a mostrarse automáticamente al regresar a la vista móvil.</span>
+            </div>
+      </div>
+
+      <div class="desktop-lock">
+            <div>
+                  <strong>Disponible solo en celular</strong>
+                  <p>Este contenido está diseñado exclusivamente para utilizarse desde un celular en posición vertical.
+                  </p>
+            </div>
+      </div>
+      <div class="portrait-lock" role="alert">
+            <div>
+                  <span class="phone">↻</span>
+                  <strong>Coloca el celular en posición vertical</strong>
+                  <p>Esta página solo puede utilizarse en posición vertical.</p>
+            </div>
+      </div>
+      <header class="topbar">
+            <button class="menu-btn" id="openMenu" aria-label="Abrir menú" aria-controls="drawer">☰</button>
+            <div class="top-title">
+                  <span>Módulo 2</span>Multimedia Marketing y Herramientas de IA
+            </div>
+      </header>
+
+      <nav class="drawer" id="drawer" aria-label="Menú de clases">
+            <div class="drawer-head">
+                  <strong>Índice de clases</strong><button class="close-btn" id="closeMenu"
+                        aria-label="Cerrar menú">×</button>
+            </div>
+            <a href="index.html">Inicio</a>
+            <a href="#clase7">Clase 7 · Imagen</a>
+            <a href="#clase8">Clase 8 · Edición</a>
+            <a href="#clase9">Clase 9 · Voz</a>
+      </nav>
+      <div class="backdrop" id="backdrop"></div>
+      <main>
+            <section class="lesson" id="clase7">
+                  <div class="lesson-head">
+                        <span class="lesson-no">Clase 7</span>
+                        <h2>Imágenes</h2>
+                  </div>
+
+                  <div class="challenge">
+                        <small>DINÁMICA 1 - ¿QUÉ ME TRANSMITE ESTA IMAGEN?</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+
+                              <li>
+                                    Ingresa a una <b>red social</b> y busca una publicación publicitaria que
+                                    contenga una imagen.
+                              </li>
+
+                              <li>
+                                    Elige una publicación que llame tu atención y toma una <b>captura de
+                                          pantalla</b>.
+                              </li>
+
+                              <li>
+                                    Observa principalmente la <b>imagen</b> de la publicación.
+                              </li>
+
+                              <li>
+                                    Describe qué aparece en la imagen:
+                                    <ul>
+                                          <li>Personas.</li>
+                                          <li>Productos.</li>
+                                          <li>Objetos.</li>
+                                          <li>Lugar o fondo.</li>
+                                    </ul>
+                              </li>
+
+                              <li>
+                                    Explica qué fue lo <b>primero que miraste</b> al observar la publicación.
+                              </li>
+
+                              <li>
+                                    Describe qué sensación te transmite la imagen, por ejemplo:
+                                    <b>alegría, confianza, tranquilidad, energía, elegancia, cercanía u otra</b>.
+                              </li>
+
+                              <li>
+                                    Analiza si la imagen tiene relación con el <b>producto, servicio o mensaje</b>
+                                    de la publicación.
+                              </li>
+
+                              <li>
+                                    Muestra la captura a tu compañero sin explicarle todavía tu opinión.
+                              </li>
+
+                              <li>
+                                    Tu compañero observa la publicación y describe qué ve y qué sensación le
+                                    transmite.
+                              </li>
+
+                              <li>
+                                    Comparen sus respuestas e identifiquen en qué aspectos tuvieron una percepción
+                                    <b>similar o diferente</b>.
+                              </li>
+
+                              <li>
+                                    Al finalizar, pasa al frente, muestra tu captura al curso y explica brevemente
+                                    <b>qué aparece en la imagen, qué te llamó primero la atención y qué sensación
+                                          te transmite</b>.
+                              </li>
+
+                        </ol>
+
+                        <strong>PARA DESCRIBIR LA IMAGEN</strong>
+
+                        <ul class="pair-steps">
+                              <li><b>¿Qué aparece?</b> Personas, productos, objetos o lugares.</li>
+                              <li><b>¿Qué miraste primero?</b> El elemento que más llamó tu atención.</li>
+                              <li><b>¿Qué sensación transmite?</b> Explica lo que te hace sentir o pensar.</li>
+                              <li><b>¿Tiene relación?</b> Indica si la imagen representa correctamente el mensaje.
+                              </li>
+                        </ul>
+                  </div>
+
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+                        Porque antes de aprender cómo elegir o crear imágenes para una publicación,
+                        es importante observar cómo una imagen puede <b>llamar la atención, transmitir una
+                              sensación
+                              y ayudar a comunicar un mensaje</b>.
+                  </div>
+            </section>
+            <h3>¿Qué es una imagen?</h3>
+
+            <div class="answer">
+                  <p>
+                        Una <b>imagen</b> es una representación visual que permite mostrar personas,
+                        productos, objetos, lugares o situaciones.
+                  </p>
+
+                  <p>
+                        En una publicación, la imagen ayuda a <b>llamar la atención, comunicar una idea
+                              y transmitir sensaciones</b> de forma rápida.
+                  </p>
+            </div>
+
+
+            <h3>¿Qué es un personaje?</h3>
+
+            <div class="answer">
+                  <p>
+                        Un <b>personaje</b> es una persona representada visualmente dentro de una imagen.
+                        Puede utilizarse para mostrar quién podría <b>usar, necesitar o beneficiarse de un
+                              producto o servicio</b>.
+                  </p>
+
+                  <p>
+                        Para que funcione en una publicación, el personaje debe tener relación con el
+                        <b>producto, el consumidor y el mensaje que queremos comunicar</b>.
+                  </p>
+            </div>
+
+
+            <div class="prompt-box">
+                  <div class="prompt-label">
+                        Prompt para crear un personaje consumidor
+                        <button class="copy-btn">Copiar</button>
+                  </div>
+
+                  <pre class="prompt">Actúa como especialista en marketing, comportamiento del consumidor y creación de imágenes publicitarias.
+
+Quiero crear un personaje que represente a un posible consumidor de mi producto o servicio.
+
+DATOS DE MI EMPRESA:
+
+Nombre:
+[NOMBRE DE LA EMPRESA]
+
+Misión:
+[MISIÓN]
+
+Visión:
+[VISIÓN]
+
+Valores:
+[VALORES]
+
+PRODUCTO O SERVICIO:
+
+Nombre:
+[PRODUCTO O SERVICIO]
+
+Características principales:
+[CARACTERÍSTICAS]
+
+Beneficio principal:
+[BENEFICIO]
+
+Primero analiza la información de mi empresa y el producto o servicio.
+
+Después determina qué tipo de persona podría representar adecuadamente a un posible consumidor.
+
+Define:
+
+- Rango aproximado de edad.
+- Apariencia general.
+- Vestimenta.
+- Expresión facial.
+- Postura.
+- Características visuales importantes.
+- Relación del personaje con el producto o servicio.
+
+No inventes características del producto o servicio que no te proporcioné.
+
+Después genera una imagen de ese personaje.
+
+REQUISITOS DE LA IMAGEN:
+
+- Debe aparecer solamente un personaje.
+- El personaje debe ser una persona adulta ficticia.
+- Debe verse realista y natural.
+- Debe representar visualmente a un posible consumidor del producto o servicio.
+- La vestimenta y apariencia deben ser coherentes con el consumidor propuesto.
+- Debe mostrar una expresión natural.
+- Debe aparecer de cuerpo completo.
+- Debe mirar hacia la cámara.
+- No debe sostener productos ni objetos.
+- No debe contener textos.
+- No debe contener logotipos.
+- No debe contener marcas.
+- No debe contener elementos decorativos.
+- No debe mostrar un escenario.
+- El fondo debe ser completamente transparente.
+- La imagen debe quedar preparada para poder colocar posteriormente el personaje sobre diferentes diseños publicitarios.
+
+IMPORTANTE:
+
+Antes de generar la imagen, explica brevemente por qué ese personaje podría representar a un consumidor del producto o servicio.
+
+Después genera la imagen del personaje con fondo transparente.</pre>
+            </div>
+
+
+            <div class="challenge">
+                  <small>DINÁMICA 2 - ¿ESTE PERSONAJE REPRESENTA A MI CONSUMIDOR?</small>
+
+                  <strong>INSTRUCCIONES</strong>
+
+                  <ol class="pasos">
+
+                        <li>
+                              Completa el prompt con los datos de tu <b>empresa y producto o servicio</b>.
+                        </li>
+
+                        <li>
+                              Envía el prompt a <b>ChatGPT</b> y genera tu personaje.
+                        </li>
+
+                        <li>
+                              Observa detenidamente el personaje generado y analiza si podría representar a una persona
+                              que realmente <b>utilizaría tu producto o servicio</b>.
+                        </li>
+
+                        <li>
+                              Muestra únicamente el <b>personaje</b> a tu compañero, sin explicarle todavía para qué
+                              producto o servicio fue creado.
+                        </li>
+
+                        <li>
+                              Pregunta a tu compañero qué tipo de <b>producto o servicio</b> imagina que podría utilizar
+                              esa persona.
+                        </li>
+
+                        <li>
+                              Ahora explica a tu compañero cuál es realmente el <b>producto o servicio</b>.
+                        </li>
+
+                        <li>
+                              Tu compañero analiza si considera que el personaje es <b>adecuado para representar a un
+                                    posible consumidor</b>.
+                        </li>
+
+                        <li>
+                              Analicen si la <b>apariencia, edad aproximada, vestimenta, expresión y postura</b> tienen
+                              relación con el consumidor que desean representar.
+                        </li>
+
+                        <li>
+                              Analicen si una persona que vea al personaje podría <b>identificarse o sentir empatía</b>
+                              con la situación representada.
+                        </li>
+
+                        <li>
+                              Debatan si utilizar ese personaje en una publicación podría ayudar a que el consumidor
+                              <b>se imagine utilizando el producto o servicio</b>.
+                        </li>
+
+                        <li>
+                              Tu compañero indica qué elemento del personaje <b>mantendría</b> y qué elemento
+                              <b>cambiaría</b>.
+                        </li>
+
+                        <li>
+                              Decide si utilizarías el personaje generado o si realizarías algún cambio antes de
+                              colocarlo en una publicación.
+                        </li>
+
+                        <li>
+                              Intercambien roles y realicen el mismo análisis con el personaje de tu compañero.
+                        </li>
+
+                        <li>
+                              Al finalizar, pasa al frente, muestra tu personaje y explica al curso <b>para qué producto
+                                    o servicio fue creado, por qué representa al consumidor y qué podría hacer que una
+                                    persona se identifique con él</b>.
+                        </li>
+
+                  </ol>
+
+                  <strong>PARA ANALIZAR EL PERSONAJE</strong>
+
+                  <ul class="pair-steps">
+                        <li><b>Consumidor:</b> ¿parece una persona que utilizaría el producto o servicio?</li>
+                        <li><b>Apariencia:</b> ¿su apariencia tiene relación con el consumidor?</li>
+                        <li><b>Vestimenta:</b> ¿es adecuada para el personaje?</li>
+                        <li><b>Expresión:</b> ¿transmite una sensación adecuada?</li>
+                        <li><b>Empatía:</b> ¿el consumidor podría sentirse identificado con el personaje?</li>
+                        <li><b>Producto:</b> ¿permite imaginar al personaje utilizando el producto o servicio?</li>
+                        <li><b>Decisión:</b> ¿utilizarías este personaje en una publicación?</li>
+                  </ul>
+            </div>
+            <h3>¿Qué es la composición?</h3>
+
+            <div class="answer">
+                  <p>
+                        La <b>composición</b> es la forma de organizar y relacionar los diferentes elementos
+                        dentro de una imagen para comunicar una idea de manera clara y atractiva.
+                  </p>
+
+                  <p>
+                        En una imagen publicitaria podemos combinar elementos como el <b>personaje,
+                              producto y escenario</b> para representar una situación relacionada con el consumo
+                        o uso del producto o servicio.
+                  </p>
+
+                  <p>
+                        Una buena composición busca que los elementos tengan <b>relación entre sí</b>
+                        y que la persona pueda comprender fácilmente qué está ocurriendo en la imagen.
+                  </p>
+            </div>
+
+
+            <div class="prompt-box">
+                  <div class="prompt-label">
+                        Prompt para crear una composición publicitaria hiperrealista
+                        <button class="copy-btn">Copiar</button>
+                  </div>
+
+                  <pre class="prompt">Actúa como especialista en marketing, comportamiento del consumidor, dirección de arte y fotografía publicitaria hiperrealista.
+
+Voy a adjuntar dos imágenes:
+
+IMAGEN 1:
+El personaje que representa a un posible consumidor.
+
+IMAGEN 2:
+El producto que quiero ofrecer.
+
+Además, utilizarás la siguiente información de mi empresa:
+
+DATOS DE MI EMPRESA:
+
+Nombre:
+[NOMBRE DE LA EMPRESA]
+
+Misión:
+[MISIÓN]
+
+Visión:
+[VISIÓN]
+
+Valores:
+[VALORES]
+
+PRODUCTO O SERVICIO A OFRECER:
+
+Nombre:
+[PRODUCTO O SERVICIO]
+
+Características principales:
+[CARACTERÍSTICAS]
+
+Beneficio principal:
+[BENEFICIO]
+
+
+PRIMERO ANALIZA:
+
+1. La misión, visión y valores de la empresa.
+
+2. El producto o servicio que se quiere ofrecer.
+
+3. El personaje adjunto y el tipo de consumidor que representa.
+
+4. La imagen del producto adjunto.
+
+5. En qué lugar, ambiente o situación sería natural encontrar, comprar, consumir o utilizar ese producto o servicio.
+
+6. Qué situación permitiría que un posible consumidor se identifique con el personaje y pueda imaginarse viviendo una experiencia similar.
+
+A partir de este análisis, determina el escenario más coherente para realizar la composición.
+
+
+DESPUÉS GENERA LA IMAGEN:
+
+Crea una fotografía publicitaria HIPERREALISTA donde aparezca el personaje de la imagen adjunta consumiendo, utilizando o disfrutando naturalmente el producto proporcionado.
+
+El personaje debe verse feliz, cómodo y satisfecho con la experiencia.
+
+La felicidad debe verse natural y creíble, evitando expresiones exageradas.
+
+El personaje debe interactuar físicamente con el producto de una manera lógica según la forma real en que normalmente se consume o utiliza.
+
+Si el producto no se consume físicamente, representa al personaje utilizándolo o experimentando su beneficio de una manera visualmente coherente.
+
+Ubica la escena en un lugar donde una persona normalmente imaginaría que ese producto o servicio puede encontrarse, utilizarse o consumirse.
+
+El escenario debe tener relación directa con el producto y ayudar a comprender visualmente la situación sin necesidad de utilizar texto.
+
+
+FIDELIDAD DEL PERSONAJE:
+
+- Conserva el mismo personaje de la imagen adjunta.
+- Mantén sus principales rasgos físicos.
+- Mantén su apariencia general.
+- Mantén su edad aproximada.
+- Mantén su vestimenta cuando sea adecuada para la escena.
+- No sustituyas al personaje por otra persona.
+- No agregues otras personas salvo que sean indispensables para representar el servicio.
+
+
+FIDELIDAD DEL PRODUCTO:
+
+- Utiliza el producto adjunto como referencia visual obligatoria.
+- Mantén su forma.
+- Mantén sus proporciones.
+- Mantén sus colores.
+- Mantén su envase o presentación.
+- Mantén sus elementos visuales reconocibles.
+- No sustituyas el producto por otro.
+- No inventes nuevas versiones del producto.
+- No deformes el producto.
+- No agregues características que no aparecen en la referencia.
+
+
+COMPOSICIÓN:
+
+Organiza visualmente la escena para que exista una relación clara entre:
+
+PERSONAJE + PRODUCTO + ACCIÓN + ESCENARIO.
+
+El personaje debe ser uno de los elementos principales.
+
+El producto debe verse claramente y debe ser fácil de identificar.
+
+La interacción entre el personaje y el producto debe ser evidente.
+
+El escenario debe complementar la acción sin quitar protagonismo al personaje ni al producto.
+
+Evita elementos innecesarios que distraigan la atención.
+
+La composición debe permitir comprender rápidamente:
+
+- quién está utilizando el producto;
+- qué producto está utilizando;
+- cómo lo está utilizando;
+- dónde lo está utilizando;
+- qué experiencia positiva está viviendo.
+
+
+HIPERREALISMO:
+
+El resultado debe parecer una fotografía publicitaria profesional tomada con una cámara de alta gama.
+
+Debe presentar:
+
+- piel humana hiperrealista con textura natural;
+- cabello detallado y natural;
+- manos y dedos anatómicamente correctos;
+- proporciones corporales realistas;
+- expresiones faciales naturales;
+- contacto físico correcto entre manos y producto;
+- materiales y superficies realistas;
+- reflejos físicamente coherentes;
+- sombras naturales;
+- profundidad de campo fotográfica;
+- iluminación profesional;
+- perspectiva correcta;
+- escala correcta entre personaje, producto y escenario;
+- integración natural de todos los elementos.
+
+La iluminación del personaje debe coincidir perfectamente con la iluminación del producto y del escenario.
+
+Las sombras, reflejos, perspectiva y profundidad deben hacer que todo parezca fotografiado al mismo tiempo y en el mismo lugar.
+
+Evita cualquier apariencia de collage, montaje, recorte, ilustración, dibujo, render 3D o imagen artificial.
+
+
+EXPERIENCIA DEL CONSUMIDOR:
+
+La escena debe transmitir una experiencia positiva relacionada con el producto.
+
+Busca que una persona que observe la imagen pueda pensar:
+
+"Yo podría estar viviendo esa experiencia."
+
+La imagen debe generar identificación, empatía e interés por el producto mediante la situación representada, sin exagerar sus beneficios.
+
+
+IDENTIDAD DE LA EMPRESA:
+
+La sensación general de la fotografía debe ser coherente con la misión, visión y valores proporcionados.
+
+Utiliza esa información para orientar:
+
+- el tipo de escenario;
+- la atmósfera;
+- la expresión del personaje;
+- la situación representada;
+- el estilo visual general.
+
+No inventes elementos de identidad de la empresa que no hayan sido proporcionados.
+
+
+IMPORTANTE:
+
+- Utiliza obligatoriamente las imágenes adjuntas como referencia.
+- No cambies innecesariamente al personaje.
+- No cambies innecesariamente el producto.
+- No inventes características ni beneficios.
+- No inventes precios.
+- No inventes promociones.
+- No inventes descuentos.
+- No inventes garantías.
+- No agregues texto.
+- No agregues títulos.
+- No agregues llamados a la acción.
+- No agregues logotipos adicionales.
+- No agregues marcas inexistentes.
+- No agregues objetos que no tengan relación con la escena.
+- No exageres las emociones del personaje.
+- No muestres resultados que el producto no pueda garantizar.
+
+FORMATO FINAL:
+
+Genera una sola imagen publicitaria hiperrealista.
+
+La imagen debe mostrar una escena completa, natural, profesional y visualmente coherente donde el personaje esté utilizando o consumiendo el producto dentro de un escenario adecuado.
+
+No expliques la composición después de generarla.
+
+Genera directamente la imagen final.</pre>
+            </div>
+
+
+            <div class="challenge">
+                  <small>DINÁMICA 3 - ¿FUNCIONA MI COMPOSICIÓN?</small>
+
+                  <strong>INSTRUCCIONES</strong>
+
+                  <ol class="pasos">
+
+                        <li>
+                              Adjunta a ChatGPT la imagen de tu <b>personaje</b> y la imagen del <b>producto</b> que
+                              quieres ofrecer.
+                        </li>
+
+                        <li>
+                              Copia el prompt anterior y genera tu <b>composición publicitaria</b>.
+                        </li>
+
+                        <li>
+                              Observa el resultado y comprueba si el <b>personaje, producto y escenario</b> parecen
+                              formar parte de una misma imagen.
+                        </li>
+
+                        <li>
+                              Muestra la composición a tu compañero <b>sin explicarle previamente qué querías
+                                    representar</b>.
+                        </li>
+
+                        <li>
+                              Pregunta a tu compañero qué fue lo <b>primero que llamó su atención</b>.
+                        </li>
+
+                        <li>
+                              Pregunta qué cree que está <b>haciendo el personaje</b> y qué producto identifica.
+                        </li>
+
+                        <li>
+                              Analicen si el <b>lugar</b> tiene relación con el producto y con la situación
+                              representada.
+                        </li>
+
+                        <li>
+                              Analicen si el personaje parece estar <b>utilizando o consumiendo naturalmente</b> el
+                              producto.
+                        </li>
+
+                        <li>
+                              Revisen si el producto puede <b>reconocerse claramente</b> dentro de la composición.
+                        </li>
+
+                        <li>
+                              Analicen si la expresión y comportamiento del personaje transmiten una experiencia
+                              <b>positiva y creíble</b>.
+                        </li>
+
+                        <li>
+                              Pregunta a tu compañero si la escena le permite <b>imaginarse utilizando o consumiendo el
+                                    producto</b>.
+                        </li>
+
+                        <li>
+                              Analicen si la composición genera algún <b>estímulo o interés por conocer, probar o
+                                    comprar el producto</b>.
+                        </li>
+
+                        <li>
+                              Tu compañero explica qué elemento de la composición <b>funciona mejor</b> y cuál debería
+                              <b>cambiarse</b>.
+                        </li>
+
+                        <li>
+                              Intercambien roles y realicen el mismo análisis con la composición de tu compañero.
+                        </li>
+
+                        <li>
+                              Al finalizar, pasa al frente, muestra tu composición y explica <b>por qué elegiste ese
+                                    escenario, cómo se relaciona con el producto y qué elemento consideras que puede
+                                    despertar mayor interés en el consumidor</b>.
+                        </li>
+
+                  </ol>
+
+                  <strong>PARA ANALIZAR LA COMPOSICIÓN</strong>
+
+                  <ul class="pair-steps">
+                        <li><b>Personaje:</b> ¿parece utilizar o consumir naturalmente el producto?</li>
+                        <li><b>Producto:</b> ¿se reconoce claramente?</li>
+                        <li><b>Escenario:</b> ¿es un lugar lógico para ese producto?</li>
+                        <li><b>Integración:</b> ¿personaje, producto y lugar parecen pertenecer a la misma escena?</li>
+                        <li><b>Emoción:</b> ¿la experiencia del personaje parece positiva y creíble?</li>
+                        <li><b>Identificación:</b> ¿puedes imaginarte utilizando o consumiendo el producto?</li>
+                        <li><b>Interés:</b> ¿la imagen despierta interés por conocer, probar o comprar el producto?</li>
+                        <li><b>Decisión:</b> ¿utilizarías esta composición en una publicación de la empresa?</li>
+                  </ul>
+            </div>
+            <h3>¿Qué elementos puede tener una publicidad?</h3>
+
+            <div class="answer">
+                  <p>
+                        Una <b>publicidad</b> combina diferentes elementos visuales y de información
+                        para llamar la atención, presentar una propuesta y facilitar que la persona
+                        comprenda qué se ofrece.
+                  </p>
+
+                  <p>
+                        Dependiendo del objetivo de la publicación, podemos utilizar los siguientes elementos:
+                  </p>
+
+                  <p>
+                        <b>Personaje:</b> representa a una persona que utiliza, consume o se relaciona con el producto o
+                        servicio.
+                        <br><br>
+
+                        <b>Producto o servicio:</b> debe permitir comprender claramente qué se está ofreciendo.
+                        <br><br>
+
+                        <b>Lugar o escenario:</b> muestra un ambiente relacionado con el uso, consumo o adquisición del
+                        producto o servicio.
+                        <br><br>
+
+                        <b>Título:</b> es un mensaje corto que busca llamar la atención y comunicar la idea principal.
+                        <br><br>
+
+                        <b>Beneficio:</b> explica qué obtiene o qué puede resultar útil para el consumidor.
+                        <br><br>
+
+                        <b>Precio:</b> informa cuánto cuesta cuando este dato es importante para la decisión de compra.
+                        <br><br>
+
+                        <b>Promoción:</b> comunica una oferta o condición especial cuando realmente existe.
+                        <br><br>
+
+                        <b>Identidad visual:</b> utiliza los colores, fuentes y elementos visuales definidos para la
+                        empresa.
+                        <br><br>
+
+                        <b>Logotipo:</b> permite identificar visualmente a la empresa o marca.
+                        <br><br>
+
+                        <b>Llamado a la acción:</b> indica qué debe hacer la persona después de observar la publicidad,
+                        por ejemplo:
+                        escribir, consultar, reservar, solicitar información o comprar.
+                  </p>
+            </div>
+
+
+            <h3>¿Todos los elementos deben aparecer siempre?</h3>
+
+            <div class="answer">
+                  <p>
+                        <b>No.</b> Los elementos se seleccionan según el producto, el consumidor y el
+                        objetivo de la publicidad.
+                  </p>
+
+                  <p>
+                        Una publicidad debe evitar colocar información solamente para llenar espacio.
+                        Cada elemento debe tener una <b>función dentro del mensaje</b>.
+                  </p>
+            </div>
+
+            <div class="prompt-box">
+                  <div class="prompt-label">
+                        Prompt para crear los textos de una publicidad
+                        <button class="copy-btn">Copiar</button>
+                  </div>
+
+                  <pre class="prompt">Actúa como especialista en marketing, publicidad, copywriting y diseño gráfico.
+
+Voy a adjuntar una imagen publicitaria que ya fue creada anteriormente.
+
+La imagen contiene un personaje, un producto o servicio y un escenario relacionado con su uso o consumo.
+
+NO debes generar una nueva imagen.
+
+Tu tarea es analizar la imagen y determinar qué textos debería tener la publicidad para comunicar el mensaje de manera clara, atractiva y sin sobrecargar el diseño.
+
+DATOS DE MI EMPRESA:
+
+Nombre:
+[NOMBRE DE LA EMPRESA]
+
+Misión:
+[MISIÓN]
+
+Visión:
+[VISIÓN]
+
+Valores:
+[VALORES]
+
+PRODUCTO O SERVICIO A OFRECER:
+
+Nombre:
+[PRODUCTO O SERVICIO]
+
+Características principales:
+[CARACTERÍSTICAS]
+
+Beneficio principal:
+[BENEFICIO]
+
+PRECIO:
+[PRECIO O ESCRIBE "NO UTILIZAR"]
+
+PROMOCIÓN:
+[PROMOCIÓN O ESCRIBE "NO UTILIZAR"]
+
+LLAMADO A LA ACCIÓN DISPONIBLE:
+[EJEMPLO: ESCRÍBENOS POR WHATSAPP / VISÍTANOS / RESERVA / COMPRA / SOLICITA INFORMACIÓN]
+
+
+PRIMERO ANALIZA:
+
+1. La imagen adjunta.
+
+2. La misión, visión y valores de la empresa.
+
+3. El producto o servicio que se ofrece.
+
+4. El personaje que aparece en la imagen.
+
+5. La forma en que el personaje está utilizando o consumiendo el producto.
+
+6. El escenario donde ocurre la situación.
+
+7. Los espacios disponibles dentro de la imagen donde podría colocarse texto sin cubrir los elementos importantes.
+
+
+OBJETIVO:
+
+Crea únicamente los textos necesarios para convertir la imagen en una publicidad clara y profesional.
+
+La publicidad NO debe estar sobrecargada.
+
+El personaje y el producto deben continuar siendo los principales elementos visuales.
+
+Los textos deben complementar la imagen, no competir con ella.
+
+
+SELECCIONA ÚNICAMENTE LOS ELEMENTOS NECESARIOS:
+
+Puedes utilizar:
+
+- Título.
+- Beneficio principal.
+- Precio.
+- Promoción.
+- Llamado a la acción.
+- Nombre o logotipo de la empresa.
+
+No es obligatorio utilizar todos los elementos.
+
+Decide cuáles realmente ayudan a comunicar la publicidad.
+
+Si un elemento no aporta información necesaria, indica:
+
+NO UTILIZAR.
+
+
+TÍTULO:
+
+Crea un título corto que llame la atención y tenga relación directa con la situación mostrada en la imagen.
+
+Debe ser fácil de leer rápidamente.
+
+No repitas información que la imagen ya comunica claramente.
+
+
+BENEFICIO:
+
+Si es necesario, escribe un beneficio corto que explique qué puede obtener el consumidor.
+
+Utiliza solamente el beneficio proporcionado.
+
+No inventes beneficios.
+
+
+PRECIO:
+
+Utiliza el precio solamente si fue proporcionado y consideras que ayuda al objetivo de la publicidad.
+
+Nunca inventes un precio.
+
+
+PROMOCIÓN:
+
+Utiliza una promoción solamente si fue proporcionada.
+
+Nunca inventes descuentos, ofertas o promociones.
+
+
+LLAMADO A LA ACCIÓN:
+
+Crea un llamado a la acción corto y claro utilizando únicamente la acción proporcionada.
+
+
+UBICACIÓN DE LOS TEXTOS:
+
+Analiza la imagen antes de recomendar dónde colocar cada texto.
+
+No coloques textos encima del rostro del personaje.
+
+No cubras el cuerpo del personaje cuando sea un elemento importante.
+
+No cubras el producto.
+
+No cubras la interacción entre el personaje y el producto.
+
+No cubras elementos importantes del escenario.
+
+Aprovecha principalmente los espacios libres de la composición.
+
+El personaje y el producto deben continuar viéndose claramente después de colocar los textos.
+
+
+JERARQUÍA:
+
+Organiza los textos según su importancia.
+
+El título debe tener mayor importancia visual.
+
+El beneficio debe complementar el título.
+
+El precio o promoción debe destacar solamente cuando sea necesario.
+
+El llamado a la acción debe ser visible pero no debe competir con el producto.
+
+La información secundaria debe tener menor importancia visual.
+
+
+IMPORTANTE:
+
+- Utiliza lenguaje sencillo.
+- Utiliza textos cortos.
+- Evita párrafos.
+- Evita repetir información.
+- No llenes todos los espacios disponibles.
+- Mantén espacios libres dentro del diseño.
+- No inventes información.
+- No inventes características.
+- No inventes beneficios.
+- No inventes precios.
+- No inventes promociones.
+- No inventes descuentos.
+- No inventes garantías.
+- Mantén coherencia con la misión, visión y valores de la empresa.
+- El personaje debe continuar viéndose claramente.
+- El producto debe continuar viéndose claramente.
+- La imagen debe conservar el protagonismo.
+- El texto solamente debe ayudar a comprender y reforzar el mensaje.
+
+
+ENTREGA EL RESULTADO EN ESTE FORMATO:
+
+TÍTULO:
+[Texto o NO UTILIZAR]
+
+BENEFICIO:
+[Texto o NO UTILIZAR]
+
+PRECIO:
+[Texto o NO UTILIZAR]
+
+PROMOCIÓN:
+[Texto o NO UTILIZAR]
+
+LLAMADO A LA ACCIÓN:
+[Texto o NO UTILIZAR]
+
+NOMBRE O LOGOTIPO:
+[UTILIZAR o NO UTILIZAR]
+
+Después indica para cada elemento utilizado:
+
+- Ubicación recomendada.
+- Tamaño aproximado en relación con los demás textos.
+- Grosor recomendado.
+- Justificación breve de por qué debe aparecer.
+
+Finalmente responde:
+
+¿QUÉ DEBE VER PRIMERO LA PERSONA?
+[Respuesta]
+
+¿QUÉ DEBE VER DESPUÉS?
+[Respuesta]
+
+¿QUÉ ELEMENTOS DE LA IMAGEN NO DEBEN CUBRIRSE?
+[Respuesta]
+
+No generes una nueva imagen.</pre>
+            </div>
+            <div class="prompt-box">
+                  <div class="prompt-label">
+                        Prompt para generar la publicidad final
+                        <button class="copy-btn">Copiar</button>
+                  </div>
+
+                  <pre class="prompt">Actúa como especialista en diseño gráfico, dirección de arte, marketing y publicidad.
+
+Voy a adjuntar la MISMA imagen publicitaria que analizamos anteriormente.
+
+También voy a pegar los textos y recomendaciones que obtuve en el análisis anterior.
+
+IMAGEN:
+[ADJUNTA AQUÍ LA IMAGEN GENERADA ANTERIORMENTE]
+
+TEXTOS Y RECOMENDACIONES DEL ANÁLISIS ANTERIOR:
+
+[PEGA AQUÍ EL RESULTADO COMPLETO DEL PROMPT ANTERIOR]
+
+
+TU TAREA:
+
+Utiliza la imagen adjunta como base y genera la versión final de la publicidad incorporando los textos recomendados.
+
+Debes conservar la composición original de la imagen.
+
+NO generes una escena diferente.
+
+NO cambies innecesariamente al personaje, producto ni escenario.
+
+
+IMAGEN ORIGINAL:
+
+- Conserva al mismo personaje.
+- Conserva sus rasgos físicos.
+- Conserva su expresión.
+- Conserva su vestimenta.
+- Conserva el producto.
+- Conserva la apariencia y características visibles del producto.
+- Conserva el escenario.
+- Conserva la iluminación.
+- Conserva la perspectiva.
+- Conserva la composición general.
+- Conserva el estilo hiperrealista.
+
+La imagen debe continuar pareciendo una fotografía publicitaria profesional e hiperrealista.
+
+
+INCORPORA LOS TEXTOS:
+
+Utiliza únicamente los textos recomendados en el análisis anterior.
+
+Si el análisis indicó "NO UTILIZAR" en algún elemento, no lo agregues.
+
+No inventes nuevos textos.
+
+No cambies el significado de los textos.
+
+No agregues información que no haya sido proporcionada.
+
+Respeta las recomendaciones anteriores sobre:
+
+- Título.
+- Beneficio.
+- Precio.
+- Promoción.
+- Llamado a la acción.
+- Nombre o logotipo.
+- Jerarquía.
+- Ubicación de cada elemento.
+
+
+JERARQUÍA VISUAL:
+
+El título debe ser el texto con mayor importancia visual.
+
+La información secundaria debe tener menor tamaño.
+
+El precio o promoción debe destacar solamente si fue recomendado.
+
+El llamado a la acción debe ser visible y fácil de encontrar.
+
+Debe existir una diferencia clara entre información principal y secundaria.
+
+
+MUY IMPORTANTE:
+
+El PERSONAJE y el PRODUCTO deben continuar siendo protagonistas de la publicidad.
+
+Los textos deben complementar la imagen, no competir con ella.
+
+No coloques texto encima del rostro del personaje.
+
+No cubras el producto.
+
+No cubras las manos cuando estén interactuando con el producto.
+
+No cubras elementos importantes de la escena.
+
+Utiliza principalmente los espacios libres disponibles en la imagen.
+
+Deja suficiente espacio libre entre los diferentes elementos.
+
+No llenes todos los espacios con texto.
+
+No sobrecargues la publicidad.
+
+
+LEGIBILIDAD:
+
+Los textos deben poder leerse fácilmente.
+
+Debe existir buen contraste entre texto y fondo.
+
+Utiliza tamaños adecuados según la importancia de cada texto.
+
+Evita textos demasiado pequeños.
+
+Evita colocar textos sobre zonas visualmente muy cargadas.
+
+Si es necesario, utiliza una forma simple detrás de algún texto para mejorar su lectura, pero solamente cuando sea realmente necesario.
+
+
+RESULTADO ESPERADO:
+
+La persona que observe la publicidad debe poder identificar rápidamente:
+
+1. El personaje.
+2. El producto o servicio.
+3. El mensaje principal.
+4. El beneficio, cuando haya sido recomendado.
+5. El precio o promoción, cuando corresponda.
+6. Qué debe hacer después.
+
+
+RESTRICCIONES:
+
+- No cambies el producto.
+- No sustituyas al personaje.
+- No cambies el escenario sin necesidad.
+- No inventes características.
+- No inventes beneficios.
+- No inventes precios.
+- No inventes promociones.
+- No inventes descuentos.
+- No inventes garantías.
+- No agregues textos diferentes a los proporcionados.
+- No agregues elementos decorativos innecesarios.
+- No agregues información solamente para llenar espacios.
+- No conviertas la imagen en un diseño saturado.
+- No reduzcas excesivamente al personaje ni al producto para crear espacio para los textos.
+
+Genera UNA SOLA publicidad final.
+
+Mantén la imagen hiperrealista y coloca profesionalmente los textos recomendados.
+
+El resultado debe verse limpio, equilibrado, legible y profesional.
+
+Genera directamente la imagen final.</pre>
+            </div>
+
+            <div class="prompt-box">
+                  <div class="prompt-label">
+                        Prompt maestro para generar la publicidad final
+                        <button class="copy-btn">Copiar</button>
+                  </div>
+
+                  <pre class="prompt">Actúa como especialista en marketing, publicidad, dirección de arte, diseño gráfico, composición visual y fotografía publicitaria hiperrealista.
+
+Voy a adjuntar una imagen publicitaria creada anteriormente.
+
+Esta imagen ya contiene:
+
+- El personaje que representa al consumidor.
+- El producto o servicio.
+- El escenario.
+- La interacción entre el personaje y el producto.
+
+IMPORTANTE:
+
+Utiliza la imagen adjunta como BASE OBLIGATORIA de la publicidad.
+
+No debes crear una escena completamente diferente.
+
+Tu tarea es convertir esta imagen en una publicidad final profesional, aplicando la identidad visual de mi empresa y los textos publicitarios que proporcionaré.
+
+
+DATOS DE MI EMPRESA:
+
+Nombre:
+[NOMBRE DE LA EMPRESA]
+
+Misión:
+[MISIÓN]
+
+Visión:
+[VISIÓN]
+
+Valores:
+[VALORES]
+
+
+PRODUCTO O SERVICIO:
+
+Nombre:
+[PRODUCTO O SERVICIO]
+
+Características principales:
+[CARACTERÍSTICAS]
+
+Beneficio principal:
+[BENEFICIO]
+
+
+IDENTIDAD VISUAL:
+
+Fuente principal:
+[FUENTE PRINCIPAL]
+
+Grosor de la fuente principal:
+[GROSOR]
+
+Fuente secundaria:
+[FUENTE SECUNDARIA]
+
+Grosor de la fuente secundaria:
+[GROSOR]
+
+
+PALETA DE COLORES:
+
+Color principal:
+[COLOR + CÓDIGO HEXADECIMAL]
+
+Color secundario 1:
+[COLOR + CÓDIGO HEXADECIMAL]
+
+Color secundario 2:
+[COLOR + CÓDIGO HEXADECIMAL]
+
+Color de contraste:
+[COLOR + CÓDIGO HEXADECIMAL]
+
+
+TEXTOS RECOMENDADOS EN EL ANÁLISIS ANTERIOR:
+
+TÍTULO:
+[PEGA EL TÍTULO RECOMENDADO]
+
+BENEFICIO:
+[PEGA EL BENEFICIO O ESCRIBE "NO UTILIZAR"]
+
+PRECIO:
+[PEGA EL PRECIO O ESCRIBE "NO UTILIZAR"]
+
+PROMOCIÓN:
+[PEGA LA PROMOCIÓN O ESCRIBE "NO UTILIZAR"]
+
+LLAMADO A LA ACCIÓN:
+[PEGA EL LLAMADO A LA ACCIÓN O ESCRIBE "NO UTILIZAR"]
+
+NOMBRE O LOGOTIPO:
+[UTILIZAR / NO UTILIZAR]
+
+
+PRIMERO ANALIZA:
+
+Antes de generar la publicidad, analiza internamente:
+
+1. La imagen adjunta.
+
+2. La posición del personaje.
+
+3. La posición del producto.
+
+4. La interacción entre el personaje y el producto.
+
+5. El escenario.
+
+6. Los espacios libres disponibles para colocar información.
+
+7. La misión, visión y valores de la empresa.
+
+8. Las fuentes definidas para la identidad visual.
+
+9. La paleta de colores definida.
+
+10. Los textos proporcionados.
+
+Determina cómo integrar todos estos elementos sin sobrecargar la publicidad.
+
+
+CONSERVA LA IMAGEN ORIGINAL:
+
+Mantén al mismo personaje.
+
+Mantén sus principales rasgos físicos.
+
+Mantén su expresión y apariencia.
+
+Mantén el mismo producto.
+
+Mantén las características visuales reconocibles del producto.
+
+Mantén la interacción entre personaje y producto.
+
+Mantén el escenario.
+
+Mantén la iluminación.
+
+Mantén las sombras.
+
+Mantén la perspectiva.
+
+Mantén las proporciones.
+
+Mantén el estilo fotográfico hiperrealista.
+
+La imagen debe continuar pareciendo una fotografía publicitaria profesional.
+
+No conviertas la fotografía en una ilustración, dibujo, collage o render 3D.
+
+
+PRIORIDAD VISUAL:
+
+El PERSONAJE y el PRODUCTO deben continuar siendo los principales elementos visuales de la publicidad.
+
+No reduzcas innecesariamente al personaje.
+
+No reduzcas innecesariamente el producto.
+
+No coloques grandes bloques gráficos que oculten la fotografía.
+
+No permitas que los textos tengan más protagonismo que el personaje y el producto.
+
+
+UTILIZA LOS TEXTOS PROPORCIONADOS:
+
+Incorpora únicamente los textos que fueron definidos anteriormente.
+
+Si algún elemento indica "NO UTILIZAR", no lo agregues.
+
+No inventes nuevos textos.
+
+No agregues información solamente para llenar espacios.
+
+Evita repetir información que la fotografía ya comunica claramente.
+
+
+JERARQUÍA TIPOGRÁFICA:
+
+Organiza los textos según su importancia.
+
+TÍTULO:
+Debe ser el texto con mayor importancia visual.
+
+BENEFICIO:
+Debe complementar el título y tener menor importancia visual.
+
+PRECIO O PROMOCIÓN:
+Debe destacar solamente cuando haya sido proporcionado y recomendado.
+
+LLAMADO A LA ACCIÓN:
+Debe ser fácil de encontrar y comprender.
+
+NOMBRE DE LA EMPRESA:
+Debe identificar la publicidad sin competir con el mensaje principal.
+
+
+TIPOGRAFÍA:
+
+Utiliza como máximo las 2 fuentes proporcionadas.
+
+Utiliza la fuente principal para los elementos de mayor importancia cuando sea apropiado.
+
+Utiliza la fuente secundaria para información complementaria cuando sea necesario.
+
+Respeta los grosores definidos.
+
+No sustituyas las fuentes proporcionadas por otras si están disponibles.
+
+Si técnicamente no puedes reproducir exactamente una fuente, utiliza una alternativa visualmente cercana sin cambiar innecesariamente el estilo de la identidad.
+
+
+PALETA DE COLORES:
+
+Utiliza únicamente los colores proporcionados para los elementos gráficos y textos añadidos.
+
+Respeta los códigos hexadecimales indicados.
+
+Utiliza el color principal como referencia dominante de identidad.
+
+Utiliza los colores secundarios para complementar el diseño.
+
+Utiliza el color de contraste para destacar únicamente los elementos que realmente necesiten atención.
+
+No es obligatorio utilizar todos los colores.
+
+Selecciona solamente los necesarios para mantener un diseño limpio.
+
+No cambies los colores naturales del personaje, producto o escenario para obligarlos a coincidir con la paleta.
+
+La paleta debe aplicarse principalmente a:
+
+- Textos.
+- Formas.
+- Botones visuales.
+- Líneas.
+- Fondos de apoyo.
+- Elementos gráficos necesarios.
+
+
+UBICACIÓN DE LOS TEXTOS:
+
+Aprovecha los espacios libres existentes en la fotografía.
+
+No coloques texto sobre el rostro del personaje.
+
+No cubras los ojos.
+
+No cubras el producto.
+
+No cubras las manos cuando interactúan con el producto.
+
+No cubras elementos importantes de la escena.
+
+No coloques textos en zonas demasiado cargadas visualmente.
+
+Distribuye los textos para que exista suficiente espacio libre alrededor de ellos.
+
+
+CONTRASTE Y LEGIBILIDAD:
+
+Todos los textos deben poder leerse fácilmente.
+
+Utiliza los colores de la paleta que produzcan mejor contraste con el área donde se colocará cada texto.
+
+Si una zona de la fotografía dificulta la lectura, puedes utilizar una forma simple de la paleta detrás del texto.
+
+La forma debe ser discreta y utilizarse únicamente cuando sea necesaria.
+
+No cubras grandes áreas de la fotografía solamente para colocar texto.
+
+
+COMPOSICIÓN:
+
+La publicidad debe mantener un recorrido visual claro.
+
+La persona debe poder observar de manera natural:
+
+PERSONAJE / PRODUCTO → MENSAJE PRINCIPAL → INFORMACIÓN IMPORTANTE → LLAMADO A LA ACCIÓN.
+
+No es obligatorio seguir exactamente este orden si la composición de la imagen requiere otro recorrido visual más natural.
+
+Mantén equilibrio entre fotografía, texto y espacios libres.
+
+
+COHERENCIA CON LA EMPRESA:
+
+La publicidad debe transmitir una sensación coherente con:
+
+- La misión.
+- La visión.
+- Los valores.
+- El producto o servicio.
+- La identidad visual definida.
+
+No inventes una nueva identidad visual.
+
+
+NO SOBRECARGAR:
+
+Este punto es obligatorio.
+
+Utiliza solamente los elementos necesarios.
+
+Prefiere espacios libres antes que llenar toda la imagen.
+
+Evita párrafos largos.
+
+Evita demasiadas formas.
+
+Evita demasiados colores.
+
+Evita repetir mensajes.
+
+Evita elementos decorativos innecesarios.
+
+Evita colocar información en cada espacio disponible.
+
+Si existe duda entre agregar un elemento decorativo o mantener espacio libre, mantén el espacio libre.
+
+
+FIDELIDAD DE LA INFORMACIÓN:
+
+No inventes:
+
+- Características.
+- Beneficios.
+- Precios.
+- Promociones.
+- Descuentos.
+- Garantías.
+- Certificaciones.
+- Datos de contacto.
+- Direcciones.
+- Redes sociales.
+- Logotipos.
+- Información adicional de la empresa.
+
+
+RESULTADO FINAL:
+
+Genera UNA SOLA publicidad final utilizando la imagen adjunta como base.
+
+Debe verse:
+
+- Profesional.
+- Hiperrealista.
+- Limpia.
+- Equilibrada.
+- Moderna.
+- Fácil de leer.
+- Coherente con la identidad visual de la empresa.
+
+El personaje y el producto deben continuar viéndose claramente y conservar el protagonismo.
+
+Los textos deben complementar la fotografía y ayudar a comunicar la propuesta sin sobrecargarla.
+
+Respeta la paleta de colores, las fuentes y los grosores proporcionados.
+
+No muestres explicaciones, bocetos, cuadrículas, anotaciones ni instrucciones dentro de la imagen.
+
+Genera directamente la publicidad final.</pre>
+            </div>
+
+
+            <div class="challenge">
+                  <small>DINÁMICA 4 - ¿MI PUBLICIDAD NECESITA CAMBIOS?</small>
+
+                  <strong>INSTRUCCIONES</strong>
+
+                  <ol class="pasos">
+
+                        <li>
+                              Completa el prompt con los datos de tu <b>empresa, producto o servicio</b>.
+                        </li>
+
+                        <li>
+                              Adjunta la <b>imagen publicitaria creada anteriormente</b> y envía el prompt a ChatGPT.
+                        </li>
+
+                        <li>
+                              Revisa los textos propuestos y coloca únicamente los elementos recomendados sobre tu
+                              diseño.
+                        </li>
+
+                        <li>
+                              Muestra la publicidad terminada a tu compañero durante unos segundos, <b>sin explicarle
+                                    previamente el contenido</b>.
+                        </li>
+
+                        <li>
+                              Pregunta a tu compañero <b>qué fue lo primero que miró</b>.
+                        </li>
+
+                        <li>
+                              Pregunta <b>qué producto o servicio cree que se está ofreciendo</b>.
+                        </li>
+
+                        <li>
+                              Pregunta qué <b>beneficio</b> comprendió al observar la publicidad.
+                        </li>
+
+                        <li>
+                              Pregunta qué cree que debería <b>hacer después de verla</b>.
+                        </li>
+
+                        <li>
+                              Analicen si el <b>personaje y el producto</b> continúan siendo fáciles de observar.
+                        </li>
+
+                        <li>
+                              Analicen si existe algún texto que <b>cubra, distraiga o compita</b> con el personaje o el
+                              producto.
+                        </li>
+
+                        <li>
+                              Revisen si existe algún texto que podría <b>eliminarse</b> sin perder el mensaje
+                              principal.
+                        </li>
+
+                        <li>
+                              Analicen si el título, beneficio, precio, promoción y llamado a la acción utilizados
+                              tienen una <b>función clara</b>.
+                        </li>
+
+                        <li>
+                              Tu compañero indica qué elemento <b>mantendría, eliminaría o cambiaría</b>.
+                        </li>
+
+                        <li>
+                              Realiza los cambios que consideres necesarios para mejorar la publicidad.
+                        </li>
+
+                        <li>
+                              Intercambien roles y realicen el mismo análisis con la publicidad de tu compañero.
+                        </li>
+
+                        <li>
+                              Al finalizar, pasa al frente, muestra tu publicidad y explica <b>qué elementos mantuviste,
+                                    cuáles cambiaste y por qué</b>.
+                        </li>
+
+                  </ol>
+
+                  <strong>PARA EVALUAR LA PUBLICIDAD</strong>
+
+                  <ul class="pair-steps">
+                        <li><b>Atención:</b> ¿qué observaste primero?</li>
+                        <li><b>Producto:</b> ¿se reconoce rápidamente qué se ofrece?</li>
+                        <li><b>Personaje:</b> ¿continúa siendo visible y relevante?</li>
+                        <li><b>Mensaje:</b> ¿se entiende rápidamente?</li>
+                        <li><b>Beneficio:</b> ¿queda claro qué obtiene el consumidor?</li>
+                        <li><b>Orden:</b> ¿sabes qué mirar primero y qué mirar después?</li>
+                        <li><b>Saturación:</b> ¿hay algún elemento que podría eliminarse?</li>
+                        <li><b>Acción:</b> ¿queda claro qué debería hacer la persona después?</li>
+                        <li><b>Interés:</b> ¿la publicidad despierta interés por conocer o adquirir el producto?</li>
+                        <li><b>Decisión:</b> ¿la dejarías así o realizarías cambios?</li>
+                  </ul>
+            </div>
+            <h3>¿Cómo podemos adaptar una publicidad según su objetivo?</h3>
+
+            <div class="answer">
+                  <p>
+                        Una misma imagen publicitaria puede adaptarse para cumplir diferentes objetivos.
+                        Podemos utilizarla para <b>informar, educar o promocionar</b>.
+                  </p>
+
+                  <p>
+                        <b>Informativa:</b> comunica información importante sobre el producto o servicio.
+                        <br><br>
+                        <b>Educativa:</b> enseña algo útil relacionado con el producto, servicio o necesidad del
+                        consumidor.
+                        <br><br>
+                        <b>Promocional:</b> presenta el producto o servicio buscando despertar interés y motivar una
+                        acción.
+                  </p>
+            </div>
+
+
+            <div class="prompt-box">
+                  <div class="prompt-label">
+                        Prompt maestro para crear tres tipos de publicidad
+                        <button class="copy-btn">Copiar</button>
+                  </div>
+
+                  <pre class="prompt">Actúa como especialista en marketing, publicidad, dirección de arte y diseño gráfico.
+
+Voy a adjuntar la publicidad que creé anteriormente.
+
+Esta imagen ya contiene:
+
+- El personaje.
+- El producto o servicio.
+- El escenario.
+- La composición.
+- Los textos.
+- La identidad visual de la empresa.
+
+Tu tarea es utilizar esta publicidad como REFERENCIA VISUAL PRINCIPAL y crear tres versiones diferentes:
+
+1. PUBLICIDAD INFORMATIVA.
+2. PUBLICIDAD EDUCATIVA.
+3. PUBLICIDAD PROMOCIONAL.
+
+Las tres publicaciones deben mantener relación visual entre sí y parecer parte de la comunicación de la misma empresa.
+
+
+DATOS DE MI EMPRESA:
+
+Nombre:
+[NOMBRE DE LA EMPRESA]
+
+Misión:
+[MISIÓN]
+
+Visión:
+[VISIÓN]
+
+Valores:
+[VALORES]
+
+
+PRODUCTO O SERVICIO:
+
+Nombre:
+[PRODUCTO O SERVICIO]
+
+Características principales:
+[CARACTERÍSTICAS]
+
+Beneficio principal:
+[BENEFICIO]
+
+
+IDENTIDAD VISUAL:
+
+Fuente principal:
+[FUENTE PRINCIPAL]
+
+Grosor:
+[GROSOR]
+
+Fuente secundaria:
+[FUENTE SECUNDARIA]
+
+Grosor:
+[GROSOR]
+
+
+PALETA DE COLORES:
+
+Color principal:
+[COLOR + CÓDIGO HEXADECIMAL]
+
+Color secundario 1:
+[COLOR + CÓDIGO HEXADECIMAL]
+
+Color secundario 2:
+[COLOR + CÓDIGO HEXADECIMAL]
+
+Color de contraste:
+[COLOR + CÓDIGO HEXADECIMAL]
+
+
+PRECIO:
+
+[PRECIO O ESCRIBE "NO UTILIZAR"]
+
+
+PROMOCIÓN:
+
+[PROMOCIÓN O ESCRIBE "NO UTILIZAR"]
+
+
+LLAMADO A LA ACCIÓN:
+
+[LLAMADO A LA ACCIÓN]
+
+
+PRIMERO ANALIZA:
+
+1. La publicidad adjunta.
+
+2. La misión, visión y valores de la empresa.
+
+3. El producto o servicio.
+
+4. Las características proporcionadas.
+
+5. El beneficio principal.
+
+6. El personaje.
+
+7. El escenario.
+
+8. La composición visual.
+
+9. La jerarquía tipográfica.
+
+10. Las fuentes utilizadas.
+
+11. La paleta de colores.
+
+12. Los espacios disponibles para colocar información.
+
+A partir de este análisis, adapta la publicidad a tres objetivos diferentes.
+
+
+VERSIÓN 1: PUBLICIDAD INFORMATIVA
+
+OBJETIVO:
+
+Comunicar información importante sobre el producto o servicio para que una persona pueda comprender mejor qué se ofrece.
+
+Selecciona únicamente la información necesaria.
+
+Puedes utilizar:
+
+- Nombre del producto o servicio.
+- Una característica importante.
+- Beneficio principal.
+- Información necesaria para comprender la oferta.
+- Llamado a la acción cuando sea necesario.
+
+No conviertas esta versión en una promoción.
+
+No inventes información.
+
+No agregues demasiados textos.
+
+La persona debe poder comprender rápidamente:
+
+¿QUÉ ES?
+
+¿QUÉ OFRECE?
+
+¿POR QUÉ PODRÍA SER ÚTIL?
+
+
+VERSIÓN 2: PUBLICIDAD EDUCATIVA
+
+OBJETIVO:
+
+Enseñar algo sencillo y útil relacionado directamente con el producto, servicio o necesidad del consumidor.
+
+Crea un contenido educativo breve.
+
+Puede utilizar una estructura como:
+
+¿SABÍAS QUE...?
+
+CONSEJO:
+
+RECOMENDACIÓN:
+
+DATO ÚTIL:
+
+Elige solamente UNA estructura según el producto o servicio.
+
+El contenido debe aportar un conocimiento sencillo que la persona pueda comprender rápidamente.
+
+Relaciona el aprendizaje con el producto o servicio de manera natural.
+
+No conviertas el contenido educativo en una venta directa.
+
+No inventes datos técnicos, científicos, médicos, legales, estadísticos o resultados que no hayan sido proporcionados.
+
+Si la información proporcionada no permite afirmar un dato educativo específico, utiliza solamente una recomendación general respaldada por las características o beneficios proporcionados.
+
+
+VERSIÓN 3: PUBLICIDAD PROMOCIONAL
+
+OBJETIVO:
+
+Presentar el producto o servicio de manera atractiva para despertar interés y motivar una acción.
+
+Puedes utilizar:
+
+- Título corto.
+- Beneficio principal.
+- Producto o servicio.
+- Precio, solamente si fue proporcionado.
+- Promoción, solamente si fue proporcionada.
+- Llamado a la acción.
+
+La publicidad debe permitir comprender rápidamente:
+
+¿QUÉ SE OFRECE?
+
+¿POR QUÉ PODRÍA INTERESARME?
+
+¿QUÉ DEBO HACER DESPUÉS?
+
+No inventes precios.
+
+No inventes descuentos.
+
+No inventes promociones.
+
+No inventes beneficios.
+
+
+REGLAS VISUALES PARA LAS TRES VERSIONES:
+
+Utiliza la publicidad adjunta como referencia visual.
+
+Conserva al mismo personaje.
+
+Conserva el producto o servicio.
+
+Conserva el estilo hiperrealista.
+
+Mantén una composición profesional.
+
+Mantén coherencia con la misión, visión y valores.
+
+Respeta las fuentes proporcionadas.
+
+Respeta los grosores proporcionados.
+
+Utiliza únicamente los colores de la paleta proporcionada para los elementos gráficos y textos.
+
+No es obligatorio utilizar todos los colores.
+
+Mantén una identidad visual reconocible entre las tres publicaciones.
+
+
+PERSONAJE Y PRODUCTO:
+
+El personaje y el producto deben continuar siendo elementos visuales importantes.
+
+No cubras el rostro del personaje.
+
+No cubras el producto.
+
+No cubras la interacción entre personaje y producto.
+
+No reduzcas excesivamente la imagen para crear espacio para texto.
+
+Los textos deben complementar la fotografía y no competir con ella.
+
+
+JERARQUÍA:
+
+Debe existir un elemento que llame primero la atención.
+
+La información secundaria debe tener menor importancia visual.
+
+El llamado a la acción debe ser visible cuando corresponda.
+
+Mantén suficiente espacio libre entre los elementos.
+
+
+NO SOBRECARGAR:
+
+Este punto es obligatorio para las tres publicaciones.
+
+Utiliza textos cortos.
+
+Evita párrafos.
+
+Evita información repetida.
+
+Evita demasiadas formas.
+
+Evita demasiados colores.
+
+Evita elementos decorativos innecesarios.
+
+No llenes todos los espacios disponibles.
+
+Si una información no es necesaria para cumplir el objetivo de la publicación, elimínala.
+
+
+DIFERENCIACIÓN:
+
+Las tres publicaciones NO deben ser exactamente iguales cambiando solamente el título.
+
+Cada una debe adaptar su mensaje y jerarquía al objetivo correspondiente.
+
+Sin embargo, deben conservar suficiente identidad visual para reconocer que pertenecen a la misma empresa.
+
+
+FORMATO:
+
+Genera cada arte en formato cuadrado 1080 × 1080 px.
+
+Los textos deben ser grandes y fáciles de leer.
+
+La composición debe funcionar correctamente en una publicación para redes sociales.
+
+
+FIDELIDAD:
+
+No inventes:
+
+- Características.
+- Beneficios.
+- Precios.
+- Promociones.
+- Descuentos.
+- Garantías.
+- Certificaciones.
+- Datos técnicos.
+- Datos de contacto.
+- Información adicional de la empresa.
+
+
+RESULTADO FINAL:
+
+Genera TRES artes publicitarios:
+
+ARTE 1:
+INFORMATIVO.
+
+ARTE 2:
+EDUCATIVO.
+
+ARTE 3:
+PROMOCIONAL.
+
+Cada arte debe cumplir claramente un objetivo diferente.
+
+Los tres deben mantener coherencia visual con la publicidad original y con la identidad de la empresa.
+
+El resultado debe verse profesional, limpio, equilibrado, legible y no sobrecargado.</pre>
+            </div>
+
+
+            <div class="challenge">
+                  <small>DINÁMICA 5 - ¿INFORMAR, EDUCAR O PROMOCIONAR?</small>
+
+                  <strong>INSTRUCCIONES</strong>
+
+                  <ol class="pasos">
+
+                        <li>
+                              Completa el prompt con los datos de tu <b>empresa, producto e identidad visual</b>.
+                        </li>
+
+                        <li>
+                              Adjunta la <b>publicidad creada anteriormente</b> y genera las tres versiones.
+                        </li>
+
+                        <li>
+                              Coloca juntos los artes <b>informativo, educativo y promocional</b>.
+                        </li>
+
+                        <li>
+                              Observa los tres resultados e identifica las principales diferencias entre sus mensajes.
+                        </li>
+
+                        <li>
+                              Muestra los tres artes a tu compañero <b>sin indicarle cuál corresponde a cada tipo</b>.
+                        </li>
+
+                        <li>
+                              Tu compañero debe identificar cuál considera que es <b>informativo, educativo y
+                                    promocional</b>.
+                        </li>
+
+                        <li>
+                              Tu compañero explica qué elemento de cada publicidad le permitió tomar su decisión.
+                        </li>
+
+                        <li>
+                              Comparen la respuesta de tu compañero con el objetivo real de cada publicación.
+                        </li>
+
+                        <li>
+                              Analicen si la publicidad <b>informativa</b> permite comprender claramente qué se ofrece.
+                        </li>
+
+                        <li>
+                              Analicen si la publicidad <b>educativa</b> realmente enseña algo útil y no parece
+                              solamente una venta.
+                        </li>
+
+                        <li>
+                              Analicen si la publicidad <b>promocional</b> despierta interés por el producto y deja
+                              claro qué hacer después.
+                        </li>
+
+                        <li>
+                              Comparen cuál de las tres publicaciones <b>llamó primero la atención</b> de cada
+                              integrante.
+                        </li>
+
+                        <li>
+                              Debatan cuál utilizarían si quisieran <b>dar a conocer información</b> sobre el producto.
+                        </li>
+
+                        <li>
+                              Debatan cuál utilizarían si quisieran <b>enseñar algo útil</b> a sus posibles clientes.
+                        </li>
+
+                        <li>
+                              Debatan cuál utilizarían si quisieran <b>motivar una acción relacionada con el
+                                    producto</b>.
+                        </li>
+
+                        <li>
+                              Revisen si alguno de los artes tiene <b>demasiado texto, información innecesaria o
+                                    elementos que distraen</b>.
+                        </li>
+
+                        <li>
+                              Cada integrante indica qué publicación considera que obtuvo el <b>mejor resultado y por
+                                    qué</b>.
+                        </li>
+
+                        <li>
+                              Intercambien roles y realicen el mismo análisis con las tres publicaciones de tu
+                              compañero.
+                        </li>
+
+                        <li>
+                              Realicen los cambios que consideren necesarios en los artes que no cumplieron
+                              correctamente su objetivo.
+                        </li>
+
+                        <li>
+                              Al finalizar, pasen al frente y muestren los resultados obtenidos.
+                        </li>
+
+                        <li>
+                              Expliquen al curso <b>qué diferencia existe entre los tres artes, cuál funcionó mejor y
+                                    qué cambios realizaron después del análisis</b>.
+                        </li>
+
+                  </ol>
+
+                  <strong>PARA EL DEBATE</strong>
+
+                  <ul class="pair-steps">
+                        <li><b>Informativo:</b> ¿queda claro qué se ofrece?</li>
+                        <li><b>Educativo:</b> ¿realmente enseña algo útil?</li>
+                        <li><b>Promocional:</b> ¿despierta interés y propone una acción?</li>
+                        <li><b>Diferencia:</b> ¿se distingue fácilmente el objetivo de cada arte?</li>
+                        <li><b>Imagen:</b> ¿el personaje y el producto continúan siendo protagonistas?</li>
+                        <li><b>Identidad:</b> ¿los tres parecen pertenecer a la misma empresa?</li>
+                        <li><b>Lectura:</b> ¿los textos se entienden rápidamente?</li>
+                        <li><b>Saturación:</b> ¿alguno tiene información innecesaria?</li>
+                        <li><b>Resultado:</b> ¿cuál de los tres funcionó mejor?</li>
+                        <li><b>Cambios:</b> ¿qué mejorarías antes de publicarlo?</li>
+                  </ul>
+            </div>
+            <div class="activity">
+                  <h3>Actividad 7 · Creación de artes</h3>
+
+                  <ul>
+
+                        <li>
+                              Selecciona el <b>producto o servicio</b> que utilizarás para desarrollar la actividad.
+                        </li>
+
+                        <li>
+                              Genera un <b>personaje</b> que represente a un posible consumidor de tu producto o
+                              servicio.
+                        </li>
+
+                        <li>
+                              Crea una <b>composición hiperrealista</b> donde el personaje aparezca utilizando,
+                              consumiendo o disfrutando el producto dentro de un lugar adecuado.
+                        </li>
+
+                        <li>
+                              Analiza la composición y determina qué <b>textos publicitarios</b> son realmente
+                              necesarios para comunicar el mensaje sin sobrecargar la imagen.
+                        </li>
+
+                        <li>
+                              Utiliza la <b>paleta de colores y tipografías</b> definidas anteriormente para
+                              mantener la identidad visual de la empresa.
+                        </li>
+
+                        <li>
+                              Genera la <b>publicidad final</b> procurando que el personaje y el producto
+                              continúen siendo los principales elementos visuales.
+                        </li>
+
+                        <li>
+                              A partir de la publicidad creada, genera tres versiones:
+                              <ul>
+                                    <li><b>Arte informativo.</b></li>
+                                    <li><b>Arte educativo.</b></li>
+                                    <li><b>Arte promocional.</b></li>
+                              </ul>
+                        </li>
+
+                        <li>
+                              Compara los tres artes y verifica que cada uno cumpla claramente con
+                              <b>un objetivo diferente</b>.
+                        </li>
+
+                        <li>
+                              Realiza los cambios necesarios si alguno de los artes tiene demasiado texto,
+                              no comunica correctamente su objetivo o pierde el protagonismo del personaje
+                              y del producto.
+                        </li>
+
+                        <li>
+                              Presenta los <b>tres artes finales</b> y explica brevemente la diferencia entre
+                              el informativo, educativo y promocional.
+                        </li>
+
+                  </ul>
+            </div>
+            </section>
+
+
+            <section class="lesson" id="clase8">
+                  <div class="lesson-head">
+                        <span class="lesson-no">Clase 8</span>
+                        <h2>Edición de Arte</h2>
+                  </div>
+
+                  <div class="challenge">
+                        <small>DINÁMICA 1 - ¿CÓMO MEJORARÍAS ESTA PUBLICIDAD?</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+
+                              <li>
+                                    Ingresa a una <b>red social</b> y busca una publicidad que llame tu atención.
+                              </li>
+
+                              <li>
+                                    Toma una <b>captura de pantalla</b> de la publicidad seleccionada.
+                              </li>
+
+                              <li>
+                                    Observa la publicidad y determina cuál es su objetivo principal:
+                                    <ul>
+                                          <li><b>Informar.</b></li>
+                                          <li><b>Educar.</b></li>
+                                          <li><b>Promocionar.</b></li>
+                                    </ul>
+                              </li>
+
+                              <li>
+                                    Explica qué elementos de la publicidad te permitieron identificar
+                                    su objetivo.
+                              </li>
+
+                              <li>
+                                    Observa la <b>composición</b> e identifica qué elemento llama primero
+                                    tu atención.
+                              </li>
+
+                              <li>
+                                    Revisa si el <b>personaje, producto, escenario y textos</b> están
+                                    organizados correctamente.
+                              </li>
+
+                              <li>
+                                    Analiza si el producto o servicio puede <b>identificarse rápidamente</b>.
+                              </li>
+
+                              <li>
+                                    Revisa si los <b>textos</b> son fáciles de leer y si existe información
+                                    que podría eliminarse.
+                              </li>
+
+                              <li>
+                                    Observa los <b>colores y tipografías</b> y analiza si permiten leer
+                                    fácilmente la información.
+                              </li>
+
+                              <li>
+                                    Piensa qué elementos <b>mantendrías</b> porque funcionan correctamente.
+                              </li>
+
+                              <li>
+                                    Identifica qué elementos <b>cambiarías, eliminarías, moverías,
+                                          aumentarías o reducirías</b> para mejorar la publicidad.
+                              </li>
+
+                              <li>
+                                    Muestra la publicidad a tu compañero y explícale
+                                    <b>cómo la mejorarías</b>.
+                              </li>
+
+                              <li>
+                                    Tu compañero observa el mismo arte e indica qué cambios realizaría.
+                              </li>
+
+                              <li>
+                                    Comparen sus propuestas y debatan cuáles cambios realmente ayudarían
+                                    a mejorar la publicidad y cuáles no serían necesarios.
+                              </li>
+
+                              <li>
+                                    Al finalizar, pasa al frente, <b>muestra primero la publicidad original</b>
+                                    y explica si es informativa, educativa o promocional.
+                              </li>
+
+                              <li>
+                                    Después explica al curso <b>qué elementos mantendrías, qué elementos
+                                          cambiarías y cómo consideras que podría mejorar su composición</b>.
+                              </li>
+
+                        </ol>
+
+                        <strong>PARA ANALIZAR EL ARTE</strong>
+
+                        <ul class="pair-steps">
+                              <li><b>Objetivo:</b> ¿busca informar, educar o promocionar?</li>
+                              <li><b>Atención:</b> ¿qué elemento observas primero?</li>
+                              <li><b>Producto:</b> ¿se identifica fácilmente?</li>
+                              <li><b>Personaje:</b> ¿tiene relación con el mensaje?</li>
+                              <li><b>Composición:</b> ¿los elementos están bien organizados?</li>
+                              <li><b>Texto:</b> ¿se entiende rápidamente?</li>
+                              <li><b>Tipografía:</b> ¿es fácil de leer?</li>
+                              <li><b>Colores:</b> ¿existe suficiente contraste?</li>
+                              <li><b>Saturación:</b> ¿hay elementos innecesarios?</li>
+                              <li><b>Mejora:</b> ¿qué mantendrías, eliminarías, moverías o cambiarías?</li>
+                        </ul>
+                  </div>
+
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+                        Porque antes de editar un arte debemos aprender a <b>identificar qué funciona
+                              y qué necesita mejorar</b>. Editar no significa cambiar todo, sino realizar
+                        cambios que ayuden a comunicar mejor el mensaje.
+                  </div>
+
+                  <h3>¿Qué es la edición de imágenes?</h3>
+
+                  <div class="answer">
+                        <p>
+                              La <b>edición de imágenes</b> consiste en modificar, organizar o ajustar los
+                              elementos visuales de una imagen para mejorar su apariencia y comunicar mejor
+                              un mensaje.
+                        </p>
+
+                        <p>
+                              En un arte publicitario podemos editar elementos como <b>imágenes, textos,
+                                    colores, tamaños, posiciones, formas, fondos y espacios</b>.
+                        </p>
+
+                        <p>
+                              Editar no significa cambiar todo. Una buena edición busca <b>mantener lo que
+                                    funciona y mejorar únicamente lo que sea necesario</b>.
+                        </p>
+                  </div>
+
+
+                  <h3>¿Cómo podemos replicar un arte en Canva?</h3>
+
+                  <div class="answer">
+                        <p>
+                              Para replicar un arte primero debemos <b>observar su composición</b> y separar
+                              mentalmente cada uno de sus elementos.
+                        </p>
+
+                        <p>
+                              Debemos identificar qué elementos tiene, dónde están ubicados, qué tamaño
+                              aproximado tienen y cómo se relacionan entre sí. Después podemos reconstruir
+                              progresivamente la composición en Canva.
+                        </p>
+                  </div>
+
+
+                  <div class="prompt-box">
+                        <div class="prompt-label">
+                              Prompt maestro para replicar un arte en Canva
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre class="prompt">Actúa como diseñador gráfico profesional y especialista en composición visual y Canva.
+
+Voy a adjuntar una imagen de un arte publicitario.
+
+Tu tarea NO es generar una nueva imagen.
+
+Tu tarea es analizar detalladamente el arte adjunto y crear una guía práctica, paso a paso, para que pueda REPLICAR SU COMPOSICIÓN LO MEJOR POSIBLE EN CANVA.
+
+Analiza únicamente lo que realmente puedes observar en la imagen.
+
+No inventes elementos que no aparecen.
+
+
+1. FORMATO DEL ARTE
+
+Indica:
+
+- Orientación: cuadrada, vertical u horizontal.
+- Relación de aspecto aproximada.
+- Tamaño recomendado para crear el diseño en Canva.
+- Márgenes aproximados.
+- Distribución general del espacio.
+
+
+2. ESTRUCTURA DE LA COMPOSICIÓN
+
+Divide mentalmente el arte en zonas.
+
+Por ejemplo:
+
+- Parte superior.
+- Centro.
+- Parte inferior.
+- Lado izquierdo.
+- Lado derecho.
+
+Explica qué elementos aparecen en cada zona.
+
+Indica cuál ocupa mayor espacio y cuál ocupa menor espacio.
+
+
+3. FONDO
+
+Describe:
+
+- Color o colores.
+- Imagen utilizada.
+- Degradado, si existe.
+- Textura, si existe.
+- Nivel aproximado de luminosidad.
+- Elementos decorativos presentes.
+
+Si puedes estimar los colores, proporciona códigos HEX aproximados.
+
+
+4. IMAGEN PRINCIPAL
+
+Identifica la imagen que tiene mayor protagonismo.
+
+Indica:
+
+- Qué representa.
+- En qué zona está ubicada.
+- Tamaño aproximado en porcentaje respecto al arte.
+- Si está centrada, desplazada a la izquierda o a la derecha.
+- Si aparece completa o recortada.
+- Qué partes llegan cerca de los bordes.
+- Si está delante o detrás de otros elementos.
+- Si tiene fondo o parece tener el fondo eliminado.
+
+
+5. PERSONAJE
+
+Si existe un personaje, indica:
+
+- Ubicación.
+- Tamaño aproximado.
+- Encuadre: rostro, medio cuerpo, cuerpo completo u otro.
+- Dirección de la mirada.
+- Postura.
+- Espacio que ocupa.
+- Relación con el producto.
+- Relación con los textos.
+- Si está delante o detrás de otros elementos.
+
+Si no existe personaje, indica:
+NO UTILIZA PERSONAJE.
+
+
+6. PRODUCTO
+
+Si existe un producto, analiza:
+
+- Ubicación.
+- Tamaño aproximado.
+- Orientación.
+- Proporción respecto al personaje.
+- Relación con otros elementos.
+- Si tiene sombra.
+- Si tiene reflejo.
+- Si está recortado.
+- Si está superpuesto sobre otros elementos.
+
+Si no existe producto, indica:
+NO UTILIZA PRODUCTO.
+
+
+7. TEXTOS
+
+Transcribe solamente los textos que sean claramente legibles.
+
+Para cada texto indica:
+
+- Contenido.
+- Ubicación.
+- Alineación.
+- Tamaño relativo: muy grande, grande, mediano o pequeño.
+- Grosor aproximado.
+- Color.
+- Uso de mayúsculas o minúsculas.
+- Cantidad aproximada de líneas.
+- Espacio entre líneas.
+- Espacio respecto a otros elementos.
+
+
+8. TIPOGRAFÍA
+
+Analiza visualmente las letras.
+
+Para cada grupo de texto indica:
+
+- Serif, sans serif, manuscrita o decorativa.
+- Grosor aproximado.
+- Forma general.
+- Sensación que transmite.
+
+Si puedes reconocer con seguridad una fuente de Canva, indícala.
+
+Si no puedes reconocerla exactamente, NO inventes su nombre.
+
+En ese caso recomienda entre 2 y 3 fuentes disponibles en Canva que tengan una apariencia similar.
+
+
+9. COLORES
+
+Identifica los principales colores del arte.
+
+Organízalos como:
+
+- Color principal.
+- Color secundario.
+- Color de contraste.
+- Color del texto principal.
+- Color del texto secundario.
+
+Proporciona códigos HEX aproximados cuando sea posible.
+
+Aclara que los códigos son estimaciones visuales cuando no puedan determinarse exactamente.
+
+
+10. FORMAS Y ELEMENTOS GRÁFICOS
+
+Identifica:
+
+- Rectángulos.
+- Círculos.
+- Líneas.
+- Marcos.
+- Fondos de texto.
+- Botones visuales.
+- Íconos.
+- Flechas.
+- Figuras decorativas.
+- Otros elementos gráficos.
+
+Para cada elemento indica:
+
+- Forma.
+- Color.
+- Ubicación.
+- Tamaño aproximado.
+- Si está delante o detrás de otros elementos.
+
+
+11. EFECTOS
+
+Identifica si existen:
+
+- Sombras.
+- Transparencias.
+- Desenfoques.
+- Degradados.
+- Bordes.
+- Contornos.
+- Brillos.
+- Superposiciones.
+
+Explica aproximadamente cómo podrían reproducirse utilizando herramientas de Canva.
+
+
+12. JERARQUÍA VISUAL
+
+Indica el recorrido aproximado de la mirada.
+
+Responde:
+
+¿QUÉ SE OBSERVA PRIMERO?
+
+¿QUÉ SE OBSERVA SEGUNDO?
+
+¿QUÉ SE OBSERVA TERCERO?
+
+Explica qué elementos producen esa jerarquía mediante tamaño, posición, color o contraste.
+
+
+13. ESPACIOS
+
+Analiza:
+
+- Espacios libres.
+- Separación entre textos.
+- Separación entre imagen y textos.
+- Márgenes.
+- Zonas que intencionalmente permanecen vacías.
+
+No recomiendes llenar los espacios libres solamente porque están disponibles.
+
+
+14. CAPAS
+
+Determina un orden aproximado de construcción desde el elemento que debería quedar más atrás hasta el que debería quedar más adelante.
+
+Ejemplo:
+
+CAPA 1: Fondo.
+CAPA 2: Forma decorativa.
+CAPA 3: Personaje.
+CAPA 4: Producto.
+CAPA 5: Título.
+CAPA 6: Información.
+CAPA 7: Llamado a la acción.
+
+Adapta las capas a la imagen real.
+
+
+15. GUÍA PASO A PASO PARA CANVA
+
+Después del análisis, convierte toda la información en instrucciones sencillas.
+
+Utiliza este formato:
+
+PASO 1:
+Crear el diseño e indicar las dimensiones.
+
+PASO 2:
+Crear o colocar el fondo.
+
+PASO 3:
+Agregar el primer elemento visual.
+
+PASO 4:
+Agregar los siguientes elementos respetando el orden de las capas.
+
+Continúa hasta terminar completamente el arte.
+
+En cada paso indica:
+
+- Qué debo agregar.
+- Dónde debo colocarlo.
+- Tamaño aproximado.
+- Color.
+- Fuente cuando corresponda.
+- Qué elemento de Canva puedo utilizar.
+- Qué efecto debo aplicar cuando sea necesario.
+
+
+16. COMPROBACIÓN FINAL
+
+Al terminar, crea una lista corta para comparar mi réplica con el original.
+
+Incluye:
+
+- Tamaño y formato.
+- Fondo.
+- Posición del personaje.
+- Posición del producto.
+- Tamaño de las imágenes.
+- Textos.
+- Tipografías.
+- Colores.
+- Formas.
+- Espacios.
+- Alineación.
+- Jerarquía visual.
+
+
+IMPORTANTE:
+
+No generes una nueva imagen.
+
+No rediseñes el arte.
+
+No intentes mejorarlo todavía.
+
+Primero necesito REPLICAR la composición original en Canva lo mejor posible.
+
+No inventes medidas exactas cuando no puedas determinarlas.
+
+Utiliza porcentajes o aproximaciones cuando sea necesario.
+
+Diferencia claramente entre:
+
+LO QUE PUEDES OBSERVAR
+
+y
+
+LO QUE ESTÁS ESTIMANDO.
+
+Utiliza instrucciones sencillas para una persona que está aprendiendo Canva.
+
+El objetivo final es que pueda observar la imagen original y reconstruirla manualmente en Canva paso a paso.</pre>
+                  </div>
+
+
+                  <div class="challenge">
+                        <small>DINÁMICA 2 - ¿LOGRAMOS REPLICAR EL ARTE?</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+
+                              <li>
+                                    Selecciona la <b>publicidad utilizada anteriormente</b>.
+                              </li>
+
+                              <li>
+                                    Adjunta la publicidad al prompt y genera la <b>guía para replicarla en Canva</b>.
+                              </li>
+
+                              <li>
+                                    Abre Canva y crea un nuevo diseño utilizando las dimensiones recomendadas.
+                              </li>
+
+                              <li>
+                                    Sigue la guía paso a paso e intenta <b>replicar manualmente la composición</b>
+                                    del arte original.
+                              </li>
+
+                              <li>
+                                    Cuando termines, coloca juntos el <b>arte original</b> y tu
+                                    <b>réplica realizada en Canva</b>.
+                              </li>
+
+                              <li>
+                                    Muestra ambos artes a tu compañero sin indicarle todavía qué partes
+                                    consideras que quedaron bien o mal.
+                              </li>
+
+                              <li>
+                                    Tu compañero identifica primero <b>tres elementos que considera que
+                                          lograste replicar correctamente</b>.
+                              </li>
+
+                              <li>
+                                    Después identifica <b>tres elementos que podrían mejorar</b> para que
+                                    la réplica se parezca más al original.
+                              </li>
+
+                              <li>
+                                    Comparen la ubicación y tamaño del <b>personaje y producto</b>.
+                              </li>
+
+                              <li>
+                                    Comparen los <b>textos, tamaños, tipografías, grosores y alineaciones</b>.
+                              </li>
+
+                              <li>
+                                    Comparen los <b>colores, formas y efectos</b>.
+                              </li>
+
+                              <li>
+                                    Comparen los <b>espacios, márgenes y distribución</b> de los elementos.
+                              </li>
+
+                              <li>
+                                    Analicen si ambos artes producen un <b>recorrido visual similar</b>:
+                                    qué se observa primero, segundo y tercero.
+                              </li>
+
+                              <li>
+                                    Tu compañero selecciona el <b>cambio más importante</b> que realizaría
+                                    para acercar la réplica al arte original.
+                              </li>
+
+                              <li>
+                                    Realiza en Canva los cambios que consideres necesarios después de escuchar
+                                    las observaciones de tu compañero.
+                              </li>
+
+                              <li>
+                                    Vuelvan a comparar el <b>original con la versión corregida</b> y determinen
+                                    si el resultado mejoró.
+                              </li>
+
+                              <li>
+                                    Intercambien roles y realicen la misma crítica constructiva con el trabajo
+                                    de tu compañero.
+                              </li>
+
+                              <li>
+                                    Al finalizar, pasa al frente y muestra <b>el arte original, tu primera
+                                          réplica y la versión corregida</b>.
+                              </li>
+
+                              <li>
+                                    Explica brevemente <b>qué lograste replicar, qué dificultad encontraste
+                                          y qué cambio realizaste después de recibir la opinión de tu compañero</b>.
+                              </li>
+
+                        </ol>
+
+                        <strong>PARA REALIZAR LA CRÍTICA CONSTRUCTIVA</strong>
+
+                        <ul class="pair-steps">
+                              <li><b>Primero:</b> menciona qué elementos están bien logrados.</li>
+                              <li><b>Composición:</b> ¿los elementos están ubicados de forma similar?</li>
+                              <li><b>Proporción:</b> ¿personaje, producto y textos tienen tamaños similares?</li>
+                              <li><b>Tipografía:</b> ¿las letras se parecen al original?</li>
+                              <li><b>Colores:</b> ¿son similares?</li>
+                              <li><b>Espacios:</b> ¿se respetaron márgenes y separaciones?</li>
+                              <li><b>Jerarquía:</b> ¿la mirada sigue aproximadamente el mismo recorrido?</li>
+                              <li><b>Después:</b> indica qué podría mejorarse y explica por qué.</li>
+                              <li><b>Cambio:</b> ¿cuál sería la primera modificación que realizarías?</li>
+                              <li><b>Resultado:</b> ¿la versión corregida se acercó más al arte original?</li>
+                        </ul>
+                  </div>
+                  <div class="prompt-box">
+                        <div class="prompt-label">
+                              Prompt para replicar un arte directamente en Canva
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre class="prompt">@Canva
+
+Actúa como diseñador gráfico profesional especializado en composición visual y edición de artes publicitarios.
+
+Voy a adjuntar una imagen de referencia.
+
+Quiero que utilices Canva para REPLICAR ESTE ARTE CON LA MAYOR FIDELIDAD POSIBLE y crear un diseño completamente editable.
+
+Utiliza la imagen adjunta como REFERENCIA VISUAL OBLIGATORIA.
+
+No quiero solamente una explicación de cómo realizarlo.
+
+Quiero que CREES EL DISEÑO EN CANVA.
+
+
+OBJETIVO:
+
+Reconstruye la composición visual de la imagen adjunta intentando mantener:
+
+- Tamaño y formato.
+- Distribución de los elementos.
+- Fondo.
+- Imágenes.
+- Personaje.
+- Producto.
+- Textos.
+- Posición de los textos.
+- Tamaños de los textos.
+- Jerarquía tipográfica.
+- Colores.
+- Formas.
+- Líneas.
+- Íconos.
+- Espacios.
+- Márgenes.
+- Alineaciones.
+- Superposiciones.
+- Sombras.
+- Transparencias.
+- Efectos visuales.
+- Proporciones.
+- Jerarquía visual.
+
+
+FORMATO:
+
+Primero identifica la relación de aspecto de la imagen original.
+
+Crea el diseño de Canva utilizando las mismas proporciones.
+
+Si corresponde a una publicación cuadrada para redes sociales, utiliza 1080 × 1080 px.
+
+
+COMPOSICIÓN:
+
+Analiza la posición de cada elemento antes de reconstruir el arte.
+
+Respeta lo mejor posible:
+
+- Distancia entre elementos.
+- Tamaño relativo de cada elemento.
+- Posición horizontal.
+- Posición vertical.
+- Espacios libres.
+- Márgenes.
+- Alineaciones.
+- Orden de las capas.
+
+No reorganices los elementos solamente para crear una composición diferente.
+
+El objetivo es REPLICAR, no REDISEÑAR.
+
+
+IMÁGENES:
+
+Si la imagen contiene un personaje o producto proporcionado en la referencia, intenta conservar su apariencia y ubicación visual.
+
+No sustituyas innecesariamente los elementos principales.
+
+Mantén aproximadamente:
+
+- Tamaño.
+- Encuadre.
+- Recorte.
+- Posición.
+- Proporción.
+- Orientación.
+
+Si un elemento no puede reproducirse exactamente con los recursos disponibles, utiliza la alternativa visualmente más cercana sin modificar innecesariamente la composición.
+
+
+TEXTOS:
+
+Transcribe los textos visibles de la imagen solamente cuando puedan identificarse correctamente.
+
+Respeta:
+
+- Contenido.
+- Mayúsculas y minúsculas.
+- Cantidad de líneas.
+- Posición.
+- Alineación.
+- Tamaño relativo.
+- Grosor.
+- Color.
+- Espaciado.
+
+No inventes textos que no aparezcan en la referencia.
+
+
+TIPOGRAFÍAS:
+
+Intenta identificar las fuentes utilizadas.
+
+Si la fuente exacta está disponible en Canva, utilízala.
+
+Si no está disponible o no puedes identificarla con seguridad, selecciona una fuente de Canva visualmente similar.
+
+Mantén principalmente:
+
+- Forma de las letras.
+- Grosor.
+- Tamaño.
+- Jerarquía.
+- Espaciado.
+
+
+COLORES:
+
+Replica los colores de la referencia con la mayor aproximación posible.
+
+Cuando sea posible, estima sus códigos HEX y aplícalos a los elementos correspondientes.
+
+Mantén:
+
+- Color principal.
+- Colores secundarios.
+- Colores de contraste.
+- Colores de los textos.
+- Colores de las formas.
+
+
+CAPAS:
+
+Reconstruye el diseño utilizando elementos independientes.
+
+Organiza correctamente las capas desde el fondo hasta los elementos superiores.
+
+Por ejemplo:
+
+FONDO → FORMAS → IMÁGENES → PERSONAJE → PRODUCTO → TEXTOS → LLAMADO A LA ACCIÓN.
+
+Adapta este orden según el arte de referencia.
+
+
+MUY IMPORTANTE: DISEÑO EDITABLE
+
+No conviertas toda la composición en una sola imagen plana.
+
+Siempre que sea posible, cada elemento debe quedar separado y editable dentro de Canva.
+
+Los textos deben quedar como cuadros de texto editables.
+
+Las formas deben quedar como elementos editables.
+
+Los colores deben poder modificarse.
+
+Las imágenes deben mantenerse como elementos independientes cuando sea posible.
+
+El usuario debe poder seleccionar, mover, cambiar, eliminar o editar los elementos posteriormente.
+
+
+FIDELIDAD:
+
+Antes de finalizar, compara visualmente el diseño creado con la imagen de referencia.
+
+Revisa especialmente:
+
+1. Tamaño general.
+2. Posición del personaje.
+3. Posición del producto.
+4. Tamaño de las imágenes.
+5. Posición de los textos.
+6. Tamaños tipográficos.
+7. Colores.
+8. Formas.
+9. Márgenes.
+10. Espacios.
+11. Alineaciones.
+12. Jerarquía visual.
+
+Realiza los ajustes necesarios para acercar el diseño lo máximo posible a la referencia.
+
+
+NO HACER:
+
+- No rediseñes el arte.
+- No cambies el objetivo de la publicidad.
+- No agregues información nueva.
+- No inventes textos.
+- No agregues elementos decorativos innecesarios.
+- No cambies los colores por preferencia personal.
+- No cambies la composición solamente para hacerla diferente.
+- No conviertas todo el diseño en una única imagen si los elementos pueden reconstruirse de forma editable.
+
+
+RESULTADO FINAL:
+
+Crea el arte directamente en Canva.
+
+Debe ser una réplica visual lo más fiel posible a la imagen adjunta y conservar sus principales características de composición.
+
+Prioriza la similitud visual con el original.
+
+Mantén los elementos separados y editables siempre que Canva lo permita.
+
+Al finalizar, entrégame el diseño de Canva para poder abrirlo, revisarlo y continuar editándolo.</pre>
+                  </div>
+                  <div class="challenge">
+                        <small>DINÁMICA 3 - CORRIGE Y MEJORA TU RÉPLICA</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+
+                              <li>
+                                    Abre en <b>Canva</b> el arte generado a partir de la imagen de referencia.
+                              </li>
+
+                              <li>
+                                    Coloca a la vista el <b>arte original</b> y la <b>réplica generada en Canva</b>.
+                              </li>
+
+                              <li>
+                                    Observa ambos diseños e identifica pequeñas diferencias en la
+                                    <b>posición, tamaño y separación</b> de los elementos.
+                              </li>
+
+                              <li>
+                                    Realiza pequeñas correcciones manualmente en Canva. Puedes:
+                                    <ul>
+                                          <li>Mover un elemento.</li>
+                                          <li>Aumentar o reducir su tamaño.</li>
+                                          <li>Cambiar una alineación.</li>
+                                          <li>Ajustar una tipografía.</li>
+                                          <li>Modificar un color.</li>
+                                          <li>Corregir espacios.</li>
+                                          <li>Ajustar una forma.</li>
+                                    </ul>
+                              </li>
+
+                              <li>
+                                    Evita cambiar completamente el diseño. El objetivo es realizar
+                                    <b>pequeños ajustes para acercarlo al arte original</b>.
+                              </li>
+
+                              <li>
+                                    Cuando termines, muestra a tu compañero el <b>arte original y tu versión
+                                          corregida</b>.
+                              </li>
+
+                              <li>
+                                    Tu compañero identifica primero <b>qué elementos considera que están bien
+                                          replicados</b>.
+                              </li>
+
+                              <li>
+                                    Después indica <b>una pequeña corrección adicional</b> que podría ayudar
+                                    a mejorar el resultado.
+                              </li>
+
+                              <li>
+                                    Explica a tu compañero qué cambios realizaste manualmente y
+                                    <b>por qué decidiste hacerlos</b>.
+                              </li>
+
+                              <li>
+                                    Decide si la recomendación de tu compañero mejora realmente el diseño.
+                                    Si consideras que sí, realiza el cambio en Canva.
+                              </li>
+
+                              <li>
+                                    Intercambien roles y realicen el mismo análisis con el trabajo de tu compañero.
+                              </li>
+
+                              <li>
+                                    Al finalizar, muestra al curso el <b>arte original y tu versión final</b>
+                                    y explica brevemente cuál fue la corrección más importante que realizaste.
+                              </li>
+
+                        </ol>
+
+                        <strong>PARA COMPARAR</strong>
+
+                        <ul class="pair-steps">
+                              <li><b>Posición:</b> ¿los elementos están ubicados correctamente?</li>
+                              <li><b>Tamaño:</b> ¿mantienen proporciones similares?</li>
+                              <li><b>Texto:</b> ¿la posición y tamaño se parecen al original?</li>
+                              <li><b>Tipografía:</b> ¿mantiene una apariencia similar?</li>
+                              <li><b>Colores:</b> ¿son suficientemente parecidos?</li>
+                              <li><b>Espacios:</b> ¿las separaciones son similares?</li>
+                              <li><b>Composición:</b> ¿el resultado mantiene la estructura del original?</li>
+                              <li><b>Corrección:</b> ¿qué pequeño cambio mejoraría el resultado?</li>
+                        </ul>
+                  </div>
+
+
+                  <div class="activity">
+                        <h3>Actividad 8 · Edición y réplica de un arte en Canva</h3>
+
+                        <ul>
+
+                              <li>
+                                    Busca una <b>publicidad en una red social</b> que tenga una composición
+                                    que consideres interesante.
+                              </li>
+
+                              <li>
+                                    Guarda una captura de la publicidad seleccionada como
+                                    <b>arte de referencia</b>.
+                              </li>
+
+                              <li>
+                                    Identifica si su objetivo principal es <b>informar, educar o promocionar</b>.
+                              </li>
+
+                              <li>
+                                    Analiza su composición e identifica:
+                                    <ul>
+                                          <li>Imágenes.</li>
+                                          <li>Personaje.</li>
+                                          <li>Producto.</li>
+                                          <li>Textos.</li>
+                                          <li>Tipografías.</li>
+                                          <li>Colores.</li>
+                                          <li>Formas.</li>
+                                          <li>Espacios.</li>
+                                    </ul>
+                              </li>
+
+                              <li>
+                                    Utiliza el <b>prompt de análisis</b> para obtener una guía que permita
+                                    comprender cómo está construido el arte.
+                              </li>
+
+                              <li>
+                                    Intenta realizar una primera <b>réplica manual en Canva</b> siguiendo
+                                    la composición del original.
+                              </li>
+
+                              <li>
+                                    Utiliza posteriormente <b>@Canva</b> con el prompt correspondiente para
+                                    generar otra réplica del mismo arte.
+                              </li>
+
+                              <li>
+                                    Compara el <b>arte original, tu réplica manual y la réplica generada con @Canva</b>.
+                              </li>
+
+                              <li>
+                                    Selecciona la réplica que consideres más cercana al original y realiza
+                                    <b>pequeñas correcciones manuales en Canva</b>.
+                              </li>
+
+                              <li>
+                                    Revisa principalmente la posición, tamaños, textos, tipografías,
+                                    colores, espacios y jerarquía visual.
+                              </li>
+
+                              <li>
+                                    Presenta como resultado:
+                                    <ul>
+                                          <li><b>Arte original.</b></li>
+                                          <li><b>Réplica manual.</b></li>
+                                          <li><b>Réplica generada con @Canva.</b></li>
+                                          <li><b>Versión final corregida.</b></li>
+                                    </ul>
+                              </li>
+
+                              <li>
+                                    Explica brevemente <b>qué método logró acercarse más al original,
+                                          qué errores encontraste y qué correcciones realizaste</b>.
+                              </li>
+
+                        </ul>
+                  </div>
+
+
+
+
+            </section>
+
+
+            <section class="lesson" id="clase9">
+                  <div class="lesson-head">
+                        <span class="lesson-no">Clase 9</span>
+                        <h2>Voz</h2>
+                  </div>
+                  <div class="challenge">
+                        <small>DINÁMICA 1 - ESCUCHA LA VOZ DEL ANUNCIO</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+
+                              <li>
+                                    Busca en una <b>red social</b> un anuncio de un producto o servicio
+                                    donde exista una voz hablando.
+                              </li>
+
+                              <li>
+                                    Escucha el anuncio una primera vez sin analizarlo.
+                              </li>
+
+                              <li>
+                                    Escúchalo nuevamente prestando atención solamente a la
+                                    <b>forma de hablar del locutor</b>.
+                              </li>
+
+                              <li>
+                                    Selecciona la tonalidad que consideras que predomina:
+                                    <ul>
+                                          <li>Alegre.</li>
+                                          <li>Enérgica.</li>
+                                          <li>Entusiasta.</li>
+                                          <li>Cercana.</li>
+                                          <li>Seria.</li>
+                                          <li>Formal.</li>
+                                          <li>Tranquila.</li>
+                                          <li>Persuasiva.</li>
+                                          <li>Urgente.</li>
+                                    </ul>
+                              </li>
+
+                              <li>
+                                    Determina cómo habla el locutor:
+                                    <ul>
+                                          <li>Rápido o lento.</li>
+                                          <li>Fuerte o suave.</li>
+                                          <li>Con muchas o pocas pausas.</li>
+                                          <li>Con palabras que reciben mayor énfasis.</li>
+                                    </ul>
+                              </li>
+
+                              <li>
+                                    Identifica qué <b>palabras destaca</b> el locutor mediante su voz.
+                              </li>
+
+                              <li>
+                                    Explica qué intenta comunicar mediante esa forma de hablar:
+                                    <b>informar, generar interés, transmitir emoción, convencer o motivar una
+                                          acción</b>.
+                              </li>
+
+                              <li>
+                                    Analiza si esa forma de hablar es adecuada para el
+                                    <b>producto o servicio anunciado</b>.
+                              </li>
+
+                              <li>
+                                    Muestra el anuncio a tu compañero sin decirle tus respuestas.
+                              </li>
+
+                              <li>
+                                    Tu compañero escucha el anuncio y realiza el mismo análisis.
+                              </li>
+
+                              <li>
+                                    Comparen sus respuestas e identifiquen en qué aspectos coincidieron
+                                    y en cuáles tuvieron una percepción diferente.
+                              </li>
+
+                              <li>
+                                    Al finalizar, pasa al frente, reproduce una parte del anuncio y explica
+                                    <b>qué tonalidad utiliza el locutor, cómo utiliza su voz y qué intenta
+                                          comunicar</b>.
+                              </li>
+
+                        </ol>
+
+                        <strong>ELIGE LA TONALIDAD PREDOMINANTE</strong>
+
+                        <ul class="pair-steps">
+                              <li>Alegre</li>
+                              <li>Enérgica</li>
+                              <li>Entusiasta</li>
+                              <li>Cercana</li>
+                              <li>Seria</li>
+                              <li>Formal</li>
+                              <li>Tranquila</li>
+                              <li>Persuasiva</li>
+                              <li>Urgente</li>
+                        </ul>
+                  </div>
+
+
+                  <h3>¿Qué es la tonalidad de voz en una locución publicitaria?</h3>
+
+                  <div class="answer">
+                        <p>
+                              La <b>tonalidad de voz</b> es la manera en que el locutor utiliza su voz
+                              para darle una determinada intención al mensaje publicitario.
+                        </p>
+
+                        <p>
+                              El locutor no solamente debe <b>leer un texto</b>. Debe interpretarlo para
+                              transmitir la sensación adecuada según el producto, servicio, público y
+                              objetivo del anuncio.
+                        </p>
+
+                        <p>
+                              Por ejemplo, un mismo texto puede sonar <b>alegre, tranquilo, serio,
+                                    enérgico o urgente</b> dependiendo de cómo utilicemos la voz.
+                        </p>
+                  </div>
+
+
+                  <h3>¿Qué elementos utiliza un locutor para cambiar su voz?</h3>
+
+                  <div class="answer">
+
+                        <p>
+                              <b>Tono:</b> permite que la voz se perciba más grave o más aguda.
+                              <br><br>
+
+                              <b>Ritmo:</b> determina la velocidad con la que se comunica el mensaje.
+                              Puede ser más rápido o más pausado.
+                              <br><br>
+
+                              <b>Intensidad:</b> permite utilizar la voz con mayor o menor fuerza según
+                              lo que se quiere destacar.
+                              <br><br>
+
+                              <b>Pausas:</b> son pequeños silencios que permiten separar ideas,
+                              facilitar la comprensión y destacar información.
+                              <br><br>
+
+                              <b>Énfasis:</b> consiste en destacar determinadas palabras para dirigir
+                              la atención hacia la información más importante.
+                              <br><br>
+
+                              <b>Intención:</b> es lo que queremos transmitir mediante la voz:
+                              informar, emocionar, convencer, generar interés o motivar una acción.
+                        </p>
+
+                  </div>
+
+
+                  <h3>¿Qué tonalidades podemos utilizar en publicidad?</h3>
+
+                  <div class="answer">
+
+                        <p>
+                              <b>Alegre:</b> transmite una sensación positiva y dinámica.
+                              <br><br>
+
+                              <b>Enérgica:</b> utiliza mayor intensidad y ritmo para captar rápidamente
+                              la atención.
+                              <br><br>
+
+                              <b>Entusiasta:</b> demuestra emoción e interés por aquello que se está ofreciendo.
+                              <br><br>
+
+                              <b>Cercana:</b> busca hablar al consumidor de una manera natural y personal.
+                              <br><br>
+
+                              <b>Seria:</b> utiliza una interpretación más controlada y directa.
+                              <br><br>
+
+                              <b>Formal:</b> utiliza una expresión cuidada y apropiada para comunicaciones
+                              que requieren mayor formalidad.
+                              <br><br>
+
+                              <b>Tranquila:</b> utiliza un ritmo más pausado y una intensidad moderada.
+                              <br><br>
+
+                              <b>Persuasiva:</b> busca generar interés y conducir al consumidor hacia
+                              una decisión o acción.
+                              <br><br>
+
+                              <b>Urgente:</b> utiliza ritmo, intensidad y énfasis para comunicar que
+                              existe una acción que debe realizarse rápidamente.
+                        </p>
+
+                  </div>
+
+
+                  <h3>¿Cómo elige un locutor la tonalidad adecuada?</h3>
+
+                  <div class="answer">
+                        <p>
+                              Antes de grabar, el locutor debe comprender <b>qué producto o servicio
+                                    anuncia, a quién se dirige y qué quiere conseguir con el mensaje</b>.
+                        </p>
+
+                        <p>
+                              Después adapta el <b>tono, ritmo, intensidad, pausas y énfasis</b>
+                              para conseguir la intención deseada.
+                        </p>
+
+                        <p>
+                              Por eso, una locución publicitaria no consiste simplemente en leer.
+                              Consiste en <b>interpretar el mensaje con la voz</b>.
+                        </p>
+                  </div>
+                  <div class="prompt-box">
+                        <div class="prompt-label">
+                              Prompt para practicar locución publicitaria
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre class="prompt">Actúa como especialista en locución publicitaria.
+
+Quiero practicar la lectura de un anuncio para vender el siguiente producto o servicio:
+
+[ESCRIBE EL PRODUCTO O SERVICIO]
+
+Crea un mensaje publicitario corto y natural que pueda decirse aproximadamente en 15 segundos.
+
+El mensaje debe ser fácil de leer y pronunciar.
+
+No inventes precios, promociones, descuentos, direcciones, teléfonos ni garantías.
+
+Después selecciona AL AZAR solamente UNA de estas tonalidades:
+
+- Alegre.
+- Enérgica.
+- Entusiasta.
+- Cercana.
+- Seria.
+- Formal.
+- Tranquila.
+- Persuasiva.
+- Urgente.
+
+Indica también de manera sencilla dónde debo realizar pausas y qué palabras debo decir con mayor énfasis.
+
+Responde solamente con:
+
+MENSAJE:
+[Texto para leer]
+
+TONALIDAD:
+[Tonalidad seleccionada al azar]
+
+PAUSAS:
+[Texto marcado con / donde debo hacer una pausa]
+
+ÉNFASIS:
+[Palabras que debo destacar]</pre>
+                  </div>
+
+
+                  <div class="challenge">
+                        <small>DINÁMICA 2 - INTERPRETA EL MENSAJE</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+
+                              <li>
+                                    Formen una <b>pareja</b>.
+                              </li>
+
+                              <li>
+                                    El primer integrante utiliza el prompt para generar un <b>mensaje publicitario
+                                          y una tonalidad aleatoria</b>.
+                              </li>
+
+                              <li>
+                                    Entrega el mensaje a tu compañero e indícale la <b>tonalidad que le tocó</b>.
+                              </li>
+
+                              <li>
+                                    Tu compañero tendrá unos minutos para leer el mensaje y preparar
+                                    cómo utilizará su <b>voz, ritmo, intensidad, pausas y énfasis</b>.
+                              </li>
+
+                              <li>
+                                    Tu compañero pasa al frente y realiza la <b>locución publicitaria</b>
+                                    utilizando la tonalidad asignada.
+                              </li>
+
+                              <li>
+                                    Escucha atentamente y evalúa si realmente logró representar
+                                    la <b>tonalidad indicada</b>.
+                              </li>
+
+                              <li>
+                                    Indica primero <b>qué realizó correctamente</b> durante la locución.
+                              </li>
+
+                              <li>
+                                    Después indica <b>un aspecto que podría mejorar</b> en su forma de interpretar el
+                                    mensaje.
+                              </li>
+
+                              <li>
+                                    Ahora <b>cambien de rol</b>.
+                              </li>
+
+                              <li>
+                                    El segundo integrante utiliza nuevamente el prompt para obtener
+                                    <b>otro mensaje y otra tonalidad aleatoria</b>.
+                              </li>
+
+                              <li>
+                                    El primer integrante prepara la interpretación y pasa al frente
+                                    para realizar su locución.
+                              </li>
+
+                              <li>
+                                    El compañero evalúa la interpretación y explica qué estuvo bien
+                                    y qué podría mejorar.
+                              </li>
+
+                              <li>
+                                    Si el prompt vuelve a seleccionar una tonalidad que ya utilizaron,
+                                    pueden solicitar:
+                                    <b>"Selecciona otra tonalidad al azar diferente a la anterior."</b>
+                              </li>
+
+                        </ol>
+
+                        <strong>PARA EVALUAR LA LOCUCIÓN</strong>
+
+                        <ul class="pair-steps">
+                              <li><b>Tonalidad:</b> ¿se reconoció la tonalidad asignada?</li>
+                              <li><b>Ritmo:</b> ¿la velocidad fue adecuada para esa interpretación?</li>
+                              <li><b>Intensidad:</b> ¿utilizó correctamente la fuerza de la voz?</li>
+                              <li><b>Énfasis:</b> ¿destacó las palabras importantes?</li>
+                              <li><b>Pausas:</b> ¿realizó pausas naturales?</li>
+                              <li><b>Claridad:</b> ¿se entendió todo el mensaje?</li>
+                              <li><b>Naturalidad:</b> ¿parecía una locución y no solamente una lectura?</li>
+                              <li><b>Venta:</b> ¿la forma de hablar ayudó a presentar el producto o servicio?</li>
+                              <li><b>Mejora:</b> ¿qué aspecto debería practicar?</li>
+                        </ul>
+                  </div>
+                  <h3>¿Cómo podemos mejorar nuestra locución?</h3>
+
+                  <div class="answer">
+                        <p>
+                              Para realizar una buena locución publicitaria necesitamos que nuestra voz
+                              se escuche <b>clara, entendible y con suficiente fuerza</b>.
+                        </p>
+
+                        <p>
+                              Para mejorarla podemos practicar principalmente la <b>vocalización,
+                                    articulación, ritmo, pausas, énfasis y proyección de la voz</b>.
+                        </p>
+
+                        <p>
+                              La finalidad no es gritar. Debemos aprender a <b>proyectar la voz</b>
+                              para que el mensaje llegue con claridad y seguridad.
+                        </p>
+                  </div>
+
+
+                  <div class="prompt-box">
+                        <div class="prompt-label">
+                              Prompt para practicar vocalización
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre class="prompt">Actúa como entrenador de locución publicitaria.
+
+Genera 5 frases cortas para practicar vocalización antes de grabar un anuncio.
+
+Las frases deben contener palabras que obliguen a pronunciar claramente las vocales y consonantes.
+
+Comienza con frases fáciles y aumenta poco a poco la dificultad.
+
+Deben ser naturales y fáciles de entender.
+
+No generes trabalenguas extremadamente difíciles.
+
+Responde solamente con:
+
+FRASE 1:
+FRASE 2:
+FRASE 3:
+FRASE 4:
+FRASE 5:</pre>
+                  </div>
+
+
+                  <div class="challenge">
+                        <small>DINÁMICA 2 - VOCALIZA CON CLARIDAD</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+
+                              <li>
+                                    Formen una <b>pareja</b>.
+                              </li>
+
+                              <li>
+                                    Generen las cinco frases utilizando el prompt.
+                              </li>
+
+                              <li>
+                                    El primer integrante lee la <b>primera frase lentamente</b>,
+                                    pronunciando claramente cada palabra.
+                              </li>
+
+                              <li>
+                                    Vuelve a leerla a una <b>velocidad normal</b> sin perder claridad.
+                              </li>
+
+                              <li>
+                                    El compañero escucha e identifica cualquier palabra que
+                                    <b>no se haya entendido claramente</b>.
+                              </li>
+
+                              <li>
+                                    Repite únicamente las palabras que presentaron dificultad y después
+                                    vuelve a leer la frase completa.
+                              </li>
+
+                              <li>
+                                    Continúa con las demás frases.
+                              </li>
+
+                              <li>
+                                    Cambien de rol y realicen el mismo ejercicio.
+                              </li>
+
+                        </ol>
+
+                        <strong>PARA EVALUAR</strong>
+
+                        <ul class="pair-steps">
+                              <li><b>Vocales:</b> ¿se escuchan claramente?</li>
+                              <li><b>Consonantes:</b> ¿las palabras están bien articuladas?</li>
+                              <li><b>Palabras:</b> ¿se entiende cada palabra?</li>
+                              <li><b>Velocidad:</b> ¿mantiene claridad al aumentar el ritmo?</li>
+                        </ul>
+                  </div>
+
+
+                  <div class="prompt-box">
+                        <div class="prompt-label">
+                              Prompt para practicar articulación
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre class="prompt">Actúa como entrenador de locución publicitaria.
+
+Genera 5 frases cortas para practicar la articulación y pronunciación.
+
+Incluye progresivamente combinaciones de sonidos que requieran mover claramente labios y lengua.
+
+Las frases deben poder utilizarse como ejercicio de locución.
+
+Comienza fácil y aumenta gradualmente la dificultad.
+
+Responde solamente con las 5 frases numeradas.</pre>
+                  </div>
+
+
+                  <div class="challenge">
+                        <small>DINÁMICA 3 - QUE SE ENTIENDA CADA PALABRA</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+
+                              <li>
+                                    Genera las frases de articulación.
+                              </li>
+
+                              <li>
+                                    Lee la primera frase <b>muy lentamente</b>, exagerando ligeramente
+                                    el movimiento de labios y boca.
+                              </li>
+
+                              <li>
+                                    Repite la misma frase a una velocidad normal.
+                              </li>
+
+                              <li>
+                                    Finalmente intenta decirla un poco más rápido
+                                    <b>sin comerte ninguna palabra</b>.
+                              </li>
+
+                              <li>
+                                    Tu compañero debe indicar inmediatamente qué palabra
+                                    <b>no logró entender</b>.
+                              </li>
+
+                              <li>
+                                    Si existe una palabra poco clara, repítela lentamente y vuelve
+                                    a realizar la frase completa.
+                              </li>
+
+                              <li>
+                                    Continúen hasta completar todas las frases.
+                              </li>
+
+                              <li>
+                                    Cambien de rol.
+                              </li>
+
+                        </ol>
+                  </div>
+
+
+                  <div class="prompt-box">
+                        <div class="prompt-label">
+                              Prompt para practicar fuerza y proyección de voz
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre class="prompt">Actúa como entrenador de locución publicitaria.
+
+Genera 5 frases publicitarias cortas para practicar proyección y fuerza de voz.
+
+Cada frase debe ser sencilla, natural y fácil de pronunciar.
+
+Después de cada frase indica aleatoriamente:
+
+SUAVE
+MEDIA
+FUERTE
+
+No confundas FUERTE con gritar. El ejercicio busca proyectar la voz manteniendo claridad.
+
+Responde solamente con:
+
+FRASE:
+NIVEL DE VOZ:
+
+Repite el formato hasta completar las 5 frases.</pre>
+                  </div>
+
+
+                  <div class="challenge">
+                        <small>DINÁMICA 4 - PROYECTA TU VOZ</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+
+                              <li>
+                                    Formen una pareja y generen las frases con el prompt.
+                              </li>
+
+                              <li>
+                                    El primer integrante se coloca a cierta distancia de su compañero.
+                              </li>
+
+                              <li>
+                                    Lee la primera frase utilizando el <b>nivel de voz indicado</b>.
+                              </li>
+
+                              <li>
+                                    Cuando corresponda una voz <b>fuerte</b>, proyecta la voz sin gritar.
+                              </li>
+
+                              <li>
+                                    El compañero evalúa si escuchó y entendió completamente el mensaje.
+                              </li>
+
+                              <li>
+                                    Si la voz pierde claridad, repite la frase corrigiendo
+                                    <b>fuerza y pronunciación</b>.
+                              </li>
+
+                              <li>
+                                    Continúa con los diferentes niveles para aprender a controlar
+                                    la intensidad de la voz.
+                              </li>
+
+                              <li>
+                                    Cambien de rol y repitan el ejercicio.
+                              </li>
+
+                        </ol>
+
+                        <strong>PARA EVALUAR</strong>
+
+                        <ul class="pair-steps">
+                              <li><b>Volumen:</b> ¿se escucha suficientemente?</li>
+                              <li><b>Claridad:</b> ¿se entienden todas las palabras?</li>
+                              <li><b>Control:</b> ¿puede aumentar la voz sin gritar?</li>
+                              <li><b>Seguridad:</b> ¿la voz se escucha firme?</li>
+                        </ul>
+                  </div>
+
+
+                  <div class="prompt-box">
+                        <div class="prompt-label">
+                              Prompt para practicar énfasis
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre class="prompt">Actúa como entrenador de locución publicitaria.
+
+Genera 5 mensajes publicitarios muy cortos.
+
+En cada mensaje selecciona UNA palabra importante que deberá decirse con mayor énfasis.
+
+Escribe esa palabra en MAYÚSCULAS.
+
+Cambia aleatoriamente la posición de la palabra destacada entre los diferentes ejercicios.
+
+Responde solamente con los 5 mensajes.</pre>
+                  </div>
+
+
+                  <div class="challenge">
+                        <small>DINÁMICA 5 - DA FUERZA A LAS PALABRAS IMPORTANTES</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+
+                              <li>
+                                    Genera los cinco mensajes utilizando el prompt.
+                              </li>
+
+                              <li>
+                                    Lee el primer mensaje sin realizar ningún énfasis.
+                              </li>
+
+                              <li>
+                                    Vuelve a leerlo dando <b>mayor fuerza únicamente a la palabra
+                                          escrita en mayúsculas</b>.
+                              </li>
+
+                              <li>
+                                    Tu compañero indica cuál de las dos versiones comunica mejor
+                                    la información importante.
+                              </li>
+
+                              <li>
+                                    Continúa con los demás mensajes.
+                              </li>
+
+                              <li>
+                                    Cambien de rol y repitan el ejercicio.
+                              </li>
+
+                        </ol>
+                  </div>
+
+
+                  <div class="prompt-box">
+                        <div class="prompt-label">
+                              Prompt para reto final de locución
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre class="prompt">Actúa como entrenador de locución publicitaria.
+
+Producto o servicio:
+[ESCRIBE EL PRODUCTO O SERVICIO]
+
+Genera un mensaje publicitario natural de aproximadamente 15 segundos.
+
+Debe ser fácil de pronunciar y estar pensado para ser leído en voz alta.
+
+Selecciona AL AZAR una tonalidad:
+
+- Alegre.
+- Enérgica.
+- Entusiasta.
+- Cercana.
+- Seria.
+- Formal.
+- Tranquila.
+- Persuasiva.
+- Urgente.
+
+Marca con / las pausas.
+
+Escribe en MAYÚSCULAS únicamente las palabras que deben recibir mayor énfasis.
+
+No inventes precios, descuentos, promociones, direcciones, teléfonos ni garantías.
+
+Responde solamente con:
+
+MENSAJE:
+[Mensaje]
+
+TONALIDAD:
+[Tonalidad aleatoria]</pre>
+                  </div>
+
+
+                  <div class="challenge">
+                        <small>DINÁMICA 6 - RETO DE LOCUCIÓN PUBLICITARIA</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+
+                              <li>
+                                    Elige un <b>producto o servicio</b> que quieras promocionar.
+                              </li>
+
+                              <li>
+                                    Genera tu mensaje y observa la <b>tonalidad asignada al azar</b>.
+                              </li>
+
+                              <li>
+                                    Practica primero lentamente para asegurar una buena vocalización.
+                              </li>
+
+                              <li>
+                                    Practica nuevamente utilizando correctamente las pausas y palabras destacadas.
+                              </li>
+
+                              <li>
+                                    Realiza una última práctica utilizando <b>mayor proyección de voz</b>
+                                    sin gritar.
+                              </li>
+
+                              <li>
+                                    Pasa al frente y realiza la locución utilizando la tonalidad asignada.
+                              </li>
+
+                              <li>
+                                    Tu compañero evalúa tu presentación.
+                              </li>
+
+                              <li>
+                                    Después cambien de rol y realicen el mismo ejercicio.
+                              </li>
+
+                        </ol>
+
+                        <strong>PARA EVALUAR LA LOCUCIÓN FINAL</strong>
+
+                        <ul class="pair-steps">
+                              <li><b>Vocalización:</b> ¿se entendieron todas las palabras?</li>
+                              <li><b>Articulación:</b> ¿pronunció claramente?</li>
+                              <li><b>Fuerza:</b> ¿la voz llegó con suficiente intensidad?</li>
+                              <li><b>Control:</b> ¿proyectó la voz sin gritar?</li>
+                              <li><b>Énfasis:</b> ¿destacó las palabras importantes?</li>
+                              <li><b>Pausas:</b> ¿ayudaron a entender el mensaje?</li>
+                              <li><b>Tonalidad:</b> ¿se reconoció la tonalidad asignada?</li>
+                              <li><b>Naturalidad:</b> ¿sonó como publicidad y no como una simple lectura?</li>
+                        </ul>
+                  </div>
+
+                  <div class="prompt-box">
+                        <div class="prompt-label">
+                              Prompt para preparar la venta de nuestro producto o servicio
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre class="prompt">Actúa como especialista en locución publicitaria y ventas.
+
+Ayúdame a preparar un mensaje para presentar y vender al frente de una clase el producto o servicio de mi empresa.
+
+EMPRESA:
+[NOMBRE DE LA EMPRESA]
+
+MISIÓN:
+[MISIÓN]
+
+VISIÓN:
+[VISIÓN]
+
+VALORES:
+[VALORES]
+
+PRODUCTO O SERVICIO:
+[PRODUCTO O SERVICIO]
+
+Analiza esta información y crea un mensaje publicitario breve y natural para vender el producto o servicio hablando directamente a otras personas.
+
+El mensaje debe:
+
+- Ser coherente con la misión, visión y valores de la empresa.
+- Presentar claramente el producto o servicio.
+- Comunicar por qué podría interesarle al cliente.
+- Sonar natural al decirlo en voz alta.
+- Utilizar palabras sencillas y fáciles de pronunciar.
+- Tener frases cortas.
+- Terminar invitando al público a realizar una acción.
+- Poder presentarse aproximadamente en 30 segundos.
+
+Selecciona también AL AZAR una tonalidad adecuada para realizar la presentación:
+
+- Alegre.
+- Enérgica.
+- Entusiasta.
+- Cercana.
+- Seria.
+- Formal.
+- Tranquila.
+- Persuasiva.
+
+Marca con / las pausas que debo realizar.
+
+Escribe en MAYÚSCULAS únicamente las palabras que debo destacar con mayor énfasis.
+
+No inventes precios, descuentos, promociones, características, garantías, direcciones ni datos de contacto.
+
+Responde solamente con:
+
+MENSAJE:
+[Mensaje para presentar y vender]
+
+TONALIDAD:
+[Tonalidad seleccionada]
+
+CONSEJO DE VOZ:
+[Una recomendación corta para mejorar la vocalización y fuerza de voz durante esta presentación]</pre>
+                  </div>
+
+
+                  <div class="activity">
+                        <h3>Actividad 9 · Presenta y vende tu producto o servicio</h3>
+
+                        <ul>
+
+                              <li>
+                                    Utiliza la <b>empresa que vienes desarrollando durante las clases</b>.
+                              </li>
+
+                              <li>
+                                    Reúne la <b>misión, visión, valores y producto o servicio</b>
+                                    de tu empresa.
+                              </li>
+
+                              <li>
+                                    Completa el prompt con esta información y genera tu
+                                    <b>mensaje de venta</b>.
+                              </li>
+
+                              <li>
+                                    Lee el mensaje y verifica que represente correctamente a tu empresa
+                                    y al producto o servicio que quieres promocionar.
+                              </li>
+
+                              <li>
+                                    Practica varias veces respetando la <b>tonalidad, pausas y palabras
+                                          destacadas</b>.
+                              </li>
+
+                              <li>
+                                    Durante la práctica concéntrate principalmente en una
+                                    <b>buena vocalización y suficiente fuerza de voz</b>.
+                              </li>
+
+                              <li>
+                                    Evita memorizar palabra por palabra. Comprende primero el mensaje
+                                    para poder comunicarlo de una manera más natural.
+                              </li>
+
+                              <li>
+                                    Cuando llegue tu turno, pasa al frente y <b>vende tu producto o servicio
+                                          al resto del curso</b>.
+                              </li>
+
+                              <li>
+                                    Habla mirando al público, con voz clara y utilizando la tonalidad
+                                    seleccionada.
+                              </li>
+
+                              <li>
+                                    Al finalizar, escucha las observaciones de tus compañeros y reconoce
+                                    qué aspecto de tu locución podrías mejorar.
+                              </li>
+
+                        </ul>
+
+                        <strong>PARA EVALUAR LA PRESENTACIÓN</strong>
+
+                        <ul class="pair-steps" style="color: black;">
+                              <li><b>Claridad:</b> ¿se entendió qué producto o servicio ofrece?</li>
+                              <li><b>Vocalización:</b> ¿pronunció claramente las palabras?</li>
+                              <li><b>Fuerza:</b> ¿todo el curso pudo escuchar el mensaje?</li>
+                              <li><b>Tonalidad:</b> ¿la interpretación fue adecuada?</li>
+                              <li><b>Énfasis:</b> ¿destacó las palabras importantes?</li>
+                              <li><b>Naturalidad:</b> ¿habló y no solamente leyó?</li>
+                              <li><b>Seguridad:</b> ¿comunicó el mensaje con seguridad?</li>
+                              <li><b>Venta:</b> ¿el mensaje generó interés por el producto o servicio?</li>
+                        </ul>
+                  </div>
+
+                  <div class="exam">
+                        <h3>Banco de preguntas · Examen 3</h3>
+
+                        <p class="exam-note">
+                              Selecciona una sola respuesta en cada pregunta.
+                              Comprende las clases 7, 8 y 9.
+                        </p>
+
+                        <ol class="mcq">
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es una imagen?</p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q1">
+                                          Un conjunto de palabras que explica detalladamente una idea.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q1">
+                                          Una representación visual de personas, productos, objetos, lugares o
+                                          situaciones.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q1">
+                                          Una grabación utilizada para comunicar información mediante sonidos.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Para qué puede utilizarse una imagen en una publicación?</p>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q2">
+                                          Para llamar la atención, comunicar una idea y transmitir sensaciones.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q2">
+                                          Para reemplazar completamente la información del producto o servicio.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q2">
+                                          Para ocupar todos los espacios disponibles dentro de la publicación.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es un personaje dentro de una imagen publicitaria?</p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q3">
+                                          Una forma decorativa utilizada para completar los espacios del diseño.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q3">
+                                          Una imagen que solamente permite mostrar el logotipo de la empresa.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q3">
+                                          Una persona representada visualmente que puede relacionarse con el producto o
+                                          servicio.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Con qué debe tener relación un personaje publicitario?</p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q4">
+                                          Con la cantidad de textos y formas que existen en la publicación.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q4">
+                                          Con el producto, el consumidor y el mensaje que queremos comunicar.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q4">
+                                          Con los espacios vacíos y elementos decorativos utilizados en el diseño.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es la composición de una imagen?</p>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q5">
+                                          La forma de organizar y relacionar los elementos para comunicar una idea.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q5">
+                                          La cantidad de colores diferentes que pueden utilizarse en una publicidad.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q5">
+                                          La cantidad de información escrita que debe colocarse dentro de una imagen.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué elementos pueden combinarse en una composición
+                                          publicitaria?</p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q6">
+                                          Precio, promoción y número de teléfono.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q6">
+                                          Título, subtítulo y llamado a la acción.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q6">
+                                          Personaje, producto y escenario.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Cuál es la función de un llamado a la acción?</p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q7">
+                                          Explicar todas las características que posee el producto ofrecido.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q7">
+                                          Indicar qué debe hacer la persona después de observar la publicidad.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q7">
+                                          Mostrar el lugar donde el personaje está utilizando el producto.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Todos los elementos publicitarios deben aparecer siempre en una
+                                          publicación?</p>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q8">
+                                          No, deben seleccionarse según el producto, consumidor y objetivo.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q8">
+                                          Sí, porque todos los espacios del diseño deben contener información.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q8">
+                                          Sí, porque una publicidad funciona mejor cuando contiene más elementos.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Cuál es el objetivo principal de una publicidad informativa?
+                                    </p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q9">
+                                          Enseñar un conocimiento relacionado con una necesidad del consumidor.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q9">
+                                          Despertar interés y motivar directamente una acción de compra.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q9">
+                                          Comunicar información importante sobre el producto o servicio.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Cuál es el objetivo principal de una publicidad educativa?</p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q10">
+                                          Mostrar principalmente el precio y las condiciones de una promoción.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q10">
+                                          Enseñar algo útil relacionado con el producto, servicio o necesidad.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q10">
+                                          Presentar directamente el producto para conseguir una acción inmediata.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué busca principalmente una publicidad promocional?</p>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q11">
+                                          Despertar interés por el producto o servicio y motivar una acción.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q11">
+                                          Enseñar un conocimiento sin buscar interés por el producto ofrecido.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q11">
+                                          Explicar únicamente información general relacionada con la empresa.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué significa editar una imagen?</p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q12">
+                                          Crear obligatoriamente una nueva imagen diferente a la original.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q12">
+                                          Agregar la mayor cantidad posible de información y elementos.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q12">
+                                          Modificar, organizar o ajustar elementos para mejorar la comunicación visual.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué debemos hacer antes de replicar la composición de un arte?
+                                    </p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q13">
+                                          Cambiar primero los colores y las tipografías del diseño original.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q13">
+                                          Observar la composición e identificar sus diferentes elementos visuales.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q13">
+                                          Eliminar los espacios libres para colocar nuevos elementos gráficos.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es la tonalidad de voz en una locución publicitaria?</p>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q14">
+                                          La manera de utilizar la voz para dar una intención al mensaje.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q14">
+                                          La cantidad de palabras utilizadas para presentar un producto o servicio.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q14">
+                                          La duración total que debe tener cualquier anuncio de una empresa.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué elemento de la voz determina la velocidad con la que
+                                          hablamos?</p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q15">
+                                          El énfasis.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q15">
+                                          La intensidad.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q15">
+                                          El ritmo.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es la intensidad de la voz?</p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q16">
+                                          La velocidad utilizada para decir cada parte del mensaje.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q16">
+                                          La mayor o menor fuerza con la que utilizamos nuestra voz.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q16">
+                                          El silencio utilizado para separar las diferentes ideas del mensaje.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Para qué se utilizan las pausas durante una locución?</p>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q17">
+                                          Para separar ideas, facilitar la comprensión y destacar información.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q17">
+                                          Para aumentar la fuerza de todas las palabras durante la lectura.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q17">
+                                          Para conseguir que el mensaje publicitario termine más rápidamente.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿En qué consiste el énfasis durante una locución?</p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q18">
+                                          En pronunciar todo el mensaje utilizando siempre la misma fuerza.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q18">
+                                          En realizar un silencio después de cada palabra del mensaje.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q18">
+                                          En destacar determinadas palabras para dirigir la atención hacia ellas.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué busca una tonalidad persuasiva?</p>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q19">
+                                          Comunicar lentamente evitando cualquier intención relacionada con una acción.
+                                    </label>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q19">
+                                          Generar interés y conducir al consumidor hacia una decisión o acción.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q19">
+                                          Comunicar únicamente información utilizando una interpretación controlada y
+                                          directa.
+                                    </label>
+                              </li>
+
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué significa proyectar correctamente la voz?</p>
+
+                                    <label class="quiz-option correct-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q20">
+                                          Lograr que la voz llegue con claridad y suficiente fuerza sin gritar.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q20">
+                                          Hablar con el mayor volumen posible durante toda la presentación publicitaria.
+                                    </label>
+
+                                    <label class="quiz-option">
+                                          <input class="quiz-radio" type="radio" name="exam3q20">
+                                          Pronunciar rápidamente el mensaje para mantener la atención del público.
+                                    </label>
+                              </li>
+
+                        </ol>
+
+                        <button class="check-exam">Comprobar respuestas</button>
+                        <p class="exam-score" aria-live="polite"></p>
+                  </div>
+            </section>
+
+
+
+
+      </main>
+
+      <button class="to-top" id="toTop" aria-label="Volver arriba">↑</button>
+      <script>
+
+            /* Detecta un celular que intenta mostrar la página como sitio de escritorio. */
+            (() => {
+                  const desktopSiteLock = document.getElementById('desktopSiteLock');
+
+                  function isTouchDevice() {
+                        return (
+                              ('ontouchstart' in window) ||
+                              (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) ||
+                              (window.matchMedia && window.matchMedia('(pointer: coarse)').matches)
+                        );
+                  }
+
+                  function desktopModeOnPhone() {
+                        const touch = isTouchDevice();
+                        const wideViewport = window.innerWidth >= 700;
+                        const visualWide = window.visualViewport
+                              ? window.visualViewport.width >= 700
+                              : wideViewport;
+
+                        return touch && (wideViewport || visualWide);
+                  }
+
+                  function updateDesktopSiteLock() {
+                        const blocked = desktopModeOnPhone();
+
+                        desktopSiteLock.classList.toggle('show', blocked);
+                        desktopSiteLock.setAttribute('aria-hidden', blocked ? 'false' : 'true');
+
+                        if (blocked) {
+                              document.documentElement.style.overflow = 'hidden';
+                              document.body.style.overflow = 'hidden';
+                        } else if (!document.body.classList.contains('menu-open')) {
+                              document.documentElement.style.overflow = '';
+                              document.body.style.overflow = '';
+                        }
+                  }
+
+                  updateDesktopSiteLock();
+
+                  window.addEventListener('resize', updateDesktopSiteLock, { passive: true });
+
+                  window.addEventListener('orientationchange', () => {
+                        setTimeout(updateDesktopSiteLock, 150);
+                  });
+
+                  if (window.visualViewport) {
+                        window.visualViewport.addEventListener('resize', updateDesktopSiteLock, { passive: true });
+                  }
+
+                  document.addEventListener('visibilitychange', () => {
+                        if (!document.hidden) {
+                              setTimeout(updateDesktopSiteLock, 100);
+                        }
+                  });
+            })();
+
+            const drawer = document.getElementById('drawer');
+            const backdrop = document.getElementById('backdrop');
+            function setMenu(open) { drawer.classList.toggle('open', open); backdrop.classList.toggle('show', open); document.body.classList.toggle('menu-open', open); }
+            document.getElementById('openMenu').addEventListener('click', () => setMenu(true));
+            document.getElementById('closeMenu').addEventListener('click', () => setMenu(false));
+            backdrop.addEventListener('click', () => setMenu(false));
+            drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+            function shuffle(items) {
+                  const copy = [...items];
+                  for (let i = copy.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[copy[i], copy[j]] = [copy[j], copy[i]]; }
+                  return copy;
+            }
+            document.querySelectorAll('.exam').forEach(exam => {
+                  const list = exam.querySelector('.mcq');
+                  shuffle([...list.children]).forEach(item => list.appendChild(item));
+                  list.querySelectorAll('.quiz-item').forEach(item => {
+                        shuffle(item.querySelectorAll('.quiz-option')).forEach(option => item.appendChild(option));
+                  });
+                  exam.querySelector('.check-exam').addEventListener('click', () => {
+                        let correct = 0, answered = 0;
+                        const items = [...exam.querySelectorAll('.quiz-item')];
+                        items.forEach(item => {
+                              item.classList.remove('correct', 'incorrect');
+                              const selected = item.querySelector('.quiz-radio:checked');
+                              if (selected) { answered++; const ok = selected.closest('.quiz-option').classList.contains('correct-option'); item.classList.add(ok ? 'correct' : 'incorrect'); if (ok) correct++; }
+                        });
+                        const nota = items.length > 0 ? Math.round((correct / items.length) * 100) : 0;
+                        exam.querySelector('.exam-score').innerHTML = `Nota: ${nota} / 100. <br><br> Respuestas correctas: ${correct} de ${items.length}. <br><br> Respondidas: ${answered}.`;
+                  });
+            });
+            document.querySelectorAll('.copy-btn').forEach(btn => btn.addEventListener('click', async () => {
+                  const value = btn.closest('.prompt-box').querySelector('.prompt').innerText;
+                  try { await navigator.clipboard.writeText(value); btn.textContent = 'Copiado'; btn.classList.add('copied'); setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied') }, 1400) }
+                  catch { const area = document.createElement('textarea'); area.value = value; document.body.appendChild(area); area.select(); document.execCommand('copy'); area.remove(); btn.textContent = 'Copiado'; }
+            }));
+            document.getElementById('toTop').addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+      </script>
+</body>
+
+</html>
