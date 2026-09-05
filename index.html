@@ -552,6 +552,60 @@
       }
     }
 
+
+    /* Bloqueo cuando un celular solicita "Sitio para escritorio" */
+    .desktop-site-lock{
+      display:none;
+    }
+
+    .desktop-site-lock.show{
+      position:fixed;
+      inset:0;
+      z-index:100000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      background:var(--wine-dark);
+      color:#fff;
+      text-align:center;
+    }
+
+    .desktop-site-lock .lock-box{
+      width:min(100%,380px);
+      padding:24px 20px;
+      border-radius:22px;
+      background:#651515;
+      border:1px solid rgba(255,255,255,.18);
+    }
+
+    .desktop-site-lock .lock-icon{
+      display:block;
+      margin-bottom:14px;
+      font-size:48px;
+    }
+
+    .desktop-site-lock strong{
+      display:block;
+      margin-bottom:10px;
+      font-size:24px;
+      line-height:1.2;
+    }
+
+    .desktop-site-lock p{
+      margin:0;
+      color:#ffe3a1;
+      line-height:1.5;
+    }
+
+    .desktop-site-lock .small{
+      display:block;
+      margin-top:14px;
+      color:#fff;
+      font-size:14px;
+      opacity:.9;
+    }
+
     /* Computadora: bloquear */
     @media (pointer:fine) and (min-width:700px){
       .app,
@@ -599,6 +653,18 @@
 </head>
 
 <body>
+  <div class="desktop-site-lock" id="desktopSiteLock" role="alert" aria-live="assertive">
+    <div class="lock-box">
+      <span class="lock-icon">📱</span>
+      <strong>Vista para computadora no disponible</strong>
+      <p>
+        Este módulo está diseñado únicamente para celular en formato vertical.
+        Desactiva <b>“Sitio para escritorio”</b> en el menú del navegador para continuar.
+      </p>
+      <span class="small">Luego la página volverá a mostrarse automáticamente.</span>
+    </div>
+  </div>
+
 
   <div class="portrait-lock" role="alert">
     <div>
@@ -653,22 +719,22 @@
         </div>
 
         <div class="week-buttons">
-          <a class="week-button week-link" href="semana1-modulo2.html" data-week="Semana 1">
+          <a class="week-button week-link" href="semana1.html" data-week="Semana 1">
             <span>Semana</span>
             <strong>1</strong>
           </a>
 
-          <a class="week-button week-link" href="semana2-modulo2.html" data-week="Semana 2">
+          <a class="week-button week-link" href="" data-week="Semana 2">
             <span>Semana</span>
             <strong>2</strong>
           </a>
 
-          <a class="week-button week-link" href="semana3-modulo2.html" data-week="Semana 3">
+          <a class="week-button week-link" href="" data-week="Semana 3">
             <span>Semana</span>
             <strong>3</strong>
           </a>
 
-          <a class="week-button week-link" href="semana4-modulo2.html" data-week="Semana 4">
+          <a class="week-button week-link" href="" data-week="Semana 4">
             <span>Semana</span>
             <strong>4</strong>
           </a>
@@ -766,7 +832,7 @@
 
         <div class="note">
           <strong>Importante:</strong>
-          revisa cada semana en orden. Las actividades desarrolladas durante el módulo sirven como base para el proyecto final.
+          Para aprobar el modulo es requisito fundamental defender el proyecto final.
         </div>
       </section>
 
@@ -866,6 +932,76 @@
       document.addEventListener('keydown', event => {
         if (event.key === 'Escape' && modal.classList.contains('show')) {
           closeModal();
+        }
+      });
+    })();
+  </script>
+
+
+  <script>
+    (() => {
+      const lock = document.getElementById('desktopSiteLock');
+
+      function isTouchDevice() {
+        return (
+          ('ontouchstart' in window) ||
+          (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) ||
+          (window.matchMedia && window.matchMedia('(pointer: coarse)').matches)
+        );
+      }
+
+      function looksLikeDesktopModeOnPhone() {
+        const touch = isTouchDevice();
+
+        /*
+          En "Sitio para escritorio", Chrome suele aumentar el ancho lógico
+          de la ventana a valores de escritorio aunque el dispositivo siga
+          teniendo capacidades táctiles.
+        */
+        const desktopWidth = window.innerWidth >= 700;
+
+        /*
+          Como refuerzo, comprobamos si el ancho CSS del viewport es mucho
+          mayor de lo normal para un celular.
+        */
+        const suspiciousViewport =
+          window.visualViewport
+            ? window.visualViewport.width >= 700
+            : desktopWidth;
+
+        return touch && (desktopWidth || suspiciousViewport);
+      }
+
+      function updateDesktopSiteLock() {
+        const blocked = looksLikeDesktopModeOnPhone();
+
+        if (blocked) {
+          lock.classList.add('show');
+          lock.setAttribute('aria-hidden', 'false');
+          document.documentElement.style.overflow = 'hidden';
+          document.body.style.overflow = 'hidden';
+        } else {
+          lock.classList.remove('show');
+          lock.setAttribute('aria-hidden', 'true');
+          document.documentElement.style.overflow = '';
+          document.body.style.overflow = '';
+        }
+      }
+
+      updateDesktopSiteLock();
+
+      window.addEventListener('resize', updateDesktopSiteLock, { passive:true });
+      window.addEventListener('orientationchange', () => {
+        setTimeout(updateDesktopSiteLock, 150);
+      });
+
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', updateDesktopSiteLock, { passive:true });
+      }
+
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+          setTimeout(updateDesktopSiteLock, 100);
         }
       });
     })();
