@@ -1,0 +1,2266 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+      <meta name="theme-color" content="#7f1d1d">
+      <title>Módulo 2 | Multimedia Marketing y Herramientas de IA</title>
+      <style>
+            :root {
+                  --wine: #7f1d1d;
+                  --wine-dark: #4c0d0d;
+                  --cream: #fffaf1;
+                  --paper: #fff;
+                  --ink: #241b1b;
+                  --muted: #695e5e;
+                  --gold: #f4b942;
+                  --line: #eadfd7;
+                  --green: #17663a;
+                  --shadow: 0 10px 30px rgba(55, 22, 22, .12);
+            }
+
+            * {
+                  box-sizing: border-box
+            }
+
+            html {
+                  scroll-behavior: smooth
+            }
+
+            body {
+                  margin: 0;
+                  background: var(--cream);
+                  color: var(--ink);
+                  font-family: Arial, Helvetica, sans-serif;
+                  font-size: 17px;
+                  line-height: 1.65;
+                  -webkit-user-select: none;
+                  user-select: none
+            }
+
+            button,
+            a {
+                  font: inherit
+            }
+
+            .topbar {
+                  position: fixed;
+                  top: 0;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 100%;
+                  z-index: 30;
+                  display: flex;
+                  align-items: center;
+                  gap: 12px;
+                  min-height: 64px;
+                  padding: 10px 14px;
+                  background: rgba(76, 13, 13, .97);
+                  color: #fff;
+                  box-shadow: 0 4px 18px rgba(0, 0, 0, .18)
+            }
+
+            .menu-btn {
+                  width: 44px;
+                  height: 44px;
+                  border: 1px solid rgba(255, 255, 255, .35);
+                  border-radius: 12px;
+                  background: #fff;
+                  color: var(--wine-dark);
+                  font-size: 25px;
+                  font-weight: 800;
+                  cursor: pointer
+            }
+
+            .top-title {
+                  font-size: 15px;
+                  line-height: 1.25;
+                  font-weight: 800
+            }
+
+            .top-title span {
+                  display: block;
+                  color: #ffe3a1;
+                  font-size: 12px;
+                  letter-spacing: .04em;
+                  text-transform: uppercase
+            }
+
+            .hero {
+                  min-height: calc(100svh - 64px);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 38px 22px;
+                  background: linear-gradient(150deg, #4c0d0d, #8f2020 68%, #b04a2b);
+                  color: #fff;
+                  text-align: center
+            }
+
+            .hero-inner {
+                  max-width: 620px
+            }
+
+            .eyebrow {
+                  margin: 0 0 12px;
+                  color: #ffe19a;
+                  font-weight: 800;
+                  letter-spacing: .1em;
+                  text-transform: uppercase;
+                  font-size: 14px
+            }
+
+            h1 {
+                  margin: 0;
+                  font-size: clamp(34px, 10vw, 58px);
+                  line-height: 1.04
+            }
+
+            .hero p {
+                  font-size: 19px;
+                  line-height: 1.55
+            }
+
+            .hero .objective {
+                  padding: 18px;
+                  background: rgba(255, 255, 255, .1);
+                  border-radius: 18px;
+                  text-align: left
+            }
+
+            main {
+                  width: min(100%, 760px);
+                  margin: auto;
+                  padding: 64px 16px 70px
+            }
+
+            .lesson {
+                  scroll-margin-top: 82px;
+                  padding: 52px 0 22px;
+                  border-bottom: 2px solid var(--line)
+            }
+
+            .lesson-head {
+                  margin-bottom: 32px;
+                  text-align: center
+            }
+
+            .lesson-no {
+                  display: inline-block;
+                  padding: 6px 13px;
+                  border-radius: 999px;
+                  background: var(--gold);
+                  color: #421313;
+                  font-weight: 900;
+                  font-size: 14px;
+                  text-transform: uppercase;
+                  letter-spacing: .06em
+            }
+
+            h2 {
+                  margin: 13px 0 5px;
+                  color: var(--wine-dark);
+                  font-size: 30px;
+                  line-height: 1.16
+            }
+
+            h3 {
+                  margin: 34px 0 12px;
+                  font-size: 23px;
+                  line-height: 1.25;
+                  color: var(--wine)
+            }
+
+            p {
+                  margin: 0 0 14px
+            }
+
+            ul,
+            ol {
+                  padding-left: 24px;
+                  margin: 8px 0 18px
+            }
+
+            li {
+                  margin: 7px 0
+            }
+
+            .answer {
+                  background: var(--paper);
+                  padding: 18px;
+                  border-radius: 16px;
+                  box-shadow: var(--shadow);
+                  margin-bottom: 18px
+            }
+
+            .prompt-box {
+                  margin: 18px 0 28px;
+                  border: 1px solid #dccfc5;
+                  border-radius: 18px;
+                  overflow: hidden;
+                  background: #fff;
+                  box-shadow: var(--shadow)
+            }
+
+            .prompt-label {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  gap: 10px;
+                  padding: 12px 14px;
+                  background: #f7eee7;
+                  color: var(--wine-dark);
+                  font-weight: 900
+            }
+
+            .copy-btn {
+                  border: 0;
+                  border-radius: 10px;
+                  background: var(--wine);
+                  color: #fff;
+                  padding: 9px 12px;
+                  font-weight: 800;
+                  cursor: pointer
+            }
+
+            .copy-btn.copied {
+                  background: var(--green)
+            }
+
+            .prompt {
+                  white-space: pre-wrap;
+                  margin: 0;
+                  padding: 18px;
+                  font-family: inherit;
+                  line-height: 1.55;
+                  background: #fff
+            }
+
+            .example {
+                  padding: 16px 18px;
+                  background: #fff9e9;
+                  border-top: 1px solid #eed99b
+            }
+
+            .example strong {
+                  display: block;
+                  margin-bottom: 7px;
+                  color: #684600
+            }
+
+            .activity {
+                  margin: 38px 0 8px;
+                  padding: 22px;
+                  border-radius: 20px;
+                  background: var(--wine-dark);
+                  color: #fff;
+                  box-shadow: var(--shadow)
+            }
+
+            .activity h3 {
+                  margin: 0 0 12px;
+                  color: #ffe29c
+            }
+
+            .activity ol {
+                  margin-bottom: 0
+            }
+
+            .note {
+                  padding: 15px 17px;
+                  border-radius: 14px;
+                  background: #fff1c9;
+                  color: #543e00;
+                  margin: 15px 0
+            }
+
+            .challenge {
+                  margin: 24px 0;
+                  padding: 18px;
+                  border-radius: 18px;
+                  background: #fffdf7;
+                  color: var(--ink);
+                  border: 2px dashed #c99038;
+                  box-shadow: var(--shadow)
+            }
+
+            .challenge strong {
+                  display: block;
+                  color: var(--wine);
+                  margin-bottom: 4px
+            }
+
+            .challenge small {
+                  display: block;
+                  color: var(--muted);
+                  font-weight: 700;
+                  margin-bottom: 5px
+            }
+
+            .pair-rule {
+                  margin: 24px auto 0;
+                  max-width: 620px;
+                  padding: 18px;
+                  border-radius: 18px;
+                  background: rgba(255, 255, 255, .13);
+                  text-align: left
+            }
+
+            .pair-steps {
+                  margin: 12px 0 0;
+                  padding: 14px 14px 14px 34px;
+                  border-radius: 13px;
+                  background: #fff6dd
+            }
+
+            .pair-steps li {
+                  margin: 6px 0
+            }
+
+            .exam {
+                  margin: 42px 0 10px;
+                  padding: 22px;
+                  border-radius: 20px;
+                  background: #eef4ff;
+                  border: 2px solid #91add8;
+                  box-shadow: var(--shadow)
+            }
+
+            .exam h3 {
+                  margin-top: 0;
+                  color: #193d72
+            }
+
+            .exam .exam-note {
+                  font-weight: 700;
+                  color: #334e75
+            }
+
+            .mcq {
+                  list-style: none;
+                  padding: 0;
+                  margin: 18px 0;
+                  counter-reset: question
+            }
+
+            .mcq>li {
+                  counter-increment: question;
+                  margin: 22px 0;
+                  padding: 16px;
+                  border-radius: 14px;
+                  background: #fff
+            }
+
+            .mcq>li::before {
+                  content: "Pregunta " counter(question);
+                  display: block;
+                  margin-bottom: 6px;
+                  color: #193d72;
+                  font-size: 14px;
+                  font-weight: 900;
+                  text-transform: uppercase;
+                  letter-spacing: .04em
+            }
+
+            .mcq .question {
+                  font-weight: 800;
+                  margin: 0 0 12px
+            }
+
+            .mcq label {
+                  position: relative;
+                  display: block;
+                  width: 100%;
+                  margin: 8px 0;
+                  padding: 12px;
+                  border-radius: 10px;
+                  background: #f4f7fc;
+                  cursor: pointer;
+                  line-height: 1.4
+            }
+
+            .mcq input {
+                  position: absolute;
+                  opacity: 0;
+                  pointer-events: none
+            }
+
+            .mcq label:has(input:checked) {
+                  background: #dce9ff;
+                  outline: 2px solid #315f9f;
+                  color: #123560;
+                  font-weight: 800
+            }
+
+            .mcq li.correct {
+                  outline: 3px solid #3c9b65
+            }
+
+            .mcq li.incorrect {
+                  outline: 3px solid #c75a5a
+            }
+
+            .check-exam {
+                  border: 0;
+                  border-radius: 12px;
+                  padding: 13px 17px;
+                  background: #193d72;
+                  color: #fff;
+                  font-weight: 900;
+                  cursor: pointer
+            }
+
+            .exam-score {
+                  margin-top: 14px;
+                  font-weight: 900;
+                  color: #193d72
+            }
+
+            .prompt-tip {
+                  margin: 18px 0;
+                  padding: 17px;
+                  border-radius: 16px;
+                  background: #eaf5ef;
+                  color: #163e28
+            }
+
+            .prompt-tip strong {
+                  display: block;
+                  margin-bottom: 6px;
+                  color: var(--green)
+            }
+
+            body.menu-open {
+                  overflow: hidden
+            }
+
+            .drawer {
+                  position: fixed;
+                  inset: 0 auto 0 0;
+                  z-index: 50;
+                  width: min(88vw, 340px);
+                  padding: 18px 14px;
+                  background: #fff;
+                  transform: translateX(-105%);
+                  transition: .24s ease;
+                  overflow: auto;
+                  box-shadow: 8px 0 30px rgba(0, 0, 0, .28)
+            }
+
+            .drawer.open {
+                  transform: none
+            }
+
+            .drawer-head {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  margin-bottom: 10px
+            }
+
+            .drawer-head strong {
+                  color: var(--wine-dark)
+            }
+
+            .close-btn {
+                  border: 0;
+                  background: #f1e7e2;
+                  border-radius: 10px;
+                  width: 42px;
+                  height: 42px;
+                  font-size: 25px
+            }
+
+            .drawer a {
+                  display: block;
+                  margin: 5px 0;
+                  padding: 12px 13px;
+                  border-radius: 11px;
+                  color: var(--ink);
+                  text-decoration: none;
+                  font-weight: 700
+            }
+
+            .drawer a:hover,
+            .drawer a:focus {
+                  background: #f7ece8;
+                  color: var(--wine)
+            }
+
+            .backdrop {
+                  position: fixed;
+                  inset: 0;
+                  z-index: 40;
+                  background: rgba(0, 0, 0, .48);
+                  opacity: 0;
+                  pointer-events: none;
+                  transition: .2s
+            }
+
+            .backdrop.show {
+                  opacity: 1;
+                  pointer-events: auto
+            }
+
+            .final-index {
+                  overflow-x: auto
+            }
+
+            .final-index table {
+                  width: 100%;
+                  border-collapse: collapse;
+                  background: #fff
+            }
+
+            .final-index th,
+            .final-index td {
+                  padding: 12px;
+                  border: 1px solid var(--line);
+                  text-align: left;
+                  vertical-align: top
+            }
+
+            .final-index th {
+                  background: #f3e8e2;
+                  color: var(--wine-dark)
+            }
+
+            .to-top {
+                  position: fixed;
+                  right: 15px;
+                  bottom: 16px;
+                  z-index: 20;
+                  width: 46px;
+                  height: 46px;
+                  border: 0;
+                  border-radius: 50%;
+                  background: var(--gold);
+                  color: #421313;
+                  font-weight: 900;
+                  box-shadow: var(--shadow);
+                  cursor: pointer
+            }
+
+            .portrait-lock {
+                  display: none
+            }
+
+            @media(max-width:390px) {
+                  body {
+                        font-size: 16px
+                  }
+
+                  .top-title {
+                        font-size: 14px
+                  }
+
+                  main {
+                        padding-left: 13px;
+                        padding-right: 13px
+                  }
+
+                  h2 {
+                        font-size: 27px
+                  }
+
+                  h3 {
+                        font-size: 21px
+                  }
+
+                  .answer,
+                  .prompt {
+                        padding: 15px
+                  }
+
+                  .activity {
+                        padding: 18px
+                  }
+
+                  .hero {
+                        padding-left: 17px;
+                        padding-right: 17px
+                  }
+            }
+
+            @media(orientation:landscape) {
+
+                  body>.topbar,
+                  body>.drawer,
+                  body>.backdrop,
+                  body>.hero,
+                  body>main,
+                  body>.to-top {
+                        display: none !important
+                  }
+
+                  .portrait-lock {
+                        position: fixed;
+                        inset: 0;
+                        z-index: 9999;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 28px;
+                        background: var(--wine-dark);
+                        color: #fff;
+                        text-align: center
+                  }
+
+                  .portrait-lock div {
+                        max-width: 420px
+                  }
+
+                  .portrait-lock .phone {
+                        display: block;
+                        margin-bottom: 18px;
+                        font-size: 58px
+                  }
+
+                  .portrait-lock strong {
+                        display: block;
+                        font-size: 25px;
+                        line-height: 1.2
+                  }
+
+                  .portrait-lock p {
+                        margin-top: 12px;
+                        color: #ffe3a1
+                  }
+            }
+
+            @media(prefers-reduced-motion:reduce) {
+                  html {
+                        scroll-behavior: auto
+                  }
+
+                  .drawer,
+                  .backdrop {
+                        transition: none
+                  }
+            }
+
+            .pasos {
+                  list-style: none;
+                  padding-left: 0;
+                  counter-reset: paso;
+            }
+
+            .pasos>li {
+                  counter-increment: paso;
+                  margin-bottom: 18px;
+            }
+
+            .pasos>li::before {
+                  content: "Paso " counter(paso);
+                  display: block;
+                  margin-bottom: 5px;
+                  color: #7f1d1d;
+                  font-weight: bold;
+            }
+
+            .prompt,
+            .example pre {
+                  white-space: pre-wrap;
+                  overflow-wrap: anywhere;
+                  word-break: normal;
+                  width: 100%;
+                  max-width: 100%;
+                  box-sizing: border-box;
+                  font-family: inherit;
+                  line-height: 1.5;
+            }
+
+            /* ==================================================
+   PÁGINA EXCLUSIVA PARA CELULAR VERTICAL
+   ================================================== */
+
+            .desktop-lock {
+                  display: none;
+            }
+
+            /* Impide que el contenido crezca como página de computadora */
+            html,
+            body {
+                  width: 100%;
+                  max-width: 100%;
+                  overflow-x: hidden;
+            }
+
+            /* En celular, el contenido nunca supera un ancho móvil */
+            body>main,
+            .hero,
+            .topbar {
+                  max-width: 480px;
+                  margin-left: auto;
+                  margin-right: auto;
+            }
+
+            /* BLOQUEO CUANDO EL CELULAR ESTÁ HORIZONTAL */
+            @media (orientation: landscape) and (pointer: coarse) {
+
+                  body>.topbar,
+                  body>.drawer,
+                  body>.backdrop,
+                  body>.hero,
+                  body>main,
+                  body>.to-top {
+                        display: none !important;
+                  }
+
+                  .portrait-lock {
+                        position: fixed;
+                        inset: 0;
+                        z-index: 99999;
+                        display: flex !important;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 28px;
+                        background: var(--wine-dark);
+                        color: white;
+                        text-align: center;
+                  }
+            }
+
+            /* BLOQUEO EN COMPUTADORAS */
+            @media (pointer: fine) and (min-width: 700px) {
+
+                  body>.topbar,
+                  body>.drawer,
+                  body>.backdrop,
+                  body>.hero,
+                  body>main,
+                  body>.to-top,
+                  body>.portrait-lock {
+                        display: none !important;
+                  }
+
+                  .desktop-lock {
+                        position: fixed;
+                        inset: 0;
+                        z-index: 99999;
+                        display: flex !important;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 30px;
+                        background: var(--wine-dark);
+                        color: white;
+                        text-align: center;
+                  }
+
+                  .desktop-lock>div {
+                        max-width: 400px;
+                  }
+
+                  .desktop-lock strong {
+                        display: block;
+                        font-size: 26px;
+                        margin-bottom: 12px;
+                  }
+            }
+
+            /* ==================================================
+               BLOQUEO DE "SITIO PARA ESCRITORIO" EN CELULARES
+               ================================================== */
+            .desktop-site-lock {
+                  display: none;
+            }
+
+            .desktop-site-lock.show {
+                  position: fixed;
+                  inset: 0;
+                  z-index: 1000000;
+                  display: flex !important;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 24px;
+                  background: var(--wine-dark);
+                  color: #fff;
+                  text-align: center;
+            }
+
+            .desktop-site-lock .lock-box {
+                  width: min(100%, 390px);
+                  padding: 25px 20px;
+                  border-radius: 22px;
+                  background: #651515;
+                  border: 1px solid rgba(255, 255, 255, .18);
+            }
+
+            .desktop-site-lock .lock-icon {
+                  display: block;
+                  margin-bottom: 14px;
+                  font-size: 52px;
+            }
+
+            .desktop-site-lock strong {
+                  display: block;
+                  margin-bottom: 10px;
+                  font-size: 25px;
+                  line-height: 1.2;
+            }
+
+            .desktop-site-lock p {
+                  margin: 0;
+                  color: #ffe3a1;
+                  line-height: 1.5;
+            }
+
+            .desktop-site-lock .small {
+                  display: block;
+                  margin-top: 14px;
+                  color: #fff;
+                  font-size: 14px;
+                  opacity: .9;
+            }
+
+      </style>
+</head>
+
+<body>
+
+      <div class="desktop-site-lock" id="desktopSiteLock" role="alert" aria-live="assertive" aria-hidden="true">
+            <div class="lock-box">
+                  <span class="lock-icon">📱</span>
+                  <strong>Vista para computadora no disponible</strong>
+                  <p>
+                        Este contenido está diseñado únicamente para celular en posición vertical.
+                        Desactiva <b>“Sitio para escritorio”</b> en el menú del navegador para continuar.
+                  </p>
+                  <span class="small">La página volverá a mostrarse automáticamente al regresar a la vista móvil.</span>
+            </div>
+      </div>
+
+      <div class="desktop-lock">
+            <div>
+                  <strong>Disponible solo en celular</strong>
+                  <p>Este contenido está diseñado exclusivamente para utilizarse desde un celular en posición vertical.
+                  </p>
+            </div>
+      </div>
+      <div class="portrait-lock" role="alert">
+            <div>
+                  <span class="phone">↻</span>
+                  <strong>Coloca el celular en posición vertical</strong>
+                  <p>Esta página solo puede utilizarse en posición vertical.</p>
+            </div>
+      </div>
+      <header class="topbar">
+            <button class="menu-btn" id="openMenu" aria-label="Abrir menú" aria-controls="drawer">☰</button>
+            <div class="top-title">
+                  <span>Módulo 2</span>Multimedia Marketing y Herramientas de IA
+            </div>
+      </header>
+
+      <nav class="drawer" id="drawer" aria-label="Menú de clases">
+            <div class="drawer-head">
+                  <strong>Índice de clases</strong><button class="close-btn" id="closeMenu"
+                        aria-label="Cerrar menú">×</button>
+            </div>
+            <a href="index.html">Inicio</a>
+            <a href="#clase1">Clase 1 · Marketing</a>
+            <a href="#clase2">Clase 2 · Contenidos</a>
+            <a href="#clase3">Clase 3 · Tipos de Contenido</a>
+      </nav>
+      <div class="backdrop" id="backdrop"></div>
+      <main>
+            <section class="lesson" id="clase1">
+                  <div class="lesson-head">
+                        <span class="lesson-no">Clase 1</span>
+                        <h2>Marketing</h2>
+                  </div>
+                  <div class="challenge">
+                        <small>DINÁMICA 1 - PRESENTACIÓN</small>
+                        <strong>INSTRUCCIONES</strong>
+                        <ol class="pasos">
+                              <li>Formen parejas (grupos de 2).</li>
+                              <li>Decidan quién habla primero.</li>
+                              <li>El primero comparte:
+                                    <ul>
+                                          <li>su nombre</li>
+                                          <li>algo que le guste (comida, música, etc.)
+                                          </li>
+                                          <li>la empresa, emprendimiento o idea propia en la que le gustaría trabajar.
+                                          </li>
+                                    </ul>
+                              </li>
+                              <li>El compañero escucha con atención, puede hacer 1 o 2 preguntas para conocer más.</li>
+                              <li>Cambian de rol: ahora el segundo comparte su información.</li>
+                        </ol>
+                        <strong>INDICACIONES</strong>
+                        <ul class="pair-steps">
+                              <li>
+                                    Registren la información de su compañero/a.
+                              </li>
+                              <li>
+                                    Cuando tengan la información, indiquen al docente para pasar al frente y presentar a
+                                    su compañero/a.
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+                        Esta dinámica se realiza porque cada estudiante necesita definir, desde el inicio del módulo,
+                        una empresa, emprendimiento o idea de negocio propia con la cual trabajará durante todo el
+                        desarrollo del contenido.
+                  </div>
+                  <h3>¿Qué es el marketing de contenidos?</h3>
+                  <div class="answer">
+                        <p>
+                              Es una <b>estrategia de marketing</b> enfocada en crear y distribuir información valiosa,
+                              relevante y útil <b>para atraer, educar y retener a un público objetivo</b>.
+                        </p>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué no solo crear contenido y publicar?</strong>
+                        <p>
+                              Porque sin una <b>estrategia</b> detrás, el contenido puede <b>NO</b> llegar a la
+                              audiencia
+                              correcta ni generar resultados.
+                              <br><br>
+                              Publicar sin un plan claro suele significar <b>esfuerzo desperdiciado</b>: se invierte
+                              tiempo y recursos, pero no se logra atraer, educar ni retener a nadie, que es justamente
+                              el propósito del marketing de contenidos.
+                        </p>
+                  </div>
+                  <h3>¿Qué es la misión?</h3>
+                  <div class="answer">
+                        <p>
+                              La misión explica qué hace actualmente la empresa, a quién atiende y qué necesidad ayuda a
+                              satisfacer. Se redacta en presente y no debe incluir metas futuras.
+                        </p>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué es importante tener presente la misión de la empresa?</strong>
+                        <p>
+                              Porque la misión funciona como una <b>brújula</b> para la toma de decisiones diarias:
+                              ayuda a definir qué productos ofrecer, cómo tratar a los clientes y hacia dónde enfocar
+                              los esfuerzos del equipo.
+                        </p>
+                  </div>
+                  <div class="prompt-box">
+                        <div class="prompt-label">
+                              Copia el prompt en ChatGPT para crear la misión
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre class="prompt">Redacta tres opciones breves y claras de misión para [NOMBRE DE LA EMPRESA], dedicada a [ACTIVIDAD], que ofrece [PRODUCTO O SERVICIO] a [PÚBLICO OBJETIVO] y busca satisfacer [NECESIDAD DEL CLIENTE].
+
+Cada misión debe indicar:
+- qué hace la empresa;
+- qué ofrece;
+- a quién se dirige;
+- qué necesidad busca satisfacer.
+
+Escribe cada opción en una sola oración, con lenguaje sencillo, profesional y fácil de entender.
+
+Las tres opciones deben ser diferentes entre sí.
+
+No inventes información que no haya sido proporcionada.</pre>
+
+                        <div class="example">
+                              <strong>Ejemplo de cómo completar el prompt</strong>
+
+                              <pre>Redacta tres opciones breves y claras de misión para Delicias Chapacas, dedicada a la elaboración de repostería artesanal, que ofrece tortas y postres personalizados a personas de Tarija que organizan celebraciones y busca satisfacer la necesidad de contar con productos personalizados para diferentes acontecimientos.
+
+Cada misión debe indicar:
+- qué hace la empresa;
+- qué ofrece;
+- a quién se dirige;
+- qué necesidad busca satisfacer.
+
+Escribe cada opción en una sola oración, con lenguaje sencillo, profesional y fácil de entender.
+
+Las tres opciones deben ser diferentes entre sí.
+
+No inventes información que no haya sido proporcionada.</pre>
+                        </div>
+                  </div>
+                  <h3>¿Qué es la visión?</h3>
+
+                  <div class="answer">
+                        <p>
+                              La visión expresa <b>cómo quiere verse la empresa en el futuro</b>.
+                              Indica hacia dónde desea crecer, qué quiere lograr y por qué característica
+                              espera ser reconocida. Debe ser clara, realista y posible de alcanzar.
+                        </p>
+                  </div>
+
+                  <div class="prompt-tip">
+                        <strong>¿Por qué es importante tener presente la visión de la empresa?</strong>
+
+                        <p>
+                              Porque permite tener claro <b>hacia dónde quiere llegar el negocio</b>.
+                              Ayuda a orientar las decisiones, definir prioridades y mantener un mismo
+                              rumbo durante el crecimiento de la empresa.
+                              <br><br>
+                              Una visión clara permite comparar las decisiones actuales con lo que la
+                              empresa desea alcanzar en el futuro.
+                        </p>
+                  </div>
+
+                  <div class="prompt-box">
+
+                        <div class="prompt-label">
+                              Copia el prompt en ChatGPT para crear la visión
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre class="prompt">Redacta tres opciones breves y claras de visión para [NOMBRE DE LA EMPRESA], dedicada a [ACTIVIDAD].
+
+En el futuro, la empresa quiere [META A FUTURO], desea llegar a [LUGAR, MERCADO O PÚBLICO AL QUE QUIERE ALCANZAR] y espera ser reconocida por [CARACTERÍSTICA QUE QUIERE DESTACAR].
+
+Cada visión debe indicar:
+- hacia dónde quiere crecer la empresa;
+- qué quiere alcanzar en el futuro;
+- por qué quiere ser reconocida.
+
+Escribe cada opción en una sola oración, con lenguaje sencillo, profesional, realista y fácil de entender.
+
+Las tres opciones deben ser diferentes entre sí.
+
+Evita frases exageradas como "ser la mejor empresa del mundo", "ser líder absoluto" o resultados que no puedan garantizarse.
+
+No inventes información que no haya sido proporcionada.</pre>
+
+                        <div class="example">
+
+                              <strong>Ejemplo de cómo completar el prompt</strong>
+
+                              <pre>Redacta tres opciones breves y claras de visión para Delicias Chapacas, dedicada a la elaboración de repostería artesanal.
+
+En el futuro, la empresa quiere ampliar su presencia, desea llegar a más clientes de la ciudad de Tarija y espera ser reconocida por la personalización y presentación de sus tortas y postres.
+
+Cada visión debe indicar:
+- hacia dónde quiere crecer la empresa;
+- qué quiere alcanzar en el futuro;
+- por qué quiere ser reconocida.
+
+Escribe cada opción en una sola oración, con lenguaje sencillo, profesional, realista y fácil de entender.
+
+Las tres opciones deben ser diferentes entre sí.
+
+Evita frases exageradas como "ser la mejor empresa del mundo", "ser líder absoluto" o resultados que no puedan garantizarse.
+
+No inventes información que no haya sido proporcionada.</pre>
+
+                        </div>
+
+                  </div>
+                  <div class="challenge">
+                        <small>DINÁMICA 2 - MEJORANDO LA MISIÓN Y VISIÓN</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+                              <li>
+                                    Formen parejas.
+                              </li>
+
+                              <li>
+                                    Intercambien la misión y visión que redactaron.
+                              </li>
+
+                              <li>
+                                    Revisen juntos cada texto y respondan:
+                                    <ul>
+                                          <li>¿Se entiende con facilidad?</li>
+                                          <li>¿Representa realmente a la empresa?</li>
+                                          <li>¿Suena muy general o genérico?</li>
+                                          <li>¿Hay alguna palabra o frase que se pueda mejorar?</li>
+                                    </ul>
+                              </li>
+
+                              <li>
+                                    Cada participante realiza los cambios que considere necesarios en su propia misión y
+                                    visión.
+                              </li>
+
+                              <li>
+                                    Escriban la versión final de la misión y visión.
+                              </li>
+                        </ol>
+
+                        <strong>INDICACIONES</strong>
+
+                        <ul class="pair-steps">
+
+                              <li>
+                                    Redacten la misión y visión final.
+                              </li>
+
+                              <li>
+                                    Cuando terminen, indiquen al docente.
+                              </li>
+
+                              <li>
+                                    Cada participante pasará al frente y presentará la misión y visión final de su
+                                    empresa.
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+                        Porque el contenido generado por IA tiende a sonar
+                        genérico o poco personal.
+                        <br><br>
+                        Al trabajar en equipo, cada estudiante recibe una mirada externa que le ayuda a identificar qué
+                        partes de su misión y visión no reflejan realmente la esencia de su empresa, logrando un
+                        resultado más auténtico, claro y propio.
+                  </div>
+                  <h3>¿Qué son los valores?</h3>
+                  <div class="answer">
+                        <p>Son principios que orientan la conducta de la empresa. Cada valor debe demostrarse mediante
+                              una acción concreta, no quedarse como una palabra decorativa.</p>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué son importantes los valores para la creación de contenido multimedia?</strong>
+                        <p>
+                              Porque los valores le dan <b>coherencia y personalidad</b> al contenido que se publica.
+                              <br><br>
+                              Sin valores claros, el contenido puede volverse <b>inconsistente o contradictorio</b>.
+                              <br><br>
+                              Conocer los valores ayuda a decidir, por ejemplo, si un contenido debe ser más cercano y
+                              divertido, o más formal y educativo, según lo que la marca quiere representar.
+                        </p>
+                  </div>
+                  <div class="prompt-box">
+                        <div class="prompt-label">
+                              Copia el prompt en ChatGPT para definir los valores
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre
+                              class="prompt">A partir de la misión y visión, propón cinco valores que sean coherentes con la identidad y la forma de trabajar de la empresa.
+
+Misión final:
+[PEGAR AQUÍ LA MISIÓN FINAL]
+
+Visión final:
+[PEGAR AQUÍ LA VISIÓN FINAL]
+
+Para cada valor:
+- escribe el nombre del valor;
+- explica brevemente por qué ese valor es importante para la empresa;
+- indica una acción concreta que demuestre cómo se aplica en la práctica.
+
+Los cinco valores deben:
+- estar relacionados directamente con la misión y la visión;
+- ser diferentes entre sí;
+- ser claros, realistas y fáciles de entender;
+- representar comportamientos que la empresa realmente pueda poner en práctica.
+
+Evita elegir valores solo porque son comunes en otras empresas. No inventes información que no aparezca o pueda deducirse claramente de la misión y visión.</pre>
+
+                        <div class="example">
+                              <strong>Ejemplo de cómo completar el prompt</strong>
+
+                              <pre>A partir de la misión y visión, propón cinco valores que sean coherentes con la identidad y la forma de trabajar de la empresa.
+
+Misión final:
+Delicias Chapacas tiene como misión elaborar tortas y postres artesanales personalizados para personas de Tarija, atendiendo sus necesidades en diferentes celebraciones.
+
+Visión final:
+Delicias Chapacas busca ampliar su presencia en la ciudad de Tarija, llegar a más clientes y ser reconocida por la personalización y presentación de sus tortas y postres.
+
+Para cada valor:
+- escribe el nombre del valor;
+- explica brevemente qué significa ese valor para la empresa;
+- indica una acción concreta que demuestre cómo se aplica en la práctica.
+
+Los cinco valores deben:
+- estar relacionados directamente con la misión y la visión;
+- representar la forma en que la empresa quiere actuar;
+- ser diferentes entre sí;
+- ser claros, realistas y fáciles de entender;
+- poder demostrarse mediante acciones concretas.
+
+Evita proponer valores genéricos que no tengan relación con la empresa.
+
+No inventes información que no aparezca o pueda deducirse de la misión y visión.</pre>
+                        </div>
+                  </div>
+                  <div class="prompt-box">
+                        <div class="prompt-label">Prompt para definir el tono de contenido según los valores <button
+                                    class="copy-btn">Copiar</button>
+                        </div>
+                        <pre
+                              class="prompt">Actúa como experto en branding y comunicación digital. Mi empresa se llama [NOMBRE DE LA EMPRESA] y sus 5 valores son: [VALOR 1], [VALOR 2], [VALOR 3], [VALOR 4] y [VALOR 5]. En base a estos valores, explícame cómo debería ser el tono de voz, el estilo de lenguaje y la personalidad que debe reflejar el contenido que publique en redes sociales. No inventes valores ni información adicional.</pre>
+                        <div class="example">
+                              <strong>Ejemplo de cómo completar el prompt</strong>Actúa como experto en branding y
+                              comunicación digital. Mi empresa se llama Delicias Chapacas y sus 5 valores son: calidad,
+                              creatividad, cercanía, puntualidad y pasión. En base a estos valores, explícame cómo
+                              debería ser el tono de voz, el estilo de lenguaje y la personalidad que debe reflejar el
+                              contenido que publique en redes sociales. No inventes valores ni información adicional.
+                        </div>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Qué es el tono de voz?</strong>
+                        <p>
+                              Es la forma particular en que una empresa se comunica con su audiencia: las palabras que
+                              elige, el nivel de formalidad, el humor (o la seriedad) que usa, y la sensación general
+                              que transmite cada vez que publica algo.
+                              <br><br>
+                              Es como la "personalidad hablada" de la marca, y
+                              debe mantenerse consistente en todos los contenidos (redes sociales, atención al cliente,
+                              publicidad, etc.) para que el público la reconozca fácilmente.
+                        </p>
+                        <br>
+                        <strong>Tonos más frecuentes:</strong>
+                        <ul>
+                              <li><b>Cercano/amigable:</b> habla como un amigo, usa lenguaje coloquial y cercano. Ej:
+                                    marcas de comida, cafeterías, negocios locales.</li>
+                              <li><b>Formal/profesional:</b> serio, técnico, directo. Ej: bancos, consultorías, empresas
+                                    B2B.</li>
+                              <li><b>Divertido/humorístico:</b> usa bromas, juegos de palabras, memes. Ej: marcas de
+                                    bebidas, moda juvenil.</li>
+                              <li><b>Inspirador/motivacional:</b> busca emocionar, motivar o generar aspiración. Ej:
+                                    marcas deportivas, coaching, emprendimiento.</li>
+                              <li><b>Educativo/informativo:</b> enseña, explica, aporta valor con datos o consejos. Ej:
+                                    marcas de salud, tecnología, educación.</li>
+                              <li><b>Elegante/sofisticado:</b> cuidado, refinado, exclusivo. Ej: marcas de lujo,
+                                    joyería, alta cocina.</li>
+                        </ul>
+                        <br>
+                        <strong>Ejemplo de publicación según el tono</strong>
+                        <p>
+                              Si el tono es <b>cercano y cálido</b> (ejemplo: Delicias Chapacas), una publicación podría
+                              decir:
+                        </p>
+                        <p style="font-style: italic;">
+                              "Hoy horneamos con mucho cariño tu torta favorita 🍰 ¿Ya elegiste el sabor para tu próxima
+                              celebración?"
+                        </p>
+                        <p>
+                              En cambio, si el tono fuera <b>formal y profesional</b>, la misma idea se vería así:
+                        </p>
+                        <p style="font-style: italic;">
+                              "Contamos con una variedad de tortas personalizadas, elaboradas bajo altos estándares de
+                              calidad para su evento."
+                        </p>
+                  </div>
+                  <div class="challenge">
+                        <small>DINÁMICA 3 - VALORES EN ACCIÓN</small>
+                        <strong>INSTRUCCIONES</strong>
+                        <ol class="pasos">
+                              <li>Formen la misma pareja de las dinámicas anteriores.</li>
+                              <li>Cada uno comparte con su compañero los 5 valores de su empresa y el tono de voz que la
+                                    IA propuso para su contenido.</li>
+                              <li>El compañero escucha y da su opinión:
+                                    <ul>
+                                          <li>¿el tono realmente refleja esos valores?</li>
+                                          <li>¿suena coherente con la empresa descrita?</li>
+                                    </ul>
+                              </li>
+                              <li>Entre los dos proponen un ejemplo corto de publicación (una frase o mensaje) que
+                                    refleje ese tono y esos valores.</li>
+                              <li>Cambian de rol: ahora el otro comparte sus valores y tono de voz para recibir
+                                    retroalimentación.</li>
+                              <li>Cada uno ajusta su tono de voz final incorporando las sugerencias de su compañero.
+                              </li>
+                        </ol>
+                        <strong>INDICACIONES</strong>
+                        <ul class="pair-steps">
+                              <li>
+                                    Analiza con tu compañero/a lo generado.
+                              </li>
+
+                              <li>
+                                    En el caso de ser necesario, deben mejorarlos.
+                              </li>
+
+                              <li>
+                                    Cuando terminen, indiquen al docente.
+                              </li>
+
+                              <li>
+                                    Cada participante pasará al frente y presentará los resultados obtenidos.
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+                        <p>
+                              Porque definir un tono permite que la empresa tenga una <b>forma clara y coherente de
+                                    comunicarse</b> con sus clientes.
+                              <br><br>
+                              El tono ayuda a decidir cómo escribir los mensajes, responder consultas y presentar los
+                              productos o servicios, manteniendo una forma de comunicación que represente a la empresa.
+                        </p>
+                  </div>
+                  <div class="activity">
+                        <h3>Actividad 1 · Misión, visión y valores</h3>
+                        <p>Con base en todo lo trabajado en las dinámicas anteriores, completa los siguientes datos de
+                              tu empresa o emprendimiento:</p>
+                        <ol>
+                              <li><b>Nombre de la empresa:</b> escribe el nombre de tu empresa o emprendimiento.</li>
+                              <li><b>Misión:</b> escribe la versión final de tu misión, ya afinada junto a tu compañero.
+                              </li>
+                              <li><b>Visión:</b> escribe la versión final de tu visión, ya afinada junto a tu compañero.
+                              </li>
+                              <li><b>Valores:</b> escribe los 5 valores de tu empresa.
+                              </li>
+                        </ol>
+                  </div>
+            </section>
+
+            <section class="lesson" id="clase2">
+                  <div class="lesson-head">
+                        <span class="lesson-no">Clase 2</span>
+                        <h2>Contenido</h2>
+                  </div>
+                  <div class="challenge">
+                        <small>DINÁMICA 1 - ¿QUÉ PROPÓSITO TIENE EL CONTENIDO?</small>
+                        <strong>INSTRUCCIONES</strong>
+                        <ol class="pasos">
+                              <li>Formen parejas nuevas, con alguien con quien no hayan trabajado antes en el módulo.
+                              </li>
+                              <li>Cada uno busca en su celular la página de Facebook (u otra red social) de una empresa
+                                    que sea competencia directa de su propio emprendimiento.</li>
+                              <li>Muestren la página a su compañero y analicen juntos los siguientes puntos:
+                                    <ul>
+                                          <li>Nombre de la empresa o página analizada.</li>
+                                          <li>¿Qué tono utiliza? (cercano, formal, divertido, inspirador,
+                                                educativo, elegante, etc.)</li>
+                                          <li>¿Qué es lo que sí funciona bien en esa página?</li>
+                                          <li>¿Qué le falta o qué se podría mejorar?</li>
+                                    </ul>
+                              </li>
+                              <li>Cambien de rol y repitan el análisis con la página que trajo el otro compañero.</li>
+                        </ol>
+                        <strong>INDICACIONES</strong>
+                        <ul class="pair-steps">
+                              <li>
+                                    Buscan paginas o sitios de empresas competidoras.
+                              </li>
+                              <li>
+                                    Realizan un análisis de las mismas.
+                              </li>
+                              <li>
+                                    Al finalizar, cada estudiante saldrá al frente y compartirá brevemente: el nombre de
+                                    la página analizada, el tono que utiliza, qué funciona bien y qué
+                                    podría mejorar.
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+                        Porque antes de aprender a crear contenido con propósito, es útil analizar a la competencia.
+                        <br><br>
+                        Además, analizar a la
+                        competencia ayuda a
+                        identificar qué está funcionando (o no) en el mercado.
+                  </div>
+                  <h3>¿Qué es el contenido?</h3>
+                  <div class="answer">
+                        <p>
+                              Es toda la información que una empresa comparte con su público a través de textos,
+                              imágenes, videos, audios o cualquier otro formato, con el fin de comunicar algo relevante
+                              sobre su marca, productos o servicios.
+                        </p>
+                  </div>
+
+                  <h3>¿Qué funciones puede cumplir?</h3>
+                  <div class="answer">
+                        <ul>
+                              <li>
+                                    <strong>Informar:</strong> presentar datos.
+                              </li>
+                              <li>
+                                    <strong>Educar:</strong> enseñar algo relacionado con la
+                                    actividad.
+                              </li>
+                              <li>
+                                    <strong>Generar confianza:</strong> mostrar procesos o información
+                                    verificable.
+                              </li>
+                              <li>
+                                    <strong>Interactuar:</strong> invitar a responder.
+                              </li>
+                              <li>
+                                    <strong>Promocionar:</strong> presentar una oferta.
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="prompt-box">
+                        <div class="prompt-label">Prompt para generar ideas <button class="copy-btn">Copiar</button>
+                        </div>
+                        <pre
+                              class="prompt">Propón un contenido informativo, uno educativo, uno interactivo y uno promocional para [EMPRESA], que ofrece [PRODUCTO O SERVICIO] para [PÚBLICO]. Presenta solamente la idea de cada contenido.</pre>
+                        <div class="example">
+                              <strong>Ejemplo de cómo completar el prompt</strong>Propón un contenido
+                              informativo, uno
+                              educativo, uno interactivo y uno promocional para Delicias Chapacas, que
+                              ofrece tortas y
+                              postres personalizados para personas de Tarija que organizan
+                              celebraciones. Presenta
+                              solamente la idea de cada contenido.
+                        </div>
+                  </div>
+                  <div class="challenge">
+                        <small>DINÁMICA 2 - DEFINIENDO NUESTRO CONTENIDO</small>
+                        <strong>INSTRUCCIONES</strong>
+                        <ol class="pasos">
+                              <li>Formen parejas.</li>
+                              <li>Cada uno comparte con su compañero las 4 ideas de contenido que la IA propuso
+                                    (informativo, educativo, interactivo y promocional) para su empresa.</li>
+                              <li>El compañero escucha y opina: ¿cuál de esas 4 ideas le parece más atractiva o más útil
+                                    para publicar primero? ¿por qué?</li>
+                              <li>Cambian de rol: ahora el otro comparte sus 4 ideas.</li>
+                              <li>Cada uno elige, de sus 4 ideas, cuál publicaría primero en su página de Facebook y por
+                                    qué.</li>
+                        </ol>
+                        <strong>INDICACIONES</strong>
+                        <ul class="pair-steps">
+                              <li>
+                                    Genera las 4 ideas.
+                              </li>
+                              <li>
+                                    Analiza con tu compañero las 4 ideas y elige la más adecuada para publicar primero.
+                              </li>
+                              <li>
+                                    Al finalizar, cada estudiante saldrá al frente y compartirá con la clase: qué
+                                    contenido publicará primero, qué función cumple (informar, educar, generar
+                                    confianza, interactuar o promocionar) y por qué lo eligió.
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+                        <p>
+                              Porque no todas las ideas de contenido son igual de adecuadas para comenzar.
+                              <br><br>
+                              Esta dinámica permite <b>comparar diferentes opciones y elegir qué contenido conviene
+                                    publicar primero</b>, tomando en cuenta lo que la empresa quiere comunicar y lo que
+                              puede resultar útil o atractivo para su público.
+                              <br><br>
+                              Escuchar la opinión de otra persona también ayuda a identificar ideas que quizás no
+                              habíamos considerado.
+                        </p>
+                  </div>
+                  <h3>¿Qué es el público objetivo?</h3>
+                  <div class="answer">
+                        <p>
+                              Es el grupo específico de personas al que la empresa dirige sus productos, servicios y
+                              contenido, definido por características como edad, género, ubicación, intereses,
+                              necesidades o comportamientos de compra. Conocerlo permite crear mensajes más efectivos y
+                              relevantes para quienes realmente pueden convertirse en clientes.
+                        </p>
+                  </div>
+                  <h3>¿Cómo se segmenta?</h3>
+                  <div class="answer">
+                        <ul>
+                              <li>
+                                    <strong>Geográficamente:</strong> por país, departamento, ciudad o
+                                    zona.
+                              </li>
+                              <li>
+                                    <strong>Demográficamente:</strong> por edad aproximada, ocupación
+                                    o etapa de vida
+                                    relevante.
+                              </li>
+                              <li>
+                                    <strong>Por intereses:</strong> mediante temas relacionados con la
+                                    oferta.
+                              </li>
+                              <li>
+                                    <strong>Por comportamiento:</strong> según búsquedas, dudas,
+                                    comparaciones y
+                                    acciones previas a comprar.
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="prompt-box">
+                        <div class="prompt-label">Prompt para segmentar <button class="copy-btn">Copiar</button>
+                        </div>
+                        <pre
+                              class="prompt">Define el público objetivo de [EMPRESA], que ofrece [PRODUCTO O SERVICIO] en [LUGAR]. Organiza la respuesta por ubicación, edad aproximada, necesidades, intereses y comportamiento digital. No inventes datos específicos.</pre>
+                        <div class="example">
+                              <strong>Ejemplo de cómo completar el prompt</strong>Define el público
+                              objetivo de Delicias
+                              Chapacas, que ofrece tortas y postres personalizados en la ciudad de
+                              Tarija. Organiza la
+                              respuesta por ubicación, edad aproximada, necesidades, intereses y
+                              comportamiento digital.
+                              No inventes datos específicos.
+                        </div>
+                  </div>
+                  <div class="challenge">
+                        <small>DINÁMICA 3 - CONOCIENDO A NUESTRO PÚBLICO</small>
+                        <strong>INSTRUCCIONES</strong>
+                        <ol class="pasos">
+                              <li>Formen parejas nuevas, con alguien con quien no hayan trabajado antes.</li>
+                              <li>Cada uno comparte con su compañero el público objetivo que la IA definió para su
+                                    empresa (ubicación, edad, necesidades, intereses y comportamiento digital).</li>
+                              <li>El compañero escucha y pregunta: ¿ese público realmente compraría o usaría el
+                                    producto/servicio? ¿falta algo importante o sobra algo que no aplica?</li>
+                              <li>Entre los dos ajustan la descripción del público objetivo si encuentran algo poco
+                                    realista o muy genérico.</li>
+                              <li>Cambian de rol y repiten el análisis con el público objetivo del otro compañero.</li>
+                              <li>Cada uno escribe la versión final y ajustada de su público objetivo.</li>
+                        </ol>
+                        <strong>INDICACIONES</strong>
+                        <ul class="pair-steps">
+                              <li>
+                                    Analizamos el publico objetivo generado por la IA.
+                              </li>
+                              <li>
+                                    Mejoramos nuestro publico objetivo.
+                              </li>
+                              <li>
+                                    Al finalizar, cada estudiante saldrá al frente y compartirá con la clase su público
+                                    objetivo final: ubicación, edad aproximada, necesidades e intereses principales.
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+                        Porque el público objetivo generado por la IA es un buen punto de partida, pero puede resultar
+                        muy amplio o genérico si no se contrasta con la realidad del negocio.
+                        <br><br>
+                        Al compartirlo con un compañero, el estudiante recibe una mirada externa que le ayuda a
+                        identificar si la descripción realmente representa a sus clientes potenciales o si necesita
+                        ajustarse.
+                  </div>
+                  <div class="challenge">
+                        <small>DINÁMICA 4 - SEGUNDA MIRADA AL PÚBLICO OBJETIVO</small>
+                        <strong>INSTRUCCIONES</strong>
+                        <ol class="pasos">
+                              <li>Formen parejas nuevas, con un compañero distinto a los de las dinámicas anteriores.
+                              </li>
+                              <li>Cada uno comparte con su nuevo compañero la versión ya ajustada de su público objetivo
+                                    (la que definieron en la Dinámica 3).</li>
+                              <li>El compañero escucha y da una segunda opinión: ¿la descripción sigue sonando genérica
+                                    en algún punto? ¿hay algo que no quedó claro o que podría precisarse más?</li>
+                              <li>Entre los dos afinan aún más los detalles: ubicación, edad, necesidades, intereses y
+                                    comportamiento digital, buscando que suene lo más específico y real posible.</li>
+                              <li>Cambian de rol y repiten el proceso con el público objetivo del otro compañero.</li>
+                              <li>Cada uno escribe la versión final y definitiva de su público objetivo.</li>
+                        </ol>
+                        <strong>INDICACIONES</strong>
+                        <ul class="pair-steps">
+                              <li>
+                                    Afinar aún más el publico objetivo.
+                              </li>
+                              <li>
+                                    Al finalizar, cada estudiante saldrá al frente y compartirá con la clase la versión
+                                    afinada de su público objetivo.
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+                        Porque una sola retroalimentación puede no ser suficiente para eliminar por completo lo genérico
+                        de una descripción generada por IA.
+                        <br><br>
+                        Además, trabajar con distintos compañeros en cada dinámica refuerza la habilidad de colaborar
+                        con diversas personas, tal como ocurre en un entorno laboral real.
+                  </div>
+
+                  <div class="challenge">
+                        <small>DINÁMICA 5 - MI PÚBLICO A FACEBOOK</small>
+                        <strong>INSTRUCCIONES</strong>
+                        <ol class="pasos">
+                              <li>De forma individual, busquen en internet qué opciones de segmentación ofrece realmente
+                                    Facebook (Meta) para anuncios y páginas: por ejemplo, ubicación, edad, género,
+                                    intereses, comportamientos.</li>
+                              <li>Reescriban su público objetivo usando únicamente las categorías reales que Facebook
+                                    permite segmentar, eliminando o adaptando lo que no exista como opción en la
+                                    plataforma.</li>
+                              <li>Formen pareja con un compañero nuevo y comparen: ¿a ambos les pasó que describían su
+                                    público de una forma pero Facebook lo maneja distinto?</li>
+                        </ol>
+                        <strong>INDICACIONES</strong>
+                        <ul class="pair-steps">
+                              <li>
+                                    Busquen en internet qué opciones de segmentación ofrece realmente
+                                    Facebook (Meta)
+                              </li>
+                              <li>
+                                    Reescriban su público objetivo usando únicamente las categorías reales que Facebook.
+                              </li>
+                              <li>
+                                    Al finalizar, cada estudiante saldrá al frente y compartirá con la clase su público
+                                    objetivo "traducido" a las opciones reales de segmentación de Facebook.
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+                        Porque es común describir al público objetivo de forma libre e intuitiva (por ejemplo, "personas
+                        que valoran la calidad" o "gente ocupada que busca comodidad"), pero Facebook no segmenta por
+                        ese tipo de descripciones generales, sino por categorías específicas y predefinidas dentro de la
+                        plataforma.
+                        <br><br>
+                        Esta dinámica ayuda al estudiante a entender que no basta con saber quién es su público en
+                        teoría; también debe aprender a "traducirlo" al lenguaje real de la herramienta que va a usar,
+                        para poder segmentar correctamente cuando publique o invierta en anuncios.
+                  </div>
+
+                  <div class="activity">
+                        <h3>Actividad 2 · Público objetivo</h3>
+                        <ol>
+                              <li>Segmentación geográfica.</li>
+                              <li>Segmentación demográfica.</li>
+                              <li>Segmentación por intereses.</li>
+                              <li>Segmentación por comportamiento.</li>
+                        </ol>
+                  </div>
+            </section>
+
+            <section class="lesson" id="clase3">
+                  <div class="lesson-head">
+                        <span class="lesson-no">Clase 3</span>
+                        <h2>Tipos de Contenido</h2>
+                  </div>
+                  <div class="challenge">
+                        <small>DINÁMICA 1 - ¿QUÉ CONTENIDO FUNCIONA MEJOR?</small>
+                        <strong>INSTRUCCIONES</strong>
+                        <ol class="pasos">
+                              <li>Formen parejas (pueden ser nuevas o de dinámicas anteriores).</li>
+                              <li>Cada uno entra a 3 páginas de Facebook de empresas similares a su propio
+                                    emprendimiento (competencia directa o negocios similar).</li>
+                              <li>En una hoja de papel, dibujen una tabla por cada página analizada. En el encabezado
+                                    escriban el nombre de la página, en la primera columna los tipos de contenido
+                                    (Fotos, Videos, Solo texto) y en la segunda columna la
+                                    frecuencia (cuántas veces aparece cada tipo).</li>
+                              <li>Revisen las publicaciones de cada página y completen la frecuencia de cada
+                                    tipo de contenido en su tabla correspondiente.</li>
+                              <li>Al terminar las 3 tablas, identifiquen cuál es el tipo de contenido que más se repite
+                                    en general entre las 3 páginas.</li>
+                              <li>Muestren sus tablas a su compañero/a y comparen resultados: ¿coinciden en el tipo de
+                                    contenido más usado o encontraron cosas distintas?</li>
+                              <li>Cambien de rol y repitan el análisis con las páginas que investigó el otro compañero.
+                              </li>
+                        </ol>
+                        <strong>INDICACIONES</strong>
+                        <ul class="pair-steps">
+                              <li>
+                                    Buscar paginas de Facebook
+                              </li>
+                              <li>
+                                    Aplicar Estadística
+                              </li>
+                              <li>
+                                    Comparar resultados con su compañero/a
+                              </li>
+                              <li>
+                                    Al finalizar, cada estudiante saldrá al frente, mostrará sus 3 tablas en papel y
+                                    explicará: según lo que encontró, qué tipo de contenido es el más usado.
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+                        Porque antes de aprender la teoría sobre los tipos de contenido multimedia, es útil que el
+                        estudiante los identifique de forma práctica y con datos reales, observando qué formato
+                        realmente predomina en páginas de su mismo rubro.
+                  </div>
+                  <h3>¿Qué tipos de contenido existen?</h3>
+                  <div class="answer">
+                        <ul>
+                              <li>
+                                    <strong>Fotos:</strong> imágenes de productos, servicios, equipo de trabajo o
+                                    procesos. Son rápidas de crear y fáciles de consumir.
+                              </li>
+                              <li>
+                                    <strong>Videos:</strong> contenido en movimiento, corto o largo, ideal para
+                                    mostrar procesos, tutoriales o generar mayor interacción.
+                              </li>
+                              <li>
+                                    <strong>Solo texto:</strong> publicaciones sin imagen, usadas para mensajes cortos,
+                                    preguntas o anuncios simples.
+                              </li>
+                        </ul>
+                  </div>
+                  <h3>¿Cómo se elige el formato?</h3>
+                  <div class="answer">
+                        <p>
+                              Se elige principalmente observando lo que ya funciona en páginas similares a la nuestra,
+                              como hicieron en la Dinámica 1: si al analizar la competencia identificaron que un tipo de
+                              contenido se repite con más frecuencia, esa es una señal
+                              real de que ese formato conecta bien con ese tipo de público y negocio.
+                        </p>
+                  </div>
+                  <div class="prompt-box">
+                        <div class="prompt-label">
+                              Prompt para seleccionar formatos
+                              <button class="copy-btn">Copiar</button>
+                        </div>
+
+                        <pre class="prompt">Analiza la misión, visión, valores y público objetivo de la empresa para determinar qué formatos de contenido son más adecuados para comunicar en redes sociales.
+
+Debes analizar únicamente estos tres formatos:
+- Video
+- Imagen
+- Solo texto
+
+Ordena los tres formatos del más adecuado al menos adecuado para esta empresa. No utilices un orden predeterminado: el orden debe depender de la misión, visión, valores y público objetivo proporcionados.
+
+Presenta la respuesta exactamente así:
+
+1. Formato: [VIDEO, IMAGEN o SOLO TEXTO]
+¿Por qué es adecuado?: [explicación breve relacionada con la empresa]
+¿Para qué podría utilizarse?: [ejemplo concreto]
+
+2. Formato: [VIDEO, IMAGEN o SOLO TEXTO]
+¿Por qué es adecuado?: [explicación breve relacionada con la empresa]
+¿Para qué podría utilizarse?: [ejemplo concreto]
+
+3. Formato: [VIDEO, IMAGEN o SOLO TEXTO]
+¿Por qué es adecuado?: [explicación breve relacionada con la empresa]
+¿Para qué podría utilizarse?: [ejemplo concreto]
+
+### Información de la empresa
+
+Misión:
+[PEGAR AQUÍ LA MISIÓN FINAL]
+
+Visión:
+[PEGAR AQUÍ LA VISIÓN FINAL]
+
+Valores:
+[PEGAR AQUÍ LOS 5 VALORES]
+
+Público objetivo:
+[PEGAR AQUÍ EL PÚBLICO OBJETIVO]
+
+Justifica el orden tomando en cuenta las características particulares de la empresa. No asumas que el video siempre es la mejor opción.
+
+No inventes información que no haya sido proporcionada.</pre>
+                  </div>
+
+                  <div class="challenge">
+                        <small>DINÁMICA 2 - ELIGIENDO MIS FORMATOS</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+                              <li>
+                                    Formen parejas nuevas, con alguien con quien no hayan trabajado antes.
+                              </li>
+
+                              <li>
+                                    Intercambien los resultados obtenidos con la IA sobre los tres formatos: video,
+                                    imagen y solo texto.
+                              </li>
+
+                              <li>
+                                    Cada participante revisa el orden de formatos recomendado para la empresa de su
+                                    compañero/a.
+                              </li>
+
+                              <li>
+                                    Analicen juntos:
+                                    <ul>
+                                          <li>¿El formato colocado en primer lugar es realmente el más adecuado para esa
+                                                empresa?</li>
+                                          <li>¿Tiene relación con su misión, visión y valores?</li>
+                                          <li>¿Es adecuado para su público objetivo?</li>
+                                          <li>¿La empresa puede crear ese tipo de contenido con los recursos que tiene?
+                                          </li>
+                                    </ul>
+                              </li>
+
+                              <li>
+                                    Comparen los tres formatos y comenten si mantendrían el orden recomendado por la IA
+                                    o realizarían algún cambio.
+                              </li>
+
+                              <li>
+                                    Cada participante decide el orden final de los tres formatos para su empresa.
+                              </li>
+                        </ol>
+
+                        <strong>INDICACIONES</strong>
+
+                        <ul class="pair-steps">
+                              <li>
+                                    Analizar los formatos obtenidos.
+                              </li>
+
+                              <li>
+                                    Cuando terminen, indiquen al docente.
+                              </li>
+
+                              <li>
+                                    Cada participante pasará al frente y presentará el orden final de sus tres formatos,
+                                    indicando cuál utilizaría principalmente y por qué.
+                              </li>
+                        </ul>
+                  </div>
+
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+                        <p>
+                              Porque <b>cada empresa necesita una forma de comunicar diferente</b>.
+                              Comparar video, imagen y solo texto permite identificar cuál se adapta mejor a la
+                              identidad de la empresa, a su público y a los recursos disponibles.
+                              <br><br>
+                              La recomendación de la IA sirve como punto de partida, pero la decisión final debe ser
+                              analizada y justificada por cada participante.
+                        </p>
+                  </div>
+
+                  <h3>¿Qué es la identidad visual?</h3>
+                  <div class="answer">
+                        <p>
+                              Es el conjunto de elementos visuales (colores, tipografía, logotipo, estilo de imágenes e
+                              ilustraciones) que representan a la empresa y la hacen reconocible en cualquier contenido
+                              que publique. Mantenerla consistente en todos los formatos ayuda a que el público
+                              identifique la marca de un vistazo, sin necesidad de leer el nombre.
+                        </p>
+                  </div>
+                  <div class="prompt-tip">
+                        <strong>¿Por qué es importante la identidad visual?</strong>
+                        <p>
+                              Porque es lo primero que el público percibe antes incluso de leer el mensaje: los colores,
+                              la tipografía y el estilo visual generan una impresión inmediata sobre la empresa.
+                              <br><br>
+                              Además, una identidad visual consistente hace que la marca sea <b>reconocible</b> en
+                              cualquier plataforma, transmite <b>profesionalismo y confianza</b>, y la diferencia de la
+                              competencia. Sin ella, cada publicación puede verse desconectada de las demás, dando la
+                              sensación de que no hay una marca sólida detrás.
+                        </p>
+                  </div>
+                  <h3>¿Qué es el proceso creativo?</h3>
+                  <div class="answer">
+                        <p>
+                              Es la secuencia de pasos que se sigue para pasar de una idea a un contenido terminado:
+                        </p>
+                        <ul>
+                              <li>
+                                    <strong>Identificar el objetivo:</strong> definir qué se quiere comunicar.
+                              </li>
+                              <li>
+                                    <strong>Buscar referencias:</strong> investigar ejemplos que inspiren.
+                              </li>
+                              <li>
+                                    <strong>Generar ideas:</strong> proponer varias opciones o bocetos sin filtrar.
+                              </li>
+                              <li>
+                                    <strong>Elegir la mejor opción:</strong> la que cumple mejor el objetivo inicial.
+                              </li>
+                              <li>
+                                    <strong>Elaborar la versión final:</strong> convertir la idea elegida en el
+                                    contenido terminado.
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="challenge">
+                        <small>DINÁMICA 3 - APLICANDO EL PROCESO CREATIVO</small>
+
+                        <strong>INSTRUCCIONES</strong>
+
+                        <ol class="pasos">
+                              <li>
+                                    Elijan una publicación en formato imagen que les gustaría crear para su empresa.
+                              </li>
+
+                              <li>
+                                    Escriban qué quieren comunicar con la imagen y cuál será su objetivo.
+                              </li>
+
+                              <li>
+                                    Busquen en Facebook o Instagram 2 publicaciones que puedan servirles de inspiración.
+                              </li>
+
+                              <li>
+                                    Observen las referencias y anoten 3 ideas diferentes de cómo podría verse su
+                                    publicación.
+                              </li>
+
+                              <li>
+                                    Elijan la idea que consideren más adecuada y realicen un <b>boceto en una hoja</b>.
+                                    Indiquen dónde colocarían:
+                                    <ul>
+                                          <li>la imagen principal;</li>
+                                          <li>el título o mensaje principal;</li>
+                                          <li>la información complementaria;</li>
+                                          <li>el llamado a la acción, si corresponde.</li>
+                                    </ul>
+                              </li>
+
+                              <li>
+                                    Formen parejas e intercambien sus bocetos.
+                              </li>
+
+                              <li>
+                                    Cada participante revisa el boceto de su compañero/a y le brinda sugerencias:
+                                    <ul>
+                                          <li>¿El mensaje se entiende rápidamente?</li>
+                                          <li>¿La imagen ayuda a comunicar el mensaje?</li>
+                                          <li>¿Hay demasiado texto?</li>
+                                          <li>¿Qué podría cambiarse para mejorar la publicación?</li>
+                                    </ul>
+                              </li>
+
+                              <li>
+                                    Cada participante realiza los cambios que considere necesarios y prepara su
+                                    <b>boceto final</b>.
+                              </li>
+                        </ol>
+
+                        <strong>INDICACIONES</strong>
+
+                        <ul class="pair-steps">
+                              <li>
+                                    Definir que quiere comunicar con la imagen.
+                              </li>
+
+                              <li>
+                                    Recabar información para generar ideas.
+                              </li>
+
+                              <li>
+                                    Elaborar boceto.
+                              </li>
+
+                              <li>
+                                    Mejorar el boceto.
+                              </li>
+
+                              <li>
+                                    Pasará al frente, mostrará su boceto y explicará qué quiere
+                                    comunicar, cómo organizó los elementos y por qué considera que el formato imagen es
+                                    adecuado.
+                              </li>
+                        </ul>
+                  </div>
+
+                  <div class="prompt-tip">
+                        <strong>¿Por qué se realiza esta dinámica?</strong>
+
+                        <p>
+                              Porque antes de crear una publicación es importante <b>pensar, organizar y visualizar la
+                                    idea</b>.
+                              <br><br>
+                              Elaborar un boceto permite probar cómo se distribuirán la imagen, el texto y los demás
+                              elementos antes de realizar el diseño final. Además, recibir la opinión de otra persona
+                              ayuda a detectar aspectos que pueden mejorarse.
+                        </p>
+                  </div>
+
+                  <div class="activity">
+                        <h3>Actividad 3 · Formatos</h3>
+                        <p>Describe por escrito la imagen que publicarías en la página de Facebook de tu empresa,
+                              aplicando el proceso creativo visto en clase.</p>
+                  </div>
+                  <div class="exam">
+                        <h3>Banco de preguntas · Examen 1</h3>
+                        <p class="exam-note">
+                              Selecciona una sola respuesta en cada pregunta. El examen contiene 20 preguntas y se basa únicamente en las preguntas teóricas explicadas en las clases 1, 2 y 3. No se evalúan dinámicas ni actividades.
+                        </p>
+
+                        <ol class="mcq">
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es el marketing de contenidos?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q0">
+                                          Una forma de publicar anuncios sin definir un público</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q0">
+                                          Una estrategia para crear y distribuir información útil que atraiga, eduque y retenga al público</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q0">
+                                          Una técnica utilizada solamente para vender productos de forma directa</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es la misión?</p>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q1">
+                                          Explica qué hace actualmente la empresa, a quién atiende y qué necesidad satisface</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q1">
+                                          Explica solamente las metas que la empresa quiere alcanzar en el futuro</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q1">
+                                          Explica únicamente los colores y elementos visuales que usa la empresa</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es la visión?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q2">
+                                          Describe solamente las actividades que la empresa realiza actualmente</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q2">
+                                          Expresa cómo quiere verse la empresa en el futuro y qué desea alcanzar</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q2">
+                                          Describe únicamente las reglas que deben cumplir los trabajadores</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué son los valores?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q3">
+                                          Son metas económicas que la empresa debe alcanzar cada año</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q3">
+                                          Son frases decorativas utilizadas solamente en la publicidad</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q3">
+                                          Son principios que orientan la conducta de la empresa y se demuestran con acciones</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es el contenido?</p>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q4">
+                                          Es la información que una empresa comparte mediante textos, imágenes, videos, audios u otros formatos</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q4">
+                                          Es únicamente el conjunto de anuncios pagados que una empresa publica</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q4">
+                                          Es solamente la información interna que utiliza una empresa para organizarse</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué funciones puede cumplir el contenido?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q5">
+                                          Reemplazar todos los productos y servicios que ofrece la empresa</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q5">
+                                          Informar, educar, generar confianza, interactuar y promocionar</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q5">
+                                          Únicamente aumentar la cantidad de publicaciones realizadas cada día</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es el público objetivo?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q6">
+                                          Todas las personas que utilizan cualquier red social</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q6">
+                                          Solamente las personas que ya siguen la página de la empresa</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q6">
+                                          El grupo específico de personas al que la empresa dirige sus productos, servicios y contenido</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Cómo se segmenta el público objetivo?</p>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q7">
+                                          Geográficamente, demográficamente, por intereses y por comportamiento</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q7">
+                                          Por número de empleados, cantidad de productos y tamaño del local</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q7">
+                                          Por cantidad de publicaciones, seguidores y comentarios recibidos</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué tipos de contenido existen?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q8">
+                                          Solamente publicaciones escritas y anuncios pagados</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q8">
+                                          Fotos, videos y publicaciones de solo texto</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q8">
+                                          Únicamente videos largos y transmisiones en vivo</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Cómo se elige el formato?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q9">
+                                          Se elige siempre el formato que esté de moda en ese momento</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q9">
+                                          Se elige al azar para probar diferentes publicaciones</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q9">
+                                          Se elige observando qué formatos funcionan en páginas similares y cuál se adapta al objetivo</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es la identidad visual?</p>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q10">
+                                          El conjunto de colores, tipografía, logotipo y estilo visual que representa a la empresa</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q10">
+                                          La lista de productos y precios que la empresa muestra al público</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q10">
+                                          La cantidad de personas que reconocen el nombre legal de la empresa</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es el proceso creativo?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q11">
+                                          Es publicar una idea inmediatamente y modificarla después de recibir comentarios</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q11">
+                                          Es la secuencia de pasos que permite pasar de una idea a un contenido terminado</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q11">
+                                          Es elegir un diseño existente y copiarlo sin realizar ningún cambio</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es el tono de voz de una empresa?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q12">
+                                          Es únicamente el volumen utilizado en los videos publicitarios</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q12">
+                                          Es la forma particular en que una empresa se comunica con su audiencia</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q12">
+                                          Es el conjunto de sonidos que acompañan a una publicación multimedia</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué significa informar mediante un contenido?</p>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q13">
+                                          Presentar datos o información relevante para el público</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q13">
+                                          Pedir al público que compre inmediatamente un producto</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q13">
+                                          Publicar únicamente imágenes sin ningún propósito definido</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué significa educar mediante un contenido?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q14">
+                                          Mostrar solamente el precio y las características del producto</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q14">
+                                          Compartir publicaciones sin relación con la actividad de la empresa</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q14">
+                                          Enseñar algo relacionado con la actividad de la empresa</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué significa generar confianza mediante el contenido?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q15">
+                                          Utilizar siempre promociones y descuentos en cada publicación</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q15">
+                                          Mostrar procesos o información que el público pueda verificar</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q15">
+                                          Publicar con mayor frecuencia que todas las empresas competidoras</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué significa interactuar mediante un contenido?</p>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q16">
+                                          Invitar al público a responder o participar</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q16">
+                                          Evitar que las personas comenten las publicaciones</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q16">
+                                          Mostrar únicamente información institucional de la empresa</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué significa promocionar mediante un contenido?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q17">
+                                          Explicar únicamente la historia de la empresa</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q17">
+                                          Presentar una oferta al público</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q17">
+                                          Compartir información sin relación con productos o servicios</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es la segmentación geográfica?</p>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q18">
+                                          Dividir al público según sus búsquedas y acciones antes de comprar</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q18">
+                                          Dividir al público según su edad, ocupación o etapa de vida</label>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q18">
+                                          Dividir al público según país, departamento, ciudad o zona</label>
+                              </li>
+
+                              <li class="quiz-item">
+                                    <p class="question">¿Qué es la segmentación por intereses?</p>
+                                    <label class="quiz-option correct-option"><input class="quiz-radio" type="radio" name="exam0q19">
+                                          Agrupar al público mediante temas relacionados con la oferta</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q19">
+                                          Agrupar al público únicamente según el lugar donde vive</label>
+                                    <label class="quiz-option"><input class="quiz-radio" type="radio" name="exam0q19">
+                                          Agrupar al público según la cantidad de productos de la empresa</label>
+                              </li>
+                        </ol>
+
+                        <button class="check-exam">Verificar respuestas</button>
+                        <p class="exam-score"></p>
+                  </div>
+            </section>
+
+
+
+
+
+      </main>
+
+      <button class="to-top" id="toTop" aria-label="Volver arriba">↑</button>
+      <script>
+
+            /* Detecta un celular que intenta mostrar la página como sitio de escritorio. */
+            (() => {
+                  const desktopSiteLock = document.getElementById('desktopSiteLock');
+
+                  function isTouchDevice() {
+                        return (
+                              ('ontouchstart' in window) ||
+                              (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) ||
+                              (window.matchMedia && window.matchMedia('(pointer: coarse)').matches)
+                        );
+                  }
+
+                  function desktopModeOnPhone() {
+                        const touch = isTouchDevice();
+                        const wideViewport = window.innerWidth >= 700;
+                        const visualWide = window.visualViewport
+                              ? window.visualViewport.width >= 700
+                              : wideViewport;
+
+                        return touch && (wideViewport || visualWide);
+                  }
+
+                  function updateDesktopSiteLock() {
+                        const blocked = desktopModeOnPhone();
+
+                        desktopSiteLock.classList.toggle('show', blocked);
+                        desktopSiteLock.setAttribute('aria-hidden', blocked ? 'false' : 'true');
+
+                        if (blocked) {
+                              document.documentElement.style.overflow = 'hidden';
+                              document.body.style.overflow = 'hidden';
+                        } else if (!document.body.classList.contains('menu-open')) {
+                              document.documentElement.style.overflow = '';
+                              document.body.style.overflow = '';
+                        }
+                  }
+
+                  updateDesktopSiteLock();
+
+                  window.addEventListener('resize', updateDesktopSiteLock, { passive: true });
+
+                  window.addEventListener('orientationchange', () => {
+                        setTimeout(updateDesktopSiteLock, 150);
+                  });
+
+                  if (window.visualViewport) {
+                        window.visualViewport.addEventListener('resize', updateDesktopSiteLock, { passive: true });
+                  }
+
+                  document.addEventListener('visibilitychange', () => {
+                        if (!document.hidden) {
+                              setTimeout(updateDesktopSiteLock, 100);
+                        }
+                  });
+            })();
+
+            const drawer = document.getElementById('drawer');
+            const backdrop = document.getElementById('backdrop');
+            function setMenu(open) { drawer.classList.toggle('open', open); backdrop.classList.toggle('show', open); document.body.classList.toggle('menu-open', open); }
+            document.getElementById('openMenu').addEventListener('click', () => setMenu(true));
+            document.getElementById('closeMenu').addEventListener('click', () => setMenu(false));
+            backdrop.addEventListener('click', () => setMenu(false));
+            drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+            function shuffle(items) {
+                  const copy = [...items];
+                  for (let i = copy.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[copy[i], copy[j]] = [copy[j], copy[i]]; }
+                  return copy;
+            }
+            document.querySelectorAll('.exam').forEach(exam => {
+                  const list = exam.querySelector('.mcq');
+                  shuffle([...list.children]).forEach(item => list.appendChild(item));
+                  list.querySelectorAll('.quiz-item').forEach(item => {
+                        shuffle(item.querySelectorAll('.quiz-option')).forEach(option => item.appendChild(option));
+                  });
+                  exam.querySelector('.check-exam').addEventListener('click', () => {
+                        let correct = 0, answered = 0;
+                        const items = [...exam.querySelectorAll('.quiz-item')];
+                        items.forEach(item => {
+                              item.classList.remove('correct', 'incorrect');
+                              const selected = item.querySelector('.quiz-radio:checked');
+                              if (selected) { answered++; const ok = selected.closest('.quiz-option').classList.contains('correct-option'); item.classList.add(ok ? 'correct' : 'incorrect'); if (ok) correct++; }
+                        });
+                        const nota = items.length > 0 ? Math.round((correct / items.length) * 100) : 0;
+                        exam.querySelector('.exam-score').innerHTML = `Nota: ${nota} / 100. <br><br> Respuestas correctas: ${correct} de ${items.length}. <br><br> Respondidas: ${answered}.`;
+                  });
+            });
+            document.querySelectorAll('.copy-btn').forEach(btn => btn.addEventListener('click', async () => {
+                  const value = btn.closest('.prompt-box').querySelector('.prompt').innerText;
+                  try { await navigator.clipboard.writeText(value); btn.textContent = 'Copiado'; btn.classList.add('copied'); setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied') }, 1400) }
+                  catch { const area = document.createElement('textarea'); area.value = value; document.body.appendChild(area); area.select(); document.execCommand('copy'); area.remove(); btn.textContent = 'Copiado'; }
+            }));
+            document.getElementById('toTop').addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+      </script>
+</body>
+
+</html>
